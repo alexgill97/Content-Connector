@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+
 import {
   SearchIcon,
   GlobeAltIcon,
@@ -21,7 +22,9 @@ const Navbar = () => {
         <Link href="/about">About</Link>
       </div>
       <div className="flex justify-end items-center space-x-2 p-2 rounded-full">
-        <MailIcon className="h-6 cursor-pointer" href="/messages" />
+        <Link href='/messages'>
+          <MailIcon className="h-6 cursor-pointer"/>
+        </Link>
         <UserCircleIcon className="h-6 cursor-pointer" />
         <MenuIcon className="h-6 cursor-pointer" />
       </div>
