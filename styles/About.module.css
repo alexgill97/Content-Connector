@@ -1,0 +1,22 @@
+.bg {
+  background-color: #f7f7f7;
+}
+.container {
+  padding: 60px 50px;
+  display: inline-flex;
+  background-color: #f7f7f7;
+}
+.jumbotron {
+  background-color: #f4511e;
+  color: #fff;
+  padding: 100px 25px;
+  font-family: Montserrat, sans-serif;
+}
+.aboutBody {
+  display:flex;
+  justify-content: flex-start;
+}
+.container1 {
+  padding: 0px 50px;
+  background-color: #f7f7f7;
+}

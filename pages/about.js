@@ -1,30 +1,48 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/About.module.css';
+import Photo from '../public/ConnectingPeopleAbout.png';
 
 export default function About() {
   return (
     <div>
-      <body>
-        <div class="jumbotron text-center">
-          <h1>Company</h1>
-          <p>We specialize in ...</p>
+      <main>
+        <div className={`${styles.jumbotron} text-center`}>
+          <h1>Content Connector</h1>
+          <p>Helping Local Freelancers Connect with Local Businesses</p>
         </div>
-        <div class="container-fluid">
-          <h2>About Company Page</h2>
-          <h4>Lorem ipsum..</h4>
-          <p>Lorem ipsum..</p>
+        <div className={`${styles.container}`}>
+          <div className={`${styles.aboutBody}`}>
+            <div className={`col-sm-8`}>
+              <h2>
+                <strong>About Company Page</strong>
+              </h2>
+              <h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod
+              </h4>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex
+              </p>
+            </div>
+          </div>
+          <div className={`col-sm-6`}>
+            <Image src={Photo} />
+          </div>
         </div>
-        <div class="container-fluid bg-grey">
+        <div className={`${styles.container1} bg`}>
           <h2>Our Values</h2>
           <h4>
             <strong>MISSION:</strong> Our mission lorem ipsum..
           </h4>
-          <p>
+          <div>
             <strong>VISION:</strong> Our vision Lorem ipsum..
-          </p>
+          </div>
         </div>
-      </body>
+      </main>
     </div>
   );
 }
