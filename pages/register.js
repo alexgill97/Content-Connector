@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { registerUser } from '../firebase/authFunctions';
+import { registerUser, loginUser, logoutUser } from '../firebase/authFunctions';
 import { useRouter } from 'next/router';
 
 const register = () => {
@@ -15,13 +15,30 @@ const register = () => {
     router.push('/');
   };
 
+  const onLoginSubmit = (event) => {
+    loginUser(event);
+    router.push('/');
+  };
+
+  const onLogoutSubmit = (event) => {
+    logoutUser();
+  };
+
   return (
     <div>
       <h1>Firebase Sign Up</h1>
-      <form onSubmit={onRegisterSubmit}>
+      <form>
         <input type="email" name="email" />
         <input type="password" name="password" />
-        <button type="submit">Let's go!</button>
+        <button onSubmit={onRegisterSubmit} type="submit">
+          register
+        </button>
+        <button onSubmit={onLoginSubmit} type="submit">
+          login
+        </button>
+        <button onSubmit={onLogoutSubmit} type="submit">
+          login
+        </button>
       </form>
     </div>
   );

@@ -1,11 +1,16 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Navbar = () => {
+import { UserContext } from '../firebase/context';
+import { logoutUser } from '../firebase/authFunctions';
+
+const Navbar = ({ userEmail }) => {
+  const user = useContext(UserContext);
+  console.log(user);
   return (
     <Nav fill variant="pills">
       <Nav.Item>
@@ -28,6 +33,8 @@ const Navbar = () => {
           Messages
         </Nav.Link>
       </Nav.Item>
+      <Nav.Item>{user}</Nav.Item>
+
       <NavDropdown title="Dropdown" id="nav-dropdown">
         <NavDropdown.Item eventKey={5.1}>Login</NavDropdown.Item>
         <NavDropdown.Item eventKey={5.2}>Register</NavDropdown.Item>

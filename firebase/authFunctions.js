@@ -3,11 +3,8 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
-
-onAuthStateChanged(auth, (user) => {
-  console.log('user status changed', user);
-});
 
 const registerUser = (event) => {
   event.preventDefault();
@@ -23,8 +20,21 @@ const registerUser = (event) => {
 
 const loginUser = (event) => {
   event.preventDefault();
+  const email = event.target[0].value;
+  const password = event.target[1].value;
 
-  signInWithEmailAndPassword(auth, email, password);
+  const user = signInWithEmailAndPassword(auth, email, password).then(
+    (cred) => {
+      console.log('signed in user', cred.user);
+    }
+  );
 };
 
-export { registerUser };
+const logoutUser = (event) => {
+  event.preventDefault();
+  signOut(auth).then(() => {
+    console.log('signed out');
+  });
+};
+
+export { registerUser, loginUser, logoutUser };
