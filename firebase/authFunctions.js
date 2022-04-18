@@ -6,35 +6,26 @@ import {
   signOut,
 } from 'firebase/auth';
 
-const registerUser = (event) => {
-  event.preventDefault();
-  const email = event.target[0].value;
-  const password = event.target[1].value;
-
-  console.log(email, password);
-
+const registerUser = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password).then((cred) => {
     console.log('created user', cred.user);
   });
 };
 
-const loginUser = (event) => {
-  event.preventDefault();
-  const email = event.target[0].value;
-  const password = event.target[1].value;
-
-  const user = signInWithEmailAndPassword(auth, email, password).then(
-    (cred) => {
-      console.log('signed in user', cred.user);
-    }
-  );
+const loginUser = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password).then((cred) => {
+    console.log('signed in user', cred.user);
+  });
 };
 
-const logoutUser = (event) => {
-  event.preventDefault();
-  signOut(auth).then(() => {
-    console.log('signed out');
-  });
+const logoutUser = async () => {
+  await signOut(auth)
+    .then(() => {
+      console.log('signed out');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export { registerUser, loginUser, logoutUser };

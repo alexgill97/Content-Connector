@@ -1,27 +1,19 @@
 import { useState } from 'react';
 import { registerUser, loginUser, logoutUser } from '../firebase/authFunctions';
 import { useRouter } from 'next/router';
+import { auth } from '../firebase/clientApp';
+import styles from '../styles/Login.module.css';
+import { signOut } from 'firebase/auth';
 
-const register = () => {
+const login = () => {
   const router = useRouter();
-  const [userName, setUsername] = useState('');
+  // const [userName, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-
-  // const [name, setName] = useState('');
-  // const [avatar, setAvatar] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [name, setName] = useState('');
+  // const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!userName || !email || !password) {
-    //   setError(false) = null
-    // } else {
-    //   setError(true)
-    // }
   };
 
   const onRegisterSubmit = () => {
@@ -36,18 +28,9 @@ const register = () => {
 
   return (
     <section>
-      <h3>Register an Account</h3>
+      <h3>Login to your Account</h3>
       <h3>{email}</h3>
       <form onSubmit={handleSubmit}>
-        <div className="input_container">
-          <label>Username: </label>
-          <input
-            type="name"
-            name="name"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-
         <div className="input_container">
           <label>Email: </label>
           <input
@@ -66,10 +49,9 @@ const register = () => {
           />
         </div>
       </form>
-      <button onClick={onRegisterSubmit}>register</button>
       <button onClick={onLoginSubmit}>login</button>
     </section>
   );
 };
 
-export default register;
+export default login;

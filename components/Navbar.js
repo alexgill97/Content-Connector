@@ -6,10 +6,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { UserContext } from '../firebase/context';
-import { logoutUser } from '../firebase/authFunctions';
 
-const Navbar = ({ userEmail }) => {
-  const user = useContext(UserContext);
+import Logout from './Logout';
+
+const Navbar = ({ user }) => {
+  const contextUser = useContext(UserContext);
   console.log(user);
   return (
     <Nav fill variant="pills">
@@ -33,8 +34,17 @@ const Navbar = ({ userEmail }) => {
           Messages
         </Nav.Link>
       </Nav.Item>
-      <Nav.Item>{user}</Nav.Item>
-
+      {user && (
+        <Nav.Item>
+          <Logout />
+          {user}
+        </Nav.Item>
+      )}
+      {!user && (
+        <Nav.Link eventKey={5} title="Item" href="/login">
+          login
+        </Nav.Link>
+      )}
       <NavDropdown title="Dropdown" id="nav-dropdown">
         <NavDropdown.Item eventKey={5.1}>Login</NavDropdown.Item>
         <NavDropdown.Item eventKey={5.2}>Register</NavDropdown.Item>

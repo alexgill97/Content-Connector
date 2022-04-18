@@ -9,11 +9,12 @@ import { auth } from '../firebase/clientApp';
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
+  console.log('userData', userData);
 
   return (
     <SSRProvider>
       <UserContext.Provider value={userData}>
-        <Navbar />
+        <Navbar user={userData} />
         <Component {...pageProps} />
       </UserContext.Provider>
     </SSRProvider>
