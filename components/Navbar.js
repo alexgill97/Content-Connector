@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 
+
 import {
   SearchIcon,
   GlobeAltIcon,
@@ -25,7 +26,7 @@ const Navbar = () => {
         <Link href='/messages'>
           <MailIcon className="h-6 cursor-pointer"/>
         </Link>
-        <UserCircleIcon className="h-6 cursor-pointer" />
+        <UserCircleIcon className="h-6 cursor-pointer"/>
         <MenuIcon className="h-6 cursor-pointer" />
       </div>
     </div>
