@@ -28,6 +28,7 @@ const Navbar = () => {
         </Link>
         <UserCircleIcon className="h-6 cursor-pointer"/>
         <MenuIcon className="h-6 cursor-pointer" />
+        <Link href="/login">Login</Link>
       </div>
     </div>
   );
