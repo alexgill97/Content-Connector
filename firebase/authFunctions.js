@@ -6,10 +6,6 @@ import {
   signOut,
 } from 'firebase/auth';
 
-onAuthStateChanged(auth, (user) => {
-  // console.log('user status changed', user);
-});
-
 const registerUser = (event) => {
   event.preventDefault();
   const email = event.target[0].value;

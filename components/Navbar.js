@@ -33,6 +33,7 @@ const Navbar = ({ userEmail }) => {
           Messages
         </Nav.Link>
       </Nav.Item>
+      <Nav.Item>{user}</Nav.Item>
 
       <NavDropdown title="Dropdown" id="nav-dropdown">
         <NavDropdown.Item eventKey={5.1}>Login</NavDropdown.Item>

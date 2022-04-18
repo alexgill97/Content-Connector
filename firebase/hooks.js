@@ -19,5 +19,5 @@ export function useUserData() {
     });
   }, []);
 
-  return { email };
+  return email;
 }

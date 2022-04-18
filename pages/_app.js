@@ -9,7 +9,6 @@ import { auth } from '../firebase/clientApp';
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
-  console.log(userData);
 
   return (
     <SSRProvider>
