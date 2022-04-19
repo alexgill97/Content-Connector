@@ -27,9 +27,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className={`col-sm-6`}>
-            <Image src={HomePhoto} alt="home-page-photo" />
-          </div>
         </div>
         <div className={`${styles.container1} bg`}>
           <h2>Our Values</h2>

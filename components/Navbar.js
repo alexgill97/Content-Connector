@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import Nav from 'react-bootstrap/Nav';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthContext } from '../firebase/context';
+import Link from 'next/link';
 
 import Logout from './Logout';
 
@@ -10,44 +11,14 @@ const Navbar = () => {
   const { userData } = useContext(AuthContext);
   console.log('userData', userData);
   return (
-    <Nav fill variant="pills">
-      <Nav.Item>
-        <Nav.Link eventKey={1} href="/">
-          Home
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey={2} title="Item" href="/about">
-          About
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey={3} title="Item" href="/profile">
-          Profile
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey={4} title="Item" href="/messages">
-          Messages
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        {userData.userId ? (
-          <Nav.Item>
-            <Logout />
-            {userData.userId}
-          </Nav.Item>
-        ) : (
-          <Nav.Link eventKey={5} title="Item" href="/login">
-            Login
-          </Nav.Link>
-        )}
-      </Nav.Item>
-      <NavDropdown title="Dropdown" id="nav-dropdown">
-        <NavDropdown.Item eventKey={5.1}>Login</NavDropdown.Item>
-        <NavDropdown.Item eventKey={5.2}>Register</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
+    <div>
+      <Link href="/">Home</Link>
+      <Link href="/about">About</Link>
+      <Link href="/profile">Profile</Link>
+      <Link href="/messages">Messages</Link>
+      <Link href="/login">Login</Link>
+      <Link href="/register">Register</Link>
+    </div>
   );
 };
 

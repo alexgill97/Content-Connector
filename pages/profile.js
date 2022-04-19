@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Profile.module.css';
 import ProfilePic from '../public/profile-hex.png';
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import Photo1 from '../public/Photography1.png';
 import Photo2 from '../public/Photography2.jpeg';
 
@@ -28,7 +28,7 @@ export default function Profile() {
       </div>
       <div>
         <div>
-          <Carousel>
+          {/* <Carousel>
             <Carousel.Item>
               <Image src={Photo1} alt="First slide" />
               <Carousel.Caption>
@@ -46,7 +46,7 @@ export default function Profile() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </Carousel.Caption>
             </Carousel.Item>
-          </Carousel>
+          </Carousel> */}
         </div>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
