@@ -73,6 +73,7 @@ const RegisterInitial = () => {
           <button onClick={onRegisterAuthSubmit}>register</button>
         </form>
       </div>
+
       {showInitial &&
         (value === 'business' ? <RegisterBusiness /> : <RegisterFreelancer />)}
       <button onClick={onLoginSubmit}>login</button>
