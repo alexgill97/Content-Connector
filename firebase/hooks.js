@@ -12,6 +12,8 @@ export function useUserData() {
       console.log('user status changed', user);
       if (user && user.email) {
         setEmail(user.email);
+      } else {
+        setEmail(null);
       }
     });
   }, []);

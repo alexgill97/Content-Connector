@@ -34,17 +34,20 @@ const Navbar = ({ user }) => {
           Messages
         </Nav.Link>
       </Nav.Item>
-      {user && (
+      <Nav.Item>
+      {user ? (
         <Nav.Item>
           <Logout />
-          {user}
+          {user}      
         </Nav.Item>
-      )}
-      {!user && (
+      ) : (
+      
         <Nav.Link eventKey={5} title="Item" href="/login">
-          login
+          Login
         </Nav.Link>
+        
       )}
+      </Nav.Item>
       <NavDropdown title="Dropdown" id="nav-dropdown">
         <NavDropdown.Item eventKey={5.1}>Login</NavDropdown.Item>
         <NavDropdown.Item eventKey={5.2}>Register</NavDropdown.Item>

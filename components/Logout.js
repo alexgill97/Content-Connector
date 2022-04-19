@@ -18,9 +18,11 @@ const Logout = () => {
     console.log('before auth');
     await signOut(auth).then(() => {
       router.push('/login');
+      console.log("asdhkasjnkdjsnjkdsa")
     });
   };
   return <button onClick={onLogoutSubmit}>logout</button>;
+  
 };
 
 export default Logout;
