@@ -1,10 +1,5 @@
-// import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import HomePhoto from '../public/homepage2.jpeg';
-// import Photo2 from '../public/Photography2.jpeg';
-
-// import { auth } from '../firebase/clientApp';
 
 export default function Home() {
   return (

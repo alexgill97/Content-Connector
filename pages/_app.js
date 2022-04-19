@@ -1,19 +1,16 @@
 import '../styles/globals.css';
-import { UserContext } from '../firebase/context';
-import { useUserData } from '../firebase/hooks';
+import { AuthProvider } from '../firebase/context';
 import Navbar from '../components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SSRProvider } from 'react-bootstrap';
 
 function MyApp({ Component, pageProps }) {
-  const userData = useUserData();
-
   return (
     <SSRProvider>
-      <UserContext.Provider value={userData}>
-        <Navbar user={userData} />
+      <AuthProvider>
+        <Navbar />
         <Component {...pageProps} />
-      </UserContext.Provider>
+      </AuthProvider>
     </SSRProvider>
   );
 }

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { UserContext } from '../firebase/context';
+import { AuthContext } from '../firebase/context';
 
 import Logout from './Logout';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+  const { userData } = useContext(AuthContext);
+  console.log('userData', userData);
   return (
     <Nav fill variant="pills">
       <Nav.Item>
@@ -30,10 +32,10 @@ const Navbar = ({ user }) => {
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        {user ? (
+        {userData.userId ? (
           <Nav.Item>
             <Logout />
-            {user}
+            {userData.userId}
           </Nav.Item>
         ) : (
           <Nav.Link eventKey={5} title="Item" href="/login">
