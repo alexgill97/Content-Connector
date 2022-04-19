@@ -5,11 +5,8 @@ import Navbar from '../components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SSRProvider } from 'react-bootstrap';
 
-import { auth } from '../firebase/clientApp';
-
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
-  console.log('userData', userData);
 
   return (
     <SSRProvider>

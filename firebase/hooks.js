@@ -1,5 +1,4 @@
-import { doc, onSnapshot, getFirestore } from 'firebase/firestore';
-import { auth, firestore } from './clientApp';
+import { auth } from './clientApp';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 

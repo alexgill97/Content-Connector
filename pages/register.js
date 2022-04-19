@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { registerUser, loginUser, logoutUser } from '../firebase/authFunctions';
+import { registerUser, loginUser } from '../firebase/authFunctions';
 import { useRouter } from 'next/router';
 
 const register = () => {
@@ -9,19 +9,8 @@ const register = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
-  // const [name, setName] = useState('');
-  // const [avatar, setAvatar] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [name, setName] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!userName || !email || !password) {
-    //   setError(false) = null
-    // } else {
-    //   setError(true)
-    // }
   };
 
   const onRegisterSubmit = () => {

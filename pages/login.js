@@ -1,24 +1,14 @@
 import { useState } from 'react';
-import { registerUser, loginUser, logoutUser } from '../firebase/authFunctions';
+import { loginUser } from '../firebase/authFunctions';
 import { useRouter } from 'next/router';
-import { auth } from '../firebase/clientApp';
-import styles from '../styles/Login.module.css';
-import { signOut } from 'firebase/auth';
 
 const login = () => {
   const router = useRouter();
-  // const [userName, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
-
-  const onRegisterSubmit = () => {
-    registerUser(email, password);
-    router.push('/');
   };
 
   const onLoginSubmit = () => {
