@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../styles/About.module.css';
+import styles from '../styles/About.module.scss';
 import Photo from '../public/ConnectingPeopleAbout.png';
 
 export default function About() {
@@ -33,7 +33,7 @@ export default function About() {
           </div>
         </div>
         <div className={`${styles.container1} bg`}>
-          <h2>Our Values</h2>
+          <h2 className={`${styles.container2}`}>Our Values</h2>
           <h4>
             <strong>MISSION:</strong> Our mission lorem ipsum..
           </h4>

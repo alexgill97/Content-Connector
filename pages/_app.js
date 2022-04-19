@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import { AuthProvider } from '../firebase/context';
 import Navbar from '../components/Navbar';
 

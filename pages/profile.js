@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Profile.module.css';
+import styles from '../styles/Profile.module.scss';
 import ProfilePic from '../public/profile-hex.png';
 // import Carousel from 'react-bootstrap/Carousel';
 import Photo1 from '../public/Photography1.png';

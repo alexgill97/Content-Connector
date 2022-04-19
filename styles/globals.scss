@@ -14,3 +14,21 @@ a {
 * {
   box-sizing: border-box;
 }
+.fullNav {
+  display: flex;
+  justify-content: flex-end;
+  height: 4em;
+  position: relative;
+  bottom: auto;
+  background-color: rgb(21, 21, 44);
+  color: white;
+  cursor: pointer;
+}
+
+.buttonNav {
+  padding-right: 2em;
+}
+
+.titleNav {
+  margin-right: 22em;
+}

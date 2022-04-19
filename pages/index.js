@@ -1,13 +1,27 @@
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <div>
       <main>
-        <div className={`${styles.jumbotron} text-center`}>
-          <h1>Content Connector</h1>
-          <p>Helping Local Freelancers Connect with Local Businesses</p>
+        <div>
+          <div className={`${styles.titleCenter}`}>
+            <img src="/Photography1.png" className={`${styles.photo}`} />
+            <div className={`${styles.title}`}>
+              <h1 className={`${styles.titleCenter}`}>Are you...</h1>
+              <div className={`${styles.buttonCenter}`}>
+                <Link href="/login">
+                  <button className={`${styles.button}`}>
+                    An existing user
+                  </button>
+                </Link>
+                <Link href="/register">
+                  <button className={`${styles.button}`}>A new user</button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
         <div className={`${styles.container}`}>
           <div className={`${styles.aboutBody}`}>
@@ -26,15 +40,10 @@ export default function Home() {
                 nisi ut aliquip ex
               </p>
             </div>
-          </div>
-        </div>
-        <div className={`${styles.container1} bg`}>
-          <h2>Our Values</h2>
-          <h4>
-            <strong>MISSION:</strong> Our mission lorem ipsum..
-          </h4>
-          <div>
-            <strong>VISION:</strong> Our vision Lorem ipsum..
+            <img
+              src="/ConnectingPeopleAbout.png"
+              className={`${styles.picture1}`}
+            />
           </div>
         </div>
       </main>
