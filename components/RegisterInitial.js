@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { registerUserAuth, loginUser } from '../firebase/authFunctions';
 import { useRouter } from 'next/router';
-import Logout from '../components/Logout';
+import Logout from './Logout';
 import RegisterBusiness from '../components/RegisterBusiness';
 import RegisterFreelancer from '../components/RegisterFreelancer';
 
-const register = () => {
+const RegisterInitial = () => {
   const router = useRouter();
   const [showInitial, setShowInitial] = useState(false);
   const [username, setUsername] = useState('');
@@ -32,7 +32,6 @@ const register = () => {
     loginUser(email, password);
     router.push('/');
   };
-
   return (
     <div>
       <div hidden={showInitial}>
@@ -85,4 +84,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default RegisterInitial;

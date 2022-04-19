@@ -1,11 +1,20 @@
-import { auth } from './clientApp';
+import { auth, firestore } from './clientApp';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { ref } from 'firebase/storage';
 
-const registerUser = (email, password) => {
+const registerUserDb = async (userId, data) => {
+  console.log(params);
+  await setDoc(doc(firestore, 'users', userId), {
+    ...data,
+  });
+};
+
+const registerUserAuth = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password).then((cred) => {
     console.log('created user', cred.user);
   });
@@ -27,4 +36,13 @@ const logoutUser = async () => {
     });
 };
 
-export { registerUser, loginUser, logoutUser };
+const getUserData = async (userId) => {
+  getDoc(doc(firestore, 'users', userId)).then((docSnap) => {
+    if (docSnap.exists) {
+      // setUser(docSnap.data());
+      console.log('auth functions data', docSnap.data());
+    }
+  });
+};
+
+export { registerUserAuth, registerUserDb, loginUser, logoutUser, getUserData };

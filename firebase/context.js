@@ -2,6 +2,7 @@ import { auth } from './clientApp';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext } from 'react';
+import { getUserData } from './authFunctions';
 
 export const AuthContext = createContext({ user: null });
 
@@ -21,16 +22,10 @@ export const AuthProvider = ({ children }) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log('in auth change', user);
-        const requiredData = {
-          userProviderId: user.providerData[0].providerId,
-          userId: user.uid,
-          userName: user.displayName,
-          userEmail: user.email,
-          userPhotoLink: user.photoURL,
-        };
-
-        setUserData(requiredData);
-        setCurrentUser(user);
+        setCurrentUser(user.uid);
+        getUserData(user.uid).then((data) => {
+          console.log('db data', data);
+        });
       } else {
         setCurrentUser(null);
       }

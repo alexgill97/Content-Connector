@@ -20,7 +20,7 @@ function Modal() {
       setSelectedFile(readerEvent.target.result);
     };
   };
-
+  // ======================
   const uploadPortfolioItem = async () => {
     const docRef = await addDoc(collection(firestore, 'portfolio'), {
       username: userData.userId,
@@ -38,6 +38,8 @@ function Modal() {
     );
     setSelectedFile(null);
   };
+
+  // ======================
 
   return (
     <div>
