@@ -8,6 +8,7 @@ const register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [value, setValue] = useState('freelancer');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,12 +18,15 @@ const register = () => {
     registerUser(email, password);
     router.push('/');
   };
+  const handleChange = (e) => {
+    setValue(`${e.target.value}`);
+  };
 
   const onLoginSubmit = () => {
     loginUser(email, password);
     router.push('/');
   };
-
+  console.log(value);
   return (
     <section>
       <h3>Register an Account</h3>
@@ -54,6 +58,12 @@ const register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <label>Select your role: </label>
+        <select name="options" id="options" onChange={handleChange}>
+          <option value="freelancer">Freelancer</option>
+          <option value="business">Business</option>
+        </select>
+        {value === 'business' ? <div>----------------Im a Business----------------</div> : <div>----------------Im a Freelancer----------------</div>}
       </form>
       <button onClick={onRegisterSubmit}>register</button>
       <button onClick={onLoginSubmit}>login</button>

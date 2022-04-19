@@ -33,7 +33,9 @@ const Navbar = () => {
   return (
     <div className="fullNav">
       <div className="titleNav">
-        <h3>Content Connector</h3>
+        <Link href="/">
+          <h3>Content Connector</h3>
+        </Link>
       </div>
       {navLinks.map((link, index) => {
         return (
