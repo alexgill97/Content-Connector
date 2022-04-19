@@ -68,7 +68,6 @@ const register = () => {
           <label>Select your role: </label>
 
           <select name="options" id="options" onChange={handleChange}>
-            <option value=" ">---</option>
             <option value="freelancer">Freelancer</option>
             <option value="business">Business</option>
           </select>
@@ -77,8 +76,11 @@ const register = () => {
       </div>
 
       {showInitial &&
-        (value === 'business' ? <RegisterBusiness /> : <RegisterFreelancer />)}
-
+        (value === 'business' ? (
+          <RegisterBusiness />
+        ) : (
+          <RegisterFreelancer />
+        ))}
       <button onClick={onLoginSubmit}>login</button>
       <Logout />
     </div>
