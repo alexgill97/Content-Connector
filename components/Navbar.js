@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className="fullNav">
       <div className="titleNav">
         <Link href="/">
-          <h3>Content Connector</h3>
+          <h3 className="buttonNav">Content Connector</h3>
         </Link>
       </div>
       {navLinks.map((link, index) => {
