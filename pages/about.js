@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/About.module.css';
 import Photo from '../public/ConnectingPeopleAbout.png';

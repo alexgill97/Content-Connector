@@ -1,11 +1,7 @@
 import React, { useContext } from 'react';
-// import Nav from 'react-bootstrap/Nav';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { AuthContext } from '../firebase/context';
 import Link from 'next/link';
-
-import Logout from './Logout';
 
 const Navbar = () => {
   const { userData } = useContext(AuthContext);
