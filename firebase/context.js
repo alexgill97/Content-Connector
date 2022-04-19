@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log('in auth change', user);
         const requiredData = {
           userProviderId: user.providerData[0].providerId,
           userId: user.uid,
