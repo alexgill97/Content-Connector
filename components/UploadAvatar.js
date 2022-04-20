@@ -1,16 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, {useState, useContext} from 'react'
 import { AuthContext } from '../firebase/context';
 import { firestore, storage } from '../firebase/clientApp';
-
 import { addDoc, updateDoc, collection, doc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadString } from 'firebase/storage';
 
-function Modal() {
+const UploadAvatar = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const { userData } = useContext(AuthContext);
 
-  const addImageToPortfolio = (e) => {
+  const selectUserAvatar = (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
@@ -21,29 +20,26 @@ function Modal() {
     };
   };
   // ======================
-  const uploadPortfolioItem = async () => {
-    const docRef = await addDoc(collection(firestore, 'portfolio'), {
+  const uploadUserAvatar = async () => {
+    const docRef = await addDoc(collection(firestore, 'avatar'), {
       username: userData.userId,
     });
 
-    const imageRef = ref(storage, `portfolio/${docRef.id}/image`);
+    const imageRef = ref(storage, `avatar/${docRef.id}/image`);
 
     await uploadString(imageRef, selectedFile, 'data_url').then(
       async (snapshot) => {
         const downloadURL = await getDownloadURL(imageRef);
-        await updateDoc(doc(firestore, 'portfolio', docRef.id), {
+        await updateDoc(doc(firestore, 'avatar', docRef.id), {
           image: downloadURL,
         });
       }
     );
     setSelectedFile(null);
   };
-
-  // ======================
-
   return (
     <div>
-      <h3>Upload Portfolio Item</h3>
+      <h3>Upload An Avatar</h3>
       <div>
         {selectedFile ? (
           <img
@@ -54,16 +50,13 @@ function Modal() {
         ) : null}
       </div>
       <div>
-        <input type="file" onChange={addImageToPortfolio} />
+        <input type="file" onChange={selectUserAvatar} />
       </div>
       <div>
-        <input type="text" />
-      </div>
-      <div>
-        <button onClick={uploadPortfolioItem}>Upload</button>
+        <button onClick={uploadUserAvatar}>Upload</button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Modal;
+export default UploadAvatar

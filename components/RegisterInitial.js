@@ -8,7 +8,6 @@ import RegisterFreelancer from '../components/RegisterFreelancer';
 const RegisterInitial = () => {
   const router = useRouter();
   const [showInitial, setShowInitial] = useState(false);
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);

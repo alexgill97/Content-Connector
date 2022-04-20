@@ -15,13 +15,13 @@ const registerUserDb = async (userId, data) => {
 
 const registerUserAuth = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password).then((cred) => {
-    console.log('created user', cred.user);
+
   });
 };
 
 const loginUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password).then((cred) => {
-    console.log('signed in user', cred.user);
+
   });
 };
 

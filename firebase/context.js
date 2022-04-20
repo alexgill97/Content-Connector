@@ -1,9 +1,16 @@
-import { auth, firestore } from './clientApp';
+import { auth, firestore, db } from './clientApp';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext } from 'react';
 // import { getUserData } from './authFunctions';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  query,
+  getDocs,
+} from 'firebase/firestore';
 
 export const AuthContext = createContext({ user: null });
 
@@ -18,20 +25,20 @@ export const AuthProvider = ({ children }) => {
     userEmail: '',
     userPhotoLink: '',
   });
+  const [users, setUsers] = useState([]);
 
-  const getUserData = async (u) => {
-    getDoc(doc(firestore, 'users', u)).then((docSnap) => {
+  const getUserData = async (id) => {
+    getDoc(doc(firestore, 'users', id)).then((docSnap) => {
       if (docSnap.exists) {
         setUserData(docSnap.data());
-        console.log('auth functions data', docSnap.data());
       }
     });
   };
 
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log('in auth change', user);
         setCurrentUser(user.uid);
         getUserData(user.uid);
       } else {
@@ -50,6 +57,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         currentUser,
         userData,
+        users,
       }}
     >
       {children}

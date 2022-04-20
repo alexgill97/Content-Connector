@@ -14,7 +14,7 @@ const Navbar = () => {
     },
     {
       name: 'Profile',
-      path: '/profile',
+      path: '/userProfile',
     },
     {
       name: 'Messages',
