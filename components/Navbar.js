@@ -50,7 +50,8 @@ const Navbar = () => {
       })}
       {currentUser ? (
         <h3 className="login">
-          Logged in as {userData.username}
+          {userData ? `Logged in as ${userData.username}` : null}
+          
           <Logout />
         </h3>
       ) : (

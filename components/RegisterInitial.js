@@ -66,8 +66,8 @@ const RegisterInitial = () => {
       </div>
       {showInitial &&
         (value === 'business' ? <RegisterBusiness /> : <RegisterFreelancer />)}
+        <div>If you already have an account registered, please Login..</div>
       <button onClick={onLoginSubmit}>login</button>
-      <Logout />
     </div>
   );
 };
