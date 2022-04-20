@@ -30,7 +30,6 @@ const Navbar = () => {
   //   path: '/register',
   // },
 
-
   const { userData, currentUser } = useContext(AuthContext);
   console.log('userData', userData);
   return (
@@ -51,7 +50,7 @@ const Navbar = () => {
       })}
       {currentUser ? (
         <h3 className="login">
-          Logged in as {userData.userEmail}
+          Logged in as {userData.username}
           <Logout />
         </h3>
       ) : (

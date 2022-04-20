@@ -1,8 +1,9 @@
-import { auth } from './clientApp';
+import { auth, firestore } from './clientApp';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext } from 'react';
-import { getUserData } from './authFunctions';
+// import { getUserData } from './authFunctions';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 export const AuthContext = createContext({ user: null });
 
@@ -18,21 +19,21 @@ export const AuthProvider = ({ children }) => {
     userPhotoLink: '',
   });
 
+  const getUserData = async (u) => {
+    getDoc(doc(firestore, 'users', u)).then((docSnap) => {
+      if (docSnap.exists) {
+        setUserData(docSnap.data());
+        console.log('auth functions data', docSnap.data());
+      }
+    });
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log('in auth change', user);
         setCurrentUser(user.uid);
-        setUserData({
-          userProviderId: user.uid,
-          userId: user.uid,
-          userName: user.displayName,
-          userEmail: user.email,
-          userPhotoLink: user.photoURL,
-        });
-        getUserData(user.uid).then((data) => {
-          console.log('db data', data);
-        });
+        getUserData(user.uid);
       } else {
         setCurrentUser(null);
       }

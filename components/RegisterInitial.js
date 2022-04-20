@@ -39,15 +39,6 @@ const RegisterInitial = () => {
         <h3>{email}</h3>
         <form onSubmit={onRegisterAuthSubmit}>
           <div className="input_container">
-            <label>Username: </label>
-            <input
-              type="name"
-              name="name"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-
-          <div className="input_container">
             <label>Email: </label>
             <input
               type="email"
@@ -73,13 +64,8 @@ const RegisterInitial = () => {
           <button onClick={onRegisterAuthSubmit}>register</button>
         </form>
       </div>
-
       {showInitial &&
-        (value === 'business' ? (
-          <RegisterBusiness />
-        ) : (
-          <RegisterFreelancer />
-        ))}
+        (value === 'business' ? <RegisterBusiness /> : <RegisterFreelancer />)}
       <button onClick={onLoginSubmit}>login</button>
       <Logout />
     </div>

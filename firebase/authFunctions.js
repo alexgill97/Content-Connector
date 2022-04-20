@@ -8,7 +8,6 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { ref } from 'firebase/storage';
 
 const registerUserDb = async (userId, data) => {
-  console.log(params);
   await setDoc(doc(firestore, 'users', userId), {
     ...data,
   });
@@ -36,13 +35,4 @@ const logoutUser = async () => {
     });
 };
 
-const getUserData = async (userId) => {
-  getDoc(doc(firestore, 'users', userId)).then((docSnap) => {
-    if (docSnap.exists) {
-      // setUser(docSnap.data());
-      console.log('auth functions data', docSnap.data());
-    }
-  });
-};
-
-export { registerUserAuth, registerUserDb, loginUser, logoutUser, getUserData };
+export { registerUserAuth, registerUserDb, loginUser, logoutUser };
