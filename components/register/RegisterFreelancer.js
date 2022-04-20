@@ -1,9 +1,9 @@
-import { registerUserDb, loginUser } from '../firebase/authFunctions';
+import { registerUserDb, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
-import { AuthContext } from '../firebase/context';
+import { AuthContext } from '../../firebase/context';
 import React, { useState, useEffect, useContext } from 'react';
 
-const RegisterBusiness = () => {
+const RegisterFreelancer = () => {
   const router = useRouter();
   const [biography, setBiography] = useState('');
   const [address, setAddress] = useState('');
@@ -11,11 +11,11 @@ const RegisterBusiness = () => {
   const [error, setError] = useState(null);
 
   const [data, setData] = useState({
-    isBusiness: true,
+    isBusiness: false,
     username: '',
     description: '',
     avatar: '',
-    address: '',
+    postalcode: '',
     isOnline: true,
   });
 
@@ -28,7 +28,7 @@ const RegisterBusiness = () => {
 
   const onRegisterSubmit = () => {
     console.log('data is', data);
-    setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
+    setData({ ...data, isBusiness: false, isOnline: true, avatar: '' });
     registerUserDb(currentUser, data);
     router.push('/');
   };
@@ -37,8 +37,8 @@ const RegisterBusiness = () => {
     <section>
       {data.username}
       {data.description}
-      {data.address}
-      <h3>Register a Business Account</h3>
+      {data.postalcode}
+      <h3>Register a Freelancer Account</h3>
       <form onSubmit={handleSubmit}>
         <div className="input_container">
           <label>Username: </label>
@@ -49,7 +49,7 @@ const RegisterBusiness = () => {
           />
         </div>
         <div className="input_container">
-          <label>Description: </label>
+          <label>description: </label>
           <input
             type="description"
             name="description"
@@ -57,22 +57,17 @@ const RegisterBusiness = () => {
           />
         </div>
         <div className="input_container">
-          <label>Address: </label>
+          <label>Postal Code: </label>
           <input
-            type="address"
-            name="address"
-            onChange={(e) => setData({ ...data, address: e.target.value })}
+            type="postalcode"
+            name="postalcode"
+            onChange={(e) => setData({ ...data, postalcode: e.target.value })}
           />
         </div>
-        <button onClick={onRegisterSubmit}>register</button>
       </form>
+      <button onClick={onRegisterSubmit}>register</button>
     </section>
   );
 };
 
-export default RegisterBusiness;
-
-// const onLoginSubmit = () => {
-//   loginUser(email, password);
-//   router.push('/');
-// };
+export default RegisterFreelancer;

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { registerUserAuth, loginUser } from '../firebase/authFunctions';
+import { registerUserAuth, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
-import Logout from './Logout';
-import RegisterBusiness from '../components/RegisterBusiness';
-import RegisterFreelancer from '../components/RegisterFreelancer';
+import Logout from '../Logout';
+import RegisterBusiness from './RegisterBusiness';
+import RegisterFreelancer from './RegisterFreelancer';
 
 const RegisterInitial = () => {
   const router = useRouter();
