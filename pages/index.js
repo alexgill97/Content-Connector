@@ -1,26 +1,39 @@
 import styles from '../styles/Home.module.scss';
 import Link from 'next/link';
 
+import React, { useContext } from 'react';
+
+import { AuthContext } from '../firebase/context';
+
 export default function Home() {
+  const { currentUser, userData } = useContext(AuthContext);
+  console.log('userData', userData);
+
   return (
     <div>
       <main>
         <div>
           <div className={`${styles.titleCenter}`}>
             <img src="/Photography1.png" className={`${styles.photo}`} />
-            <div className={`${styles.title}`}>
-              <h1 className={`${styles.titleCenter}`}>Are you...</h1>
-              <div className={`${styles.buttonCenter}`}>
-                <Link href="/login">
-                  <button className={`${styles.button}`}>
-                    An existing user
-                  </button>
-                </Link>
-                <Link href="/register">
-                  <button className={`${styles.button}`}>A new user</button>
-                </Link>
+            {currentUser ? (
+              <div className={`${styles.title} ${styles.titleCenter}`}>
+                <h1 className="login">Logged in as {userData.userEmail}</h1>
               </div>
-            </div>
+            ) : (
+              <div className={`${styles.title}`}>
+                <h1 className={`${styles.titleCenter}`}>Are you...</h1>
+                <div className={`${styles.buttonCenter}`}>
+                  <Link href="/login">
+                    <button className={`${styles.button}`}>
+                      An existing user
+                    </button>
+                  </Link>
+                  <Link href="/register">
+                    <button className={`${styles.button}`}>A new user</button>
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className={`${styles.container}`}>
