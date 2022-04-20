@@ -1,39 +1,30 @@
 import { useState } from 'react';
 import { registerUserAuth, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
-import Logout from '../Logout';
-import RegisterBusiness from './RegisterBusiness';
-import RegisterFreelancer from './RegisterFreelancer';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase/clientApp';
 
-const RegisterInitial = () => {
-  const router = useRouter();
-  const [showInitial, setShowInitial] = useState(false);
+const RegisterInitial = ({ setStep, setIsFreelancer, loading, setLoading }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [value, setValue] = useState(' ');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   const onRegisterAuthSubmit = (e) => {
     e.preventDefault();
-    registerUserAuth(email, password);
-    setShowInitial(true);
-  };
-  const handleChange = (e) => {
-    e.preventDefault();
-    setValue(`${e.target.value}`);
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((cred) => {
+        console.log(cred);
+        setLoading(false);
+        setStep(2);
+      })
+      .catch(() => setError(true));
   };
 
-  const onLoginSubmit = () => {
-    loginUser(email, password);
-    router.push('/');
-  };
   return (
     <div>
-      <div hidden={showInitial}>
+      {error && <h1>error...</h1>}
+      <div hidden={loading}>
         <h3>Register an Account</h3>
         <h3>{email}</h3>
         <form onSubmit={onRegisterAuthSubmit}>
@@ -56,17 +47,11 @@ const RegisterInitial = () => {
           </div>
           <label>Select your role: </label>
 
-          <select name="options" id="options" onChange={handleChange}>
-            <option value="freelancer">Freelancer</option>
-            <option value="business">Business</option>
-          </select>
           <button onClick={onRegisterAuthSubmit}>register</button>
         </form>
+        <button onClick={() => setIsFreelancer(true)}>Freelancer</button>
+        <button onClick={() => setIsFreelancer(false)}>Business</button>
       </div>
-      {showInitial &&
-        (value === 'business' ? <RegisterBusiness /> : <RegisterFreelancer />)}
-        <div>If you already have an account registered, please Login..</div>
-      <button onClick={onLoginSubmit}>login</button>
     </div>
   );
 };

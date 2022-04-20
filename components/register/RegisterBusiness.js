@@ -2,6 +2,7 @@ import { registerUserDb, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../firebase/context';
 import React, { useState, useEffect, useContext } from 'react';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const RegisterBusiness = () => {
   const router = useRouter();
@@ -16,11 +17,18 @@ const RegisterBusiness = () => {
     description: '',
     avatar: '',
     address: '',
+    uid: '',
     isOnline: true,
   });
 
   const { currentUser, userData } = useContext(AuthContext);
   console.log('userData', data);
+
+  const registerUserDb = async (userId, data) => {
+    await setDoc(doc(firestore, 'users', userId), {
+      ...data,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
