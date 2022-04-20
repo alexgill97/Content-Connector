@@ -12,7 +12,7 @@ const Logout = () => {
       router.push('/login');
     });
   };
-  return <button onClick={onLogoutSubmit}>logout</button>;
+  return <button onClick={onLogoutSubmit} className="button">logout</button>;
 };
 
 export default Logout;

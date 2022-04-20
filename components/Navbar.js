@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 
 import { AuthContext } from '../firebase/context';
 import Link from 'next/link';
+import Logout from './Logout';
+import { updateCurrentUser } from 'firebase/auth';
 
 const Navbar = () => {
   const navLinks = [
@@ -18,17 +20,18 @@ const Navbar = () => {
       name: 'Messages',
       path: '/messages',
     },
-    {
-      name: 'Login',
-      path: '/login',
-    },
-    {
-      name: 'Register',
-      path: '/register',
-    },
   ];
+  // {
+  //   name: 'Login',
+  //   path: '/login',
+  // },
+  // {
+  //   name: 'Register',
+  //   path: '/register',
+  // },
 
-  const { userData } = useContext(AuthContext);
+
+  const { userData, currentUser } = useContext(AuthContext);
   console.log('userData', userData);
   return (
     <div className="fullNav">
@@ -39,13 +42,32 @@ const Navbar = () => {
       </div>
       {navLinks.map((link, index) => {
         return (
-          <h3 className="buttonNav">
+          <h3 key={index} className="buttonNav">
             <Link href={link.path}>
-              <div key={index}>{link.name}</div>
+              <div>{link.name}</div>
             </Link>
           </h3>
         );
       })}
+      {currentUser ? (
+        <h3 className="login">
+          Logged in as {userData.userEmail}
+          <Logout />
+        </h3>
+      ) : (
+        <div className="loginReg">
+          <div>
+            <Link href="/login">
+              <h3 className="buttonNav">Login</h3>
+            </Link>
+          </div>
+          <div>
+            <Link href="/register">
+              <h3 className="buttonNav">Register</h3>
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

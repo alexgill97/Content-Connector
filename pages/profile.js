@@ -5,8 +5,14 @@ import ProfilePic from '../public/profile-hex.png';
 // import Carousel from 'react-bootstrap/Carousel';
 import Photo1 from '../public/Photography1.png';
 import Photo2 from '../public/Photography2.jpeg';
+import React, { useContext } from 'react';
+
+import { AuthContext } from '../firebase/context';
 
 export default function Profile() {
+
+  const { userData } = useContext(AuthContext);
+  
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>

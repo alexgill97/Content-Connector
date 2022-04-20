@@ -75,7 +75,11 @@ const RegisterInitial = () => {
       </div>
 
       {showInitial &&
-        (value === 'business' ? <RegisterBusiness /> : <RegisterFreelancer />)}
+        (value === 'business' ? (
+          <RegisterBusiness />
+        ) : (
+          <RegisterFreelancer />
+        ))}
       <button onClick={onLoginSubmit}>login</button>
       <Logout />
     </div>

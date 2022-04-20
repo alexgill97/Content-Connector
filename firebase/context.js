@@ -23,6 +23,13 @@ export const AuthProvider = ({ children }) => {
       if (user) {
         console.log('in auth change', user);
         setCurrentUser(user.uid);
+        setUserData({
+          userProviderId: user.uid,
+          userId: user.uid,
+          userName: user.displayName,
+          userEmail: user.email,
+          userPhotoLink: user.photoURL,
+        });
         getUserData(user.uid).then((data) => {
           console.log('db data', data);
         });
