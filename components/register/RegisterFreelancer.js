@@ -1,26 +1,29 @@
-import { registerUserDb, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../firebase/context';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
+import { doc, setDoc } from 'firebase/firestore';
+import { firestore } from '../../firebase/clientApp';
 
-const RegisterFreelancer = () => {
+const RegisterFreelancer = ({ setLoading, setStep }) => {
   const router = useRouter();
-  const [biography, setBiography] = useState('');
-  const [address, setAddress] = useState('');
-  const [postalcode, setPostalcode] = useState('');
-  const [error, setError] = useState(null);
+
+  const { currentUser, userData } = useContext(AuthContext);
 
   const [data, setData] = useState({
     isBusiness: false,
     username: '',
     description: '',
     avatar: '',
-    postalcode: '',
+    address: '',
+    uid: currentUser,
     isOnline: true,
   });
 
-  const { currentUser, userData } = useContext(AuthContext);
-  console.log('userData', data);
+  const registerUserDb = async (userId, data) => {
+    await setDoc(doc(firestore, 'users', userId), {
+      ...data,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,16 +31,19 @@ const RegisterFreelancer = () => {
 
   const onRegisterSubmit = () => {
     console.log('data is', data);
+    setLoading(true);
+    setStep(3);
     setData({ ...data, isBusiness: false, isOnline: true, avatar: '' });
     registerUserDb(currentUser, data);
-    router.push('/');
+    setLoading(false);
   };
 
   return (
     <section>
+      <h1>{data.uid}</h1>
       {data.username}
       {data.description}
-      {data.postalcode}
+      {data.address}
       <h3>Register a Freelancer Account</h3>
       <form onSubmit={handleSubmit}>
         <div className="input_container">
@@ -49,7 +55,7 @@ const RegisterFreelancer = () => {
           />
         </div>
         <div className="input_container">
-          <label>description: </label>
+          <label>Description: </label>
           <input
             type="description"
             name="description"
@@ -57,15 +63,15 @@ const RegisterFreelancer = () => {
           />
         </div>
         <div className="input_container">
-          <label>Postal Code: </label>
+          <label>Address: </label>
           <input
-            type="postalcode"
-            name="postalcode"
-            onChange={(e) => setData({ ...data, postalcode: e.target.value })}
+            type="address"
+            name="address"
+            onChange={(e) => setData({ ...data, address: e.target.value })}
           />
         </div>
+        <button onClick={onRegisterSubmit}>register</button>
       </form>
-      <button onClick={onRegisterSubmit}>register</button>
     </section>
   );
 };

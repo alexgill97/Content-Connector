@@ -4,25 +4,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { ref } from 'firebase/storage';
-
-const registerUserDb = async (userId, data) => {
-  await setDoc(doc(firestore, 'users', userId), {
-    ...data,
-  });
-};
-
-const registerUserAuth = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password).then((cred) => {
-
-  });
-};
 
 const loginUser = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password).then((cred) => {
-
-  });
+  signInWithEmailAndPassword(auth, email, password).then((cred) => {});
 };
 
 const logoutUser = async () => {
@@ -35,4 +19,4 @@ const logoutUser = async () => {
     });
 };
 
-export { registerUserAuth, registerUserDb, loginUser, logoutUser };
+export { loginUser, logoutUser };

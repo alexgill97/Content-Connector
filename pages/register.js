@@ -4,12 +4,12 @@
 // import Logout from '../components/Logout';
 // import RegisterBusiness from '../components/RegisterBusiness';
 // import RegisterFreelancer from '../components/RegisterFreelancer';
-import RegisterInitial from '../components/register/RegisterInitial';
+import Register from '../components/Register/Register';
 
 const register = () => {
   return (
     <div>
-      <RegisterInitial />
+      <Register />
     </div>
   );
 };

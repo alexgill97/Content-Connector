@@ -1,15 +1,13 @@
-import { registerUserDb, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../firebase/context';
-import React, { useState, useEffect, useContext } from 'react';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import React, { useState, useContext } from 'react';
+import { doc, setDoc } from 'firebase/firestore';
+import { firestore } from '../../firebase/clientApp';
 
-const RegisterBusiness = () => {
+const RegisterBusiness = ({ setLoading, setStep }) => {
   const router = useRouter();
-  const [biography, setBiography] = useState('');
-  const [address, setAddress] = useState('');
-  const [postalcode, setPostalcode] = useState('');
-  const [error, setError] = useState(null);
+
+  const { currentUser, userData } = useContext(AuthContext);
 
   const [data, setData] = useState({
     isBusiness: true,
@@ -17,12 +15,9 @@ const RegisterBusiness = () => {
     description: '',
     avatar: '',
     address: '',
-    uid: '',
+    uid: currentUser,
     isOnline: true,
   });
-
-  const { currentUser, userData } = useContext(AuthContext);
-  console.log('userData', data);
 
   const registerUserDb = async (userId, data) => {
     await setDoc(doc(firestore, 'users', userId), {
@@ -36,13 +31,16 @@ const RegisterBusiness = () => {
 
   const onRegisterSubmit = () => {
     console.log('data is', data);
+    setLoading(true);
+    setStep(3);
     setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
     registerUserDb(currentUser, data);
-    router.push('/');
+    setLoading(false);
   };
 
   return (
     <section>
+      <h1>{data.uid}</h1>
       {data.username}
       {data.description}
       {data.address}
@@ -79,8 +77,3 @@ const RegisterBusiness = () => {
 };
 
 export default RegisterBusiness;
-
-// const onLoginSubmit = () => {
-//   loginUser(email, password);
-//   router.push('/');
-// };

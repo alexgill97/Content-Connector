@@ -5,7 +5,7 @@ import RegisterInitial from './RegisterInitial';
 import UploadAvatar from '../UploadAvatar';
 
 const Register = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [isFreelancer, setIsFreelancer] = useState(false);
   const [loading, setLoading] = useState(false);
 

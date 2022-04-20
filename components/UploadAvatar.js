@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react';
 import { AuthContext } from '../firebase/context';
 import { firestore, storage } from '../firebase/clientApp';
 import { addDoc, updateDoc, collection, doc } from 'firebase/firestore';
@@ -7,7 +7,7 @@ import { ref, getDownloadURL, uploadString } from 'firebase/storage';
 const UploadAvatar = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const { userData } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   const selectUserAvatar = (e) => {
     const reader = new FileReader();
@@ -21,17 +21,17 @@ const UploadAvatar = () => {
   };
   // ======================
   const uploadUserAvatar = async () => {
-    const docRef = await addDoc(collection(firestore, 'avatar'), {
-      username: userData.userId,
-    });
+    // const docRef = await addDoc(collection(firestore, 'users', currentUser), {
+    //   username: currentUser,
+    // });
 
-    const imageRef = ref(storage, `avatar/${docRef.id}/image`);
+    const imageRef = ref(storage, `avatar/${currentUser}/image`);
 
     await uploadString(imageRef, selectedFile, 'data_url').then(
       async (snapshot) => {
         const downloadURL = await getDownloadURL(imageRef);
-        await updateDoc(doc(firestore, 'avatar', docRef.id), {
-          image: downloadURL,
+        await updateDoc(doc(firestore, 'users', currentUser), {
+          avatar: downloadURL,
         });
       }
     );
@@ -40,6 +40,7 @@ const UploadAvatar = () => {
   return (
     <div>
       <h3>Upload An Avatar</h3>
+      <h3>{currentUser}</h3>
       <div>
         {selectedFile ? (
           <img
@@ -56,7 +57,7 @@ const UploadAvatar = () => {
         <button onClick={uploadUserAvatar}>Upload</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UploadAvatar
+export default UploadAvatar;
