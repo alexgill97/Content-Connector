@@ -1,8 +1,8 @@
-
+import React from "react";
 
 const userProfile = () => {
 
-  return <div>{userData.userEmail}</div>;
+  return <div>Hello</div>;
 };
 
 export default userProfile;

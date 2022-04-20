@@ -17,7 +17,7 @@ export default function Home() {
             <img src="/Photography1.png" className={`${styles.photo}`} />
             {currentUser ? (
               <div className={`${styles.title} ${styles.titleCenter}`}>
-                <h1 className="login">Logged in as {userData.username}</h1>
+                <h1 className="login">Test</h1>
               </div>
             ) : (
               <div className={`${styles.title}`}>

@@ -57,7 +57,6 @@ export const AuthProvider = ({ children }) => {
       value={{
         currentUser,
         userData,
-        users,
       }}
     >
       {children}
