@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { auth, firestore, db } from '../../firebase/clientApp';
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext } from 'react';
+import MyFreelanceProfile from '../../components/profiles/MyFreelanceProfile';
+
+
 
 // import { getUserData } from './authFunctions';
 import {
@@ -15,7 +18,27 @@ import {
   getDocs,
 } from 'firebase/firestore';
 
+
+
+
+
 const index = ({ users }) => {
+
+  // useEffect(() => {
+  //   getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {
+  //     if (docSnap.exists) {
+  //       setUser(docSnap.data());
+  //     }
+  //   });
+  // });
+  // console.log("==========:", docSnap.data)
+
+
+
+
+
+
+
   console.log('in user profile', users);
   
   const userList = users.map((x) => 
@@ -26,7 +49,9 @@ const index = ({ users }) => {
 
   console.log('user list', userList);
   return (
+    
     <div>
+      <MyFreelanceProfile />
       <h1>All users:</h1>
       <ul>
         {userList}
@@ -34,6 +59,7 @@ const index = ({ users }) => {
     </div>
   );
 };
+
 
 export default index;
 
