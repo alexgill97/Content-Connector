@@ -1,47 +1,60 @@
-import Image from 'next/image';
 import styles from '../styles/About.module.scss';
-import Photo from '../public/ConnectingPeopleAbout.png';
+import { teampic } from '../public/profile-hex.png';
+import Link from 'next/link'
 
 export default function About() {
   return (
-    <div>
-      <main>
-        <div className={`${styles.jumbotron} text-center`}>
-          <h1>Content Connector</h1>
-          <p>Helping Local Freelancers Connect with Local Businesses</p>
-        </div>
-        <div className={`${styles.container}`}>
-          <div className={`${styles.aboutBody}`}>
-            <div className={`col-sm-8`}>
-              <h2>
-                <strong>About Company Page</strong>
-              </h2>
-              <h4>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
-              </h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex
-              </p>
-            </div>
-          </div>
-          <div className={`col-sm-6`}>
-            <Image src={Photo} />
+    <div className={`${styles.row}`}>
+      <div className={`${styles.column}`}>
+        <div className={`${styles.card}`}>
+          <img src={teampic} alt="team picture" />
+          <div className={`${styles.container}`}>
+            <h2>James Murphy</h2>
+            <p className={`${styles.title}`}>Developer</p>
+            <p>Angel Daddy~</p>
+            <p>example@example.com</p>
+            <p>
+            <Link href='https://github.com/JamesMurphyy'target="_blank">
+                <button className={`${styles.button}`}>Contact</button>
+              </Link>
+            </p>
           </div>
         </div>
-        <div className={`${styles.container1} bg`}>
-          <h2 className={`${styles.container2}`}>Our Values</h2>
-          <h4>
-            <strong>MISSION:</strong> Our mission lorem ipsum..
-          </h4>
-          <div>
-            <strong>VISION:</strong> Our vision Lorem ipsum..
+      </div>
+
+      <div className={`${styles.column}`}>
+        <div className={`${styles.card}`}>
+          <img src={teampic} alt="team picture" />
+          <div className={`${styles.container}`}>
+            <h2>Alex Gillespie</h2>
+            <p className={`${styles.title}`}>Developer</p>
+            <p>Ocean Eye Daddy~</p>
+            <p>example@example.com</p>
+            <p>
+            <Link href='https://github.com/alexgill97'target="_blank">
+                <button className={`${styles.button}`}>Contact</button>
+              </Link>
+            </p>
           </div>
         </div>
-      </main>
+      </div>
+
+      <div className={`${styles.column}`}>
+        <div className={`${styles.card}`}>
+          <img src={teampic} alt="team picture" />
+          <div className={`${styles.container}`}>
+            <h2>Prince Requino</h2>
+            <p className={`${styles.title}`}>Developer</p>
+            <p>Legit Daddy~</p>
+            <p>example@example.com</p>
+            <p>
+              <Link href='https://github.com/princerequino' target="_blank">
+                <button className={`${styles.button}`}>Contact</button>
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

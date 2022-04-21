@@ -5,36 +5,21 @@ import { useRouter } from 'next/router';
 import { firestore } from '../../firebase/clientApp';
 
 
-export default function Profile() {
-  const router = useRouter();
-  const { id } = router.query;
-  const [profile, setProfile] = useState({});
-
-  const getUserData = async (id) => {
-    getDoc(doc(firestore, 'users', id)).then((docSnap) => {
-      if (docSnap.exists) {
-        setProfile(docSnap.data());
-      }
-    });
-  };
-
-  useEffect(() => {
-    getUserData(id);
-  }, []);
-
+export default function otherFreelanceProfile({avatar, username, description}) {
+  
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
         <img
-          src={profile.avatar}
+          src={avatar}
           className={`${styles.makeImageCircular}`}
         ></img>
-        <h3>{profile.username}</h3>
-        <h3>Photographer/Videographer</h3>
+        <h3>{username}</h3>
+        <h3>Photographer</h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>Description/About Me</h3>
-        <p>{profile.description}</p>
+        <h3>Description</h3>
+        <p>{description}</p>
       </div>
       <div>
         <div></div>

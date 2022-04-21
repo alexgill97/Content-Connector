@@ -6,6 +6,8 @@ import Logout from './Logout';
 import { updateCurrentUser } from 'firebase/auth';
 
 const Navbar = () => {
+  const { userData, currentUser } = useContext(AuthContext);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     {
@@ -14,23 +16,14 @@ const Navbar = () => {
     },
     {
       name: 'Profile',
-      path: '/userProfile',
+      path: `/userProfile/${currentUser}`,
     },
     {
       name: 'Messages',
       path: '/messages',
     },
   ];
-  // {
-  //   name: 'Login',
-  //   path: '/login',
-  // },
-  // {
-  //   name: 'Register',
-  //   path: '/register',
-  // },
 
-  const { userData, currentUser } = useContext(AuthContext);
   console.log('userData', userData);
   return (
     <div className="fullNav">
@@ -51,7 +44,7 @@ const Navbar = () => {
       {currentUser ? (
         <h3 className="login">
           {userData ? `Logged in as ${userData.username}` : null}
-          
+
           <Logout />
         </h3>
       ) : (

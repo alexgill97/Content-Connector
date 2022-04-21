@@ -2,7 +2,8 @@ import styles from '../../styles/Profile.module.scss';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../firebase/context';
 
-export default function Profile() {
+export default function freelanceProfile({avatar, username, description}) {
+
   const { userData } = useContext(AuthContext);
 
   return (
@@ -13,10 +14,12 @@ export default function Profile() {
           className={`${styles.makeImageCircular}`}
         ></img>
         <h3>{userData.username}</h3>
-        <h3>Photographer/Videographer</h3>
+        <h3>Photographer/Videographer
+          <button>Edit job role</button>
+        </h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>Description/About Me</h3>
+        <h3>Biography <button>Edit Biography</button> </h3>
         <p>{userData.description}</p>
       </div>
       <div>
@@ -24,7 +27,7 @@ export default function Profile() {
         </div>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>My Reviews</h3>
+        <h3>My Portfolio</h3>
         <p>Lorem ipsum..</p>
       </div>
     </div>
