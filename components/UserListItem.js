@@ -4,25 +4,18 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../firebase/context';
 
 const UserListItem = ({ username, uid, avatar }) => {
-  const { userData } = useContext(AuthContext);
 
   return (
     <container className={`${styles.container}`}>
-    <div className={`${styles.userListBorder}`}>
-    <Link href={`/userProfile/${uid}`}>
-      <div className={`${styles.username}`}>
-      <img src={avatar} ></img> 
-
-
-      {username}
-    
-
-
-        </div>
+      <div className={`${styles.userListBorder}`}>
+        <Link href={`/userProfile/${uid}`}>
+          <div className={`${styles.username}`}>
+            <img src={avatar}></img>
+            {username}
+          </div>
         </Link>
-       
       </div>
-      <div className={`${styles.description}`}>   ===DESCRIPTION===   </div>
+      <div className={`${styles.description}`}> ===DESCRIPTION=== </div>
       <div>===ADD PHOTOS HERE===</div>
     </container>
   );

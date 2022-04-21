@@ -22,6 +22,10 @@ const Navbar = () => {
       name: 'Messages',
       path: '/messages',
     },
+    {
+      name: 'FindingFreelancers',
+      path: '/findingFreelancers',
+    },
   ];
 
   console.log('userData', userData);
