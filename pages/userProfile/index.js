@@ -1,66 +1,26 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { AuthContext } from '../../firebase/context';
+import React from 'react';
 import Link from 'next/link';
-import { auth, firestore, db } from '../../firebase/clientApp';
-import { onAuthStateChanged } from 'firebase/auth';
-import { createContext } from 'react';
+import { firestore} from '../../firebase/clientApp';
 import MyFreelanceProfile from '../../components/profiles/MyFreelanceProfile';
-
-
-
-// import { getUserData } from './authFunctions';
-import {
-  collection,
-  doc,
-  getDoc,
-  setDoc,
-  query,
-  getDocs,
-} from 'firebase/firestore';
-
-
-
+import { collection, query, getDocs } from 'firebase/firestore';
 
 
 const index = ({ users }) => {
+  const userList = users.map((x) => (
+    <Link href={`/userProfile/${x.uid}`}>
+      <li key={x.uid}>{x.username}</li>
+    </Link>
+  ));
 
-  // useEffect(() => {
-  //   getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {
-  //     if (docSnap.exists) {
-  //       setUser(docSnap.data());
-  //     }
-  //   });
-  // });
-  // console.log("==========:", docSnap.data)
-
-
-
-
-
-
-
-  console.log('in user profile', users);
-  
-  const userList = users.map((x) => 
-  <Link href={`/userProfile/${x.username}`}>
-    <li key={x.username}>{x.username}</li>
-  </Link>
-  );
-
-  console.log('user list', userList);
   return (
-    
     <div>
       <MyFreelanceProfile />
+
       <h1>All users:</h1>
-      <ul>
-        {userList}
-      </ul>
+      <ul>{userList}</ul>
     </div>
   );
 };
-
-
 export default index;
 
 export async function getServerSideProps() {

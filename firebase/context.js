@@ -25,7 +25,6 @@ export const AuthProvider = ({ children }) => {
     userEmail: '',
     userPhotoLink: '',
   });
-  const [users, setUsers] = useState([]);
 
   const getUserData = async (id) => {
     getDoc(doc(firestore, 'users', id)).then((docSnap) => {

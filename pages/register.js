@@ -4,7 +4,7 @@
 // import Logout from '../components/Logout';
 // import RegisterBusiness from '../components/RegisterBusiness';
 // import RegisterFreelancer from '../components/RegisterFreelancer';
-import Register from '../components/Register/Register';
+import Register from '../components/register/Register';
 
 const register = () => {
   return (
