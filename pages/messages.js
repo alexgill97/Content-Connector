@@ -19,7 +19,7 @@ import styles from '../styles/Message.module.scss';
 import MessageForm from '../components/MessageForm';
 import Message from '../components/Message';
 import User from '../components/User';
-
+import Link from 'next/link'
 const Messages = () => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState('');
@@ -129,7 +129,9 @@ const Messages = () => {
           {chat ? (
             <>
               <div className={`${styles.messages_user}`}>
-                <h3>{chat.username}</h3>
+                <Link href={`/userProfile/${chat.uid}`}>
+                  <h3 styles="cursor:pointer">{chat.username}</h3>
+                </Link>
               </div>
               <div className={`${styles.messages}`}>
                 {msgs.length

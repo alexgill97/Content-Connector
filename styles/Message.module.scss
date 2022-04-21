@@ -174,6 +174,7 @@ $color-6: rgb(236, 236, 236);
   padding: 10px;
   text-align: center;
   border-bottom: 2px solid rgb(236, 236, 236);
+  cursor:pointer
 }
 .no_conv {
   font-size: 20px;
@@ -229,7 +230,7 @@ $color-6: rgb(236, 236, 236);
   text-align: right;
 }
 .me {
-  background: #5898d3;
+  background: #242526;
   color: rgb(255, 255, 255);
   display: inline-flex;
   justify-content: flex-start;
