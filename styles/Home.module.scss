@@ -2,6 +2,7 @@
   background-color: #f7f7f7;
 }
 .container {
+  border-top: 2px solid black;
   padding: 60px 50px;
   display: inline-flex;
   background-color: #f7f7f7;
@@ -26,6 +27,10 @@
   width: 100%;
 }
 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   top: 27em;
   position: absolute;
   color: #fff;
@@ -56,4 +61,8 @@
 
 .picture1 {
   width: 30em;
+}
+
+.userborder{
+  border: 2px solid black;
 }

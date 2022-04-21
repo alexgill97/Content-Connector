@@ -1,0 +1,38 @@
+.userListBorder{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  
+  border-right: 2px solid black;
+}
+
+.username{
+  display:flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.username:hover{
+  zoom: 200%;
+  background-color: yellow;
+}
+
+.description{
+  border-right: 2px solid black;
+}
+
+
+.container {
+  width: max-content;
+  margin-top: 40px;
+  display: flex;
+  padding: 1em;
+  border: 2px black solid;
+}
+
+.container img {
+  max-height: 70px;
+  max-width: 70px;
+  border-radius: 100%;
+}

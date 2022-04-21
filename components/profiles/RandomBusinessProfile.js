@@ -15,11 +15,11 @@ export default function otherBusinessProfile({avatar, username, description, add
           className={`${styles.makeImageCircular}`}
         ></img>
         <h3>{username}</h3>
-        <h3>Business Address : {address} </h3>
+        <h3>Business Address : {address}  </h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
         <h3>Description</h3>
-        <p>{description}</p>
+        <p>{description} </p>
       </div>
       <div>
         <div></div>

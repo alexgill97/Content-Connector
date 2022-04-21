@@ -9,7 +9,7 @@ import RandomBusinessProfile from '../../components/profiles/RandomBusinessProfi
 
 import { collection, query, getDocs } from 'firebase/firestore';
 import { AuthContext } from '../../firebase/context';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 
 const index = ({ users }) => {
@@ -23,7 +23,7 @@ const index = ({ users }) => {
 
   const router = useRouter();
   const { id } = router.query;
-  console.log(id)
+  console.log(users)
   const [profile, setProfile] = useState({});
 
   const getUserData = async (id) => {
@@ -79,7 +79,7 @@ const index = ({ users }) => {
 export default index;
 
 export async function getServerSideProps() {
-  const querySnapshot = await getDocs(query(collection(firestore, 'users')));
+  const querySnapshot = await getDocs(query(collection(firestore, 'users'), where("isBusiness", "==", true)));
   let allUsers = [];
   querySnapshot.forEach((doc) => {
     // console.log(' => ', doc.data());
@@ -90,7 +90,7 @@ export async function getServerSideProps() {
     props: {
       users: allUsers,
     },
-  };
+  }; 
 }
 // {(() => {
 //   if (userData.isBusiness && userData.uid === currentUser) {

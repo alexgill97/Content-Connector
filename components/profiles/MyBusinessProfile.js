@@ -14,18 +14,18 @@ export default function businessProfile({avatar, username, description, address}
           className={`${styles.makeImageCircular}`}
         ></img>
         <h3>{userData.username}</h3>
-        <h3>Business ddddddAddress : {userData.address}</h3>
+        <h3>Business ddddddAddress : {userData.address} <button>Edit Address</button></h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
         <h3>Description</h3>
-        <p>{userData.description}</p>
+        <p>{userData.description} <button>Edit Description</button></p>
       </div>
       <div>
         <div>
         </div>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>My Reviews</h3>
+        <h3>My Posts</h3>
         <p>Lorem ipsum..</p>
       </div>
     </div>
