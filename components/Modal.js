@@ -2,13 +2,20 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../firebase/context';
 import { firestore, storage } from '../firebase/clientApp';
 
-import { addDoc, updateDoc, collection, doc } from 'firebase/firestore';
+import { addDoc, updateDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadString } from 'firebase/storage';
+import { useRouter } from 'next/router';
+
 
 function Modal() {
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const { userData } = useContext(AuthContext);
+  const { userData, currentUser } = useContext(AuthContext);
+
+  const [data, setData] = useState({});
+  const router = useRouter()
+
+
 
   const addImageToPortfolio = (e) => {
     const reader = new FileReader();
@@ -21,17 +28,25 @@ function Modal() {
     };
   };
   // ======================
-  const uploadPortfolioItem = async () => {
-    const docRef = await addDoc(collection(firestore, 'portfolio'), {
-      username: userData.userId,
-    });
 
-    const imageRef = ref(storage, `portfolio/${docRef.id}/image`);
+  const registerUserDb = async (userId, data) => {
+    await setDoc(doc(firestore, 'portfolio', userId), {
+      ...data,
+    });
+  };
+
+  const uploadPortfolioItem = async () => {
+    // const docRef = await addDoc(collection(firestore, 'portfolio'), {
+    //   username: userData.userId,
+    // });
+    setData({ ...data, uid: currentUser });
+    registerUserDb(currentUser, data);
+    const imageRef = ref(storage, `portfolio/${currentUser}/image`);
 
     await uploadString(imageRef, selectedFile, 'data_url').then(
       async (snapshot) => {
         const downloadURL = await getDownloadURL(imageRef);
-        await updateDoc(doc(firestore, 'portfolio', docRef.id), {
+        await updateDoc(doc(firestore, 'portfolio', currentUser), {
           image: downloadURL,
         });
       }
@@ -44,6 +59,8 @@ function Modal() {
   return (
     <div>
       <h3>Upload Portfolio Item</h3>
+      Description for post: {data.description}
+      Post photo URL: {data.avatar}
       <div>
         {selectedFile ? (
           <img
@@ -57,7 +74,11 @@ function Modal() {
         <input type="file" onChange={addImageToPortfolio} />
       </div>
       <div>
-        <input type="text" />
+        <input
+          type="description"
+          name="description"
+          onChange={(e) => setData({ ...data, description: e.target.value })}
+        />
       </div>
       <div>
         <button onClick={uploadPortfolioItem}>Upload</button>

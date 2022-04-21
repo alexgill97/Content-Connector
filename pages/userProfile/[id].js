@@ -12,6 +12,8 @@ import { AuthContext } from '../../firebase/context';
 import { doc, getDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 
+import Modal from '../../components/Modal';
+// import { render } from 'react-dom/cjs/react-dom.production.min';
 const index = ({ users }) => {
   const { userData, currentUser } = useContext(AuthContext);
 
@@ -23,8 +25,9 @@ const index = ({ users }) => {
 
   const router = useRouter();
   const { id } = router.query;
-  console.log(users)
+  console.log(users);
   const [profile, setProfile] = useState({});
+  const [portfolio, setPortfolio] = useState({});
 
   const getUserData = async (id) => {
     getDoc(doc(firestore, 'users', id)).then((docSnap) => {
@@ -34,52 +37,132 @@ const index = ({ users }) => {
     });
   };
 
+  const getUserPortfolio = async (id) => {
+    getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
+      if (docSnap.exists) {
+        setPortfolio(docSnap.data());
+      }
+    });
+  };
+
   useEffect(() => {
     getUserData(id);
+    getUserPortfolio(id);
   }, [id]);
 
-  let { address, avatar, description, isBusiness, isOnline, uid, username } = profile;
-  console.log('profile', profile)
+  // let { address, avatar, description, isBusiness, isOnline, uid, username } =
+  //   profile;
 
-  return (
-    <div>
-      {isBusiness && uid === currentUser ? (
-        <MyBusinessProfile
-          address={address}
-          avatar={avatar}
-          description={description}
-          username={username}
-        />
-      ) : isBusiness && uid !== currentUser ? (
-        <RandomBusinessProfile
-          address={address}
-          avatar={avatar}
-          description={description}
-          username={username}
-        />
-      ) : !isBusiness && uid === currentUser ? (
-        <MyFreelanceProfile
-          avatar={avatar}
-          description={description}
-          username={username}
-        />
-      ) : !isBusiness && uid !== currentUser ? (
-        <RandomFreelanceProfile
-          avatar={avatar}
-          description={description}
-          username={username}
-        />
-      ) : null}
+  // let {description, isBusiness, isOnline, uid, username} =
+  //   portfolio;
+  console.log('profile', { portfolio });
+  if (portfolio) {
+    return (
+      <div>
+        {profile.isBusiness && profile.uid === currentUser ? (
+          <div>
+            <MyBusinessProfile
+              address={profile.address}
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+              portfoliodescription={portfolio.description}
+              portfolioimage={portfolio.image}
+            />
+            <Modal />
+          </div>
+        ) : profile.isBusiness && profile.uid !== currentUser ? (
+          <div>
+            <RandomBusinessProfile
+              address={profile.address}
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+              portfoliodescription={portfolio.description}
+              portfolioimage={portfolio.image}
+            />
+            
+          </div>
+        ) : !profile.isBusiness && profile.uid === currentUser ? (
+          <div>
+            <MyFreelanceProfile
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+              portfoliodescription={portfolio.description}
+              portfolioimage={portfolio.image}
+            />
+            <Modal />
+          </div>
+        ) : !profile.isBusiness && profile.uid !== currentUser ? (
+          <div>
+            <RandomFreelanceProfile
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+              portfoliodescription={portfolio.description}
+              portfolioimage={portfolio.image}
+            />
+          </div>
+        ) : null}
+        )<h1>All users:</h1>
+        <ul>{userList}</ul>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {profile.isBusiness && profile.uid === currentUser ? (
+          <div>
+            <MyBusinessProfile
+              address={profile.address}
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+            />
+            <Modal />
+          </div>
+        ) : profile.isBusiness && profile.uid !== currentUser ? (
+          <div>
+            <RandomBusinessProfile
+              address={profile.address}
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+            />
+          </div>
+        ) : !profile.isBusiness && profile.uid === currentUser ? (
+          <div>
+            <MyFreelanceProfile
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
 
-      <h1>All users:</h1>
-      <ul>{userList}</ul>
-    </div>
-  );
+            />
+            <Modal />
+          </div>
+        ) : !profile.isBusiness && profile.uid !== currentUser ? (
+          <div>
+            <RandomFreelanceProfile
+              avatar={profile.avatar}
+              description={profile.description}
+              username={profile.username}
+
+            />
+          </div>
+        ) : null}
+        )<h1>All users:</h1>
+        <ul>{userList}</ul>
+      </div>
+    );
+  }
 };
 export default index;
 
 export async function getServerSideProps() {
-  const querySnapshot = await getDocs(query(collection(firestore, 'users'), where("isBusiness", "==", true)));
+  const querySnapshot = await getDocs(
+    query(collection(firestore, 'users'), where('isBusiness', '==', true))
+  );
   let allUsers = [];
   querySnapshot.forEach((doc) => {
     // console.log(' => ', doc.data());
@@ -90,7 +173,7 @@ export async function getServerSideProps() {
     props: {
       users: allUsers,
     },
-  }; 
+  };
 }
 // {(() => {
 //   if (userData.isBusiness && userData.uid === currentUser) {

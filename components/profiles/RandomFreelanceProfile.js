@@ -4,16 +4,17 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { firestore } from '../../firebase/clientApp';
 
-
-export default function otherFreelanceProfile({avatar, username, description}) {
-  
+export default function otherFreelanceProfile({
+  avatar,
+  username,
+  description,
+  portfoliodescription,
+  portfolioimage,
+}) {
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
-        <img
-          src={avatar}
-          className={`${styles.makeImageCircular}`}
-        ></img>
+        <img src={avatar} className={`${styles.makeImageCircular}`}></img>
         <h3>{username}</h3>
         <h3>Photographer</h3>
       </div>
@@ -22,7 +23,10 @@ export default function otherFreelanceProfile({avatar, username, description}) {
         <p>{description}</p>
       </div>
       <div>
-        <div></div>
+        <div>
+          <img src={`${portfolioimage}`} />
+          <h1>{portfoliodescription}</h1>
+        </div>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
         <h3>My Reviews</h3>
