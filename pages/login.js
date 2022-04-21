@@ -45,3 +45,29 @@ const login = () => {
 };
 
 export default login;
+
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   setData({ ...data, error: null, loading: true });
+//   if (!email || !password) {
+//     setData({ ...data, error: "All fields are required" });
+//   }
+//   try {
+//     const result = await signInWithEmailAndPassword(auth,email,password
+//     );
+//     await updateDoc(doc(db, "users", result.user.uid), {
+//       isOnline: true,
+//     });
+
+//     setData({
+//       email: "",
+//       password: "",
+//       error: null,
+//       loading: false,
+//     });
+//     navigate("/");
+//   } catch (err) {
+//     setData({ ...data, error: err.message, loading: false });
+//   }
+// };

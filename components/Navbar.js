@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import { AuthContext } from '../firebase/context';
 import Link from 'next/link';
 import Logout from './Logout';
@@ -21,6 +20,10 @@ const Navbar = () => {
     {
       name: 'Messages',
       path: '/messages',
+    },
+    {
+      name: 'FindingBusinesses',
+      path: '/findingBusinesses',
     },
     {
       name: 'FindingFreelancers',
@@ -49,7 +52,7 @@ const Navbar = () => {
         <h3 className="login">
           {userData ? `Logged in as ${userData.username}` : null}
 
-          <Logout />
+          <Logout currentUser={currentUser} />
         </h3>
       ) : (
         <div className="loginReg">

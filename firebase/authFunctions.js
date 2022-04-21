@@ -4,12 +4,17 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import { updateDoc, doc } from 'firebase/firestore';
 
-const loginUser = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password).then((cred) => {});
+
+const loginUser = async (email, password) => {
+  const result = await signInWithEmailAndPassword(auth, email, password)
+  await updateDoc(doc(firestore, "users", result.user.uid), {
+    isOnline: true,
+  });
 };
 
-const logoutUser = async () => {
+const logoutUser = async (currentUser) => {
   await signOut(auth)
     .then(() => {
       console.log('signed out');
