@@ -3,11 +3,13 @@ import { AuthContext } from '../firebase/context';
 import { firestore, storage } from '../firebase/clientApp';
 import { addDoc, updateDoc, collection, doc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadString } from 'firebase/storage';
+import { useRouter } from 'next/router';
 
 const UploadAvatar = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-
   const { currentUser } = useContext(AuthContext);
+  const router = useRouter()
+  
 
   const selectUserAvatar = (e) => {
     const reader = new FileReader();
@@ -21,6 +23,7 @@ const UploadAvatar = () => {
   };
   // ======================
   const uploadUserAvatar = async () => {
+    
     // const docRef = await addDoc(collection(firestore, 'users', currentUser), {
     //   username: currentUser,
     // });
@@ -32,8 +35,11 @@ const UploadAvatar = () => {
         const downloadURL = await getDownloadURL(imageRef);
         await updateDoc(doc(firestore, 'users', currentUser), {
           avatar: downloadURL,
-        });
+          
+        }).then(()=> router.push('/'))
+        
       }
+      
     );
     setSelectedFile(null);
   };

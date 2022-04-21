@@ -1,6 +1,6 @@
 import styles from '../styles/About.module.scss';
-import { teampic } from '../public/profile-hex.png';
-import Link from 'next/link'
+import { teampic } from '../public/Photography2.jpeg';
+import Link from 'next/link';
 
 export default function About() {
   return (
@@ -14,7 +14,7 @@ export default function About() {
             <p>Angel Daddy~</p>
             <p>example@example.com</p>
             <p>
-            <Link href='https://github.com/JamesMurphyy'target="_blank">
+              <Link href="https://github.com/JamesMurphyy" target="_blank">
                 <button className={`${styles.button}`}>Contact</button>
               </Link>
             </p>
@@ -31,7 +31,7 @@ export default function About() {
             <p>Ocean Eye Daddy~</p>
             <p>example@example.com</p>
             <p>
-            <Link href='https://github.com/alexgill97'target="_blank">
+              <Link href="https://github.com/alexgill97" target="_blank">
                 <button className={`${styles.button}`}>Contact</button>
               </Link>
             </p>
@@ -48,7 +48,7 @@ export default function About() {
             <p>Legit Daddy~</p>
             <p>example@example.com</p>
             <p>
-              <Link href='https://github.com/princerequino' target="_blank">
+              <Link href="https://github.com/princerequino" target="_blank">
                 <button className={`${styles.button}`}>Contact</button>
               </Link>
             </p>
