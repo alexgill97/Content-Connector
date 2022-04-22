@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { auth, firestore } from '../firebase/clientApp';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/router';
-import { updateDoc, doc, deleteDoc, where, collection } from 'firebase/firestore';
+import { updateDoc, doc, deleteDoc, where, collection, getDocs, query } from 'firebase/firestore';
 import { AuthContext } from '../firebase/context';
 
 const Delete = ({ postTitle }) => {
@@ -10,7 +10,12 @@ const Delete = ({ postTitle }) => {
   const router = useRouter();
 
   const onDeleteSubmit = async () => {
-    await deleteDoc(collection(firestore, "posts", where("postTitle", "==" , postTitle)));
+    const querySnapshot = await getDocs(
+      query(collection(firestore, 'users'), where('postTitle', '==', postTitle))
+    );
+    querySnapshot.forEach((doc) => {
+      delete(doc.data());
+    });
   };
 
   return (

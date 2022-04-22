@@ -2,8 +2,7 @@ import Link from 'next/link';
 import styles from '../styles/UserList.module.scss';
 import React from 'react';
 
-const UserListItem = ({ username, uid, avatar }) => {
-
+const UserListItem = ({ username, uid, avatar, description, portfolio }) => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.userListBorder}`}>
@@ -14,8 +13,9 @@ const UserListItem = ({ username, uid, avatar }) => {
           </div>
         </Link>
       </div>
-      <div className={`${styles.description}`}> ===DESCRIPTION=== </div>
-      <div>===ADD PHOTOS HERE===</div>
+      <div className={`${styles.description}`}> {description} </div>
+      <div>
+      </div>
     </div>
   );
 };

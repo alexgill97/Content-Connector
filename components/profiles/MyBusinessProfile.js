@@ -9,9 +9,13 @@ export default function businessProfile({
   address,
   portfoliodescription,
   portfolioimage,
-}) {
+}) 
+
+{
   const { userData } = useContext(AuthContext);
   console.log('photo', portfolioimage);
+
+  
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
