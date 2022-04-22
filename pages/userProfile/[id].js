@@ -69,7 +69,6 @@ const index = ({ users }) => {
               portfoliodescription={portfolio.description}
               portfolioimage={portfolio.image}
             />
-            <Modal />
           </div>
         ) : profile.isBusiness && profile.uid !== currentUser ? (
           <div>

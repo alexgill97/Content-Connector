@@ -13,35 +13,6 @@ import { useRouter } from 'next/router';
 
 
 const findingBusinesses = ({ users }) => {
-
-  console.log("findingasdasdada", users)
-  const { currentUser, userData } = useContext(AuthContext);
-
-  const [profile, setProfile] = useState({});
-  const [portfolio, setPortfolio] = useState({});
-
-  const getUserData = async (id) => {
-    getDoc(doc(firestore, 'users', id)).then((docSnap) => {
-      if (docSnap.exists) {
-        setProfile(docSnap.data());
-      }
-    });
-  };
-
-  const getUserPortfolio = async (id) => {
-    getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
-      if (docSnap.exists) {
-        setPortfolio(docSnap.data());
-      }
-    });
-  };
-
-  useEffect(() => {
-    getUserPortfolio(currentUser);
-  }, [currentUser]);
-
-
-  console.log("posoosososososos", profile)
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.aboutBody}`}>
@@ -51,7 +22,7 @@ const findingBusinesses = ({ users }) => {
           </h2>
           <h4>Querying users based on isBusiness:true</h4>
           <div className={`${styles.aboutBody}`}>
-            <UserList users={users} portfolio={portfolio}/>
+            <UserList users={users}/>
           </div>
           <p>
             setting a Layout for what's gonna show here from BUSINESS

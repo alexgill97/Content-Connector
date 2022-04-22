@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styles from '../styles/Home.module.scss';
 import UserList from '../components/UserList';
 import { collection, query, getDocs } from 'firebase/firestore';
@@ -7,11 +7,37 @@ import { doc, getDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 
 import { firestore } from '../firebase/clientApp';
+import { AuthContext } from '../firebase/context';
 
 const findingFreelancers = ({ users }) => {
 
-  console.log("findingasdasdada", users)
-  
+  console.log('findingasdasdada', users);
+  const { currentUser, userData } = useContext(AuthContext);
+
+  const [profile, setProfile] = useState({});
+  const [portfolio, setPortfolio] = useState({});
+
+  const getUserData = async (id) => {
+    getDoc(doc(firestore, 'users', id)).then((docSnap) => {
+      if (docSnap.exists) {
+        setProfile(docSnap.data());
+      }
+    });
+  };
+
+  const getUserPortfolio = async (id) => {
+    getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
+      if (docSnap.exists) {
+        setPortfolio(docSnap.data());
+      }
+    });
+  };
+
+  useEffect(() => {
+    getUserPortfolio(currentUser);
+  }, [currentUser]);
+  console.log('findingasdasdada', users);
+
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.aboutBody}`}>
@@ -21,7 +47,7 @@ const findingFreelancers = ({ users }) => {
           </h2>
           <h4>Querying users based on isBusiness:false</h4>
           <div className={`${styles.aboutBody}`}>
-            <UserList users={users} />
+            <UserList users={users} profile={profile} />
           </div>
           <p>
             setting a Layout for what's gonna show here from BUSINESS
@@ -39,8 +65,6 @@ const findingFreelancers = ({ users }) => {
 };
 
 export default findingFreelancers;
-
-
 
 export async function getServerSideProps() {
   const querySnapshot = await getDocs(

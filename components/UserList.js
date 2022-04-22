@@ -12,6 +12,7 @@ const UserList = ({ users, portfolio }) => {
       uid={x.uid}
       avatar={x.avatar}
       portfolio={portfolio}
+      user={x}
       {...x}
     ></UserListItem>
   ));
