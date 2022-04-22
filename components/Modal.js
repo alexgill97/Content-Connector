@@ -12,7 +12,7 @@ function Modal() {
 
   const { userData, currentUser } = useContext(AuthContext);
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState({...userData});
   const router = useRouter()
 
 
@@ -30,7 +30,7 @@ function Modal() {
   // ======================
 
   const registerUserDb = async (userId, data) => {
-    await setDoc(doc(firestore, 'portfolio', userId), {
+    await setDoc(doc(firestore, 'users', userId), {
       ...data,
     });
   };
@@ -41,6 +41,7 @@ function Modal() {
     // });
     setData({ ...data, uid: currentUser });
     registerUserDb(currentUser, data);
+    
     const imageRef = ref(storage, `portfolio/${currentUser}/image`);
 
     await uploadString(imageRef, selectedFile, 'data_url').then(
@@ -77,7 +78,7 @@ function Modal() {
         <input
           type="description"
           name="description"
-          onChange={(e) => setData({ ...data, description: e.target.value })}
+          onChange={(e) => setData({ ...data, portfolioDescription: e.target.value })}
         />
       </div>
       <div>

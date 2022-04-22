@@ -17,14 +17,17 @@ import PostList from '../components/PostList';
 
 const addPost = ({ posts }) => {
   const { currentUser, userData } = useContext(AuthContext);
-  console.log(userData, 'Add post page');
   const router = useRouter();
+  // const userDataArr = [userData]
+
+  // console.log(userDataArr[0])
 
   const [data, setData] = useState({
     postTitle: '',
     description: '',
-    address: '',
+    postAddress: ``,
     uid: currentUser,
+    postAvatar: ``,
   });
 
   const registerUserDb = async (userId, data) => {
@@ -37,13 +40,15 @@ const addPost = ({ posts }) => {
     e.preventDefault();
   };
 
-  const onRegisterSubmit = () => {
-    console.log('data is', data);
-    setData({ ...data });
-    registerUserDb(currentUser, data);
-  };
+  console.log(userData.address, 'Add post page');
 
   console.log(posts, 'testststtststs');
+
+  const onRegisterSubmit = () => {
+    console.log('data is', { userData });
+    setData({...data, postAddress: `${userData.address}`, postAvatar: `${userData.avatar}`,}, );
+    registerUserDb(currentUser, data);
+  };
 
   if (userData.uid === currentUser && userData.isBusiness) {
     return (
@@ -52,7 +57,6 @@ const addPost = ({ posts }) => {
           <h1>{data.uid}</h1>
           <div>{data.postTitle}</div>
           <div>{data.description}</div>
-          <div>{data.address}</div>
           <h3>Add Request for Freelancer</h3>
           <form onSubmit={handleSubmit}>
             <div className="input_container">
@@ -61,7 +65,12 @@ const addPost = ({ posts }) => {
                 type="postTitle"
                 name="postTitle"
                 onChange={(e) =>
-                  setData({ ...data, postTitle: e.target.value })
+                  setData({
+                    ...data,
+                    postTitle: e.target.value,
+                    // postAddress: `${userData.address}`,
+                    // postAvatar: `${userData.avatar}`,
+                  })
                 }
               />
             </div>
@@ -71,19 +80,40 @@ const addPost = ({ posts }) => {
                 type="description"
                 name="description"
                 onChange={(e) =>
-                  setData({ ...data, description: e.target.value })
+                  setData({
+                    ...data,
+                    description: e.target.value,
+                    // postAddress: `${userData.address}`,
+                    // postAvatar: `${userData.avatar}`,
+                  })
                 }
               />
             </div>
             <div className="input_container">
+              <label>Description: </label>
+              <input
+                type="description"
+                name="description"
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    description: e.target.value,
+                    // postAddress: `${userData.address}`,
+                    // postAvatar: `${userData.avatar}`,
+                  })
+                }
+              />
+            </div>
+            {/* <div className="input_container">
               <label>Address: </label>
               <input
                 type="address"
                 name="address"
-                onChange={(e) => setData({ ...data, address: e.target.value })}
+                
+                }
               />
-            </div>
-            <button onClick={onRegisterSubmit}>Add Post!</button>
+            </div> */}
+            <button onClick={onRegisterSubmit}> Add Post! </button>
           </form>
         </section>
         <PostList posts={posts} />
