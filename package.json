@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "firebase": "^9.6.11",
+    "geolib": "^3.3.3",
+    "mapbox-gl": "^2.8.1",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-map-gl": "^7.0.11",
     "sass": "^1.50.1"
   },
   "devDependencies": {
