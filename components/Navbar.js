@@ -29,6 +29,10 @@ const Navbar = () => {
       name: 'FindingFreelancers',
       path: '/findingFreelancers',
     },
+    {
+      name: 'AddPost',
+      path: '/addPost',
+    },
   ];
 
   console.log('userData', userData);
