@@ -7,13 +7,18 @@ import MyBusinessProfile from '../../components/profiles/MyBusinessProfile';
 import RandomFreelanceProfile from '../../components/profiles/RandomFreelanceProfile';
 import RandomBusinessProfile from '../../components/profiles/RandomBusinessProfile';
 
-import { collection, query, getDocs } from 'firebase/firestore';
+// import { addDoc, updateDoc, collection, doc, setDoc, getDocs, query, collectionGroup, where } from 'firebase/firestore';
+import { addDoc, updateDoc, collection, doc, setDoc, getDocs, query, collectionGroup, where, getDoc  } from 'firebase/firestore';
 import { AuthContext } from '../../firebase/context';
-import { doc, getDoc, where } from 'firebase/firestore';
+// import { doc, getDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 
 import Modal from '../../components/Modal';
 // import { render } from 'react-dom/cjs/react-dom.production.min';
+
+
+
+
 const index = ({ users }) => {
   const { userData, currentUser } = useContext(AuthContext);
 
@@ -27,7 +32,13 @@ const index = ({ users }) => {
   const { id } = router.query;
   console.log(users);
   const [profile, setProfile] = useState({});
-  const [portfolio, setPortfolio] = useState({});
+
+
+  const [portfolio, setPortfolio] = useState([]);
+
+
+
+  let allPortfolios = [];
 
   const getUserData = async (id) => {
     getDoc(doc(firestore, 'users', id)).then((docSnap) => {
@@ -37,13 +48,25 @@ const index = ({ users }) => {
     });
   };
 
+  // const getUserPortfolio = async (id) => {
+  //   getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
+  //     if (docSnap.exists) {
+  //       setPortfolio(docSnap.data());
+  //     }
+  //   });
+  // };
+
   const getUserPortfolio = async (id) => {
-    getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
-      if (docSnap.exists) {
-        setPortfolio(docSnap.data());
-      }
+    const querySnapshot = await getDocs(
+      query(collectionGroup(firestore, `portfolio`), where('uid', '==', id))
+    );
+    querySnapshot.forEach((doc) => {
+      allPortfolios.push(doc.data());
     });
+    setPortfolio(allPortfolios);
   };
+  
+
 
   useEffect(() => {
     getUserData(id);
@@ -55,7 +78,25 @@ const index = ({ users }) => {
 
   // let {description, isBusiness, isOnline, uid, username} =
   //   portfolio;
+
+  // console.log('allPortfolios', allPortfolios);
+  // const { portfolio } = test
+
+  // const portfolioMap = portfolio.map((x) => (
+  //   <div>
+  //     <div>
+  //       <Image src={x.image} height={100} width={100}></Image>
+  //     </div>
+  //     <div>
+  //       <div>{x.description}</div>
+  //     </div>
+  //   </div>
+  // ));
+
+  // console.log('sssssssssssssssssportfolios test grab', data);
+
   console.log('profile', { portfolio });
+
   if (portfolio) {
     return (
       <div>
@@ -66,9 +107,8 @@ const index = ({ users }) => {
               avatar={profile.avatar}
               description={profile.description}
               username={profile.username}
-              portfoliodescription={portfolio.description}
-              portfolioimage={portfolio.image}
-            />
+              portfolio={portfolio}
+            /> 
           </div>
         ) : profile.isBusiness && profile.uid !== currentUser ? (
           <div>
@@ -77,10 +117,8 @@ const index = ({ users }) => {
               avatar={profile.avatar}
               description={profile.description}
               username={profile.username}
-              portfoliodescription={portfolio.description}
-              portfolioimage={portfolio.image}
+              portfolio={portfolio}
             />
-            
           </div>
         ) : !profile.isBusiness && profile.uid === currentUser ? (
           <div>
@@ -88,8 +126,7 @@ const index = ({ users }) => {
               avatar={profile.avatar}
               description={profile.description}
               username={profile.username}
-              portfoliodescription={portfolio.description}
-              portfolioimage={portfolio.image}
+              portfolio={portfolio}
             />
             <Modal />
           </div>
@@ -99,8 +136,7 @@ const index = ({ users }) => {
               avatar={profile.avatar}
               description={profile.description}
               username={profile.username}
-              portfoliodescription={portfolio.description}
-              portfolioimage={portfolio.image}
+              portfolio={portfolio}
             />
           </div>
         ) : null}
@@ -136,7 +172,6 @@ const index = ({ users }) => {
               avatar={profile.avatar}
               description={profile.description}
               username={profile.username}
-
             />
             <Modal />
           </div>
@@ -146,7 +181,6 @@ const index = ({ users }) => {
               avatar={profile.avatar}
               description={profile.description}
               username={profile.username}
-
             />
           </div>
         ) : null}

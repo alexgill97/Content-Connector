@@ -9,12 +9,6 @@ const Register = () => {
   const [isFreelancer, setIsFreelancer] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const onRegisterAuthSubmit = (e) => {
-    e.preventDefault();
-    registerUserAuth(email, password);
-    setShowInitial(true);
-  };
-
   return (
     <div>
       <h3>{step}</h3>

@@ -1,21 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../firebase/context';
 import { firestore, storage } from '../firebase/clientApp';
 
-import { addDoc, updateDoc, collection, doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadString } from 'firebase/storage';
 import { useRouter } from 'next/router';
-
+// import { collection, query, getDocs } from 'firebase/firestore';
 
 function Modal() {
   const [selectedFile, setSelectedFile] = useState(null);
-
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const { userData, currentUser } = useContext(AuthContext);
 
-  const [data, setData] = useState({...userData});
-  const router = useRouter()
-
-
+  const [data, setData] = useState({});
+  const router = useRouter();
 
   const addImageToPortfolio = (e) => {
     const reader = new FileReader();
@@ -27,28 +26,17 @@ function Modal() {
       setSelectedFile(readerEvent.target.result);
     };
   };
-  // ======================
-
-  const registerUserDb = async (userId, data) => {
-    await setDoc(doc(firestore, 'users', userId), {
-      ...data,
-    });
-  };
 
   const uploadPortfolioItem = async () => {
-    // const docRef = await addDoc(collection(firestore, 'portfolio'), {
-    //   username: userData.userId,
-    // });
     setData({ ...data, uid: currentUser });
-    registerUserDb(currentUser, data);
-    
     const imageRef = ref(storage, `portfolio/${currentUser}/image`);
-
     await uploadString(imageRef, selectedFile, 'data_url').then(
       async (snapshot) => {
         const downloadURL = await getDownloadURL(imageRef);
-        await updateDoc(doc(firestore, 'portfolio', currentUser), {
+        await setDoc(doc(firestore, 'users', currentUser, 'portfolio', title), {
           image: downloadURL,
+          description: description,
+          uid: currentUser,
         });
       }
     );
@@ -60,7 +48,6 @@ function Modal() {
   return (
     <div>
       <h3>Upload Portfolio Item</h3>
-      Description for post: {data.description}
       Post photo URL: {data.avatar}
       <div>
         {selectedFile ? (
@@ -74,11 +61,20 @@ function Modal() {
       <div>
         <input type="file" onChange={addImageToPortfolio} />
       </div>
+      Description for title:
+      <div>
+        <input
+          type="title"
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
+      Description for post:
       <div>
         <input
           type="description"
           name="description"
-          onChange={(e) => setData({ ...data, portfolioDescription: e.target.value })}
+          onChange={(e) => setDescription(e.target.value)}
         />
       </div>
       <div>
@@ -89,3 +85,5 @@ function Modal() {
 }
 
 export default Modal;
+
+// ======================

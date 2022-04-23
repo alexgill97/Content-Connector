@@ -1,15 +1,28 @@
 import styles from '../../styles/Profile.module.scss';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../firebase/context';
+import Image from 'next/image';
 
 export default function freelanceProfile({
   avatar,
   username,
   description,
-  portfoliodescription,
-  portfolioimage,
+  portfolio
 }) {
   const { userData } = useContext(AuthContext);
+  console.log('photo', portfolio);
+
+  
+  const portfolioMap = portfolio.map((x) => (
+    <div>
+      <div>
+        <Image src={x.image} height={100} width={100}></Image>
+      </div>
+      <div>
+        <div>{x.description}</div>
+      </div>
+    </div>
+  ));
 
   return (
     <div>
@@ -29,8 +42,7 @@ export default function freelanceProfile({
       </div>
       <div>
         <div>
-          <img src={`${portfolioimage}`} />
-          <h1>{portfoliodescription}</h1>
+          <div>{portfolioMap}</div>
         </div>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>

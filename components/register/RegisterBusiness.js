@@ -15,6 +15,7 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
     description: '',
     avatar: '',
     address: '',
+    city: '',
     uid: currentUser,
     isOnline: true,
   });
@@ -47,7 +48,7 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
       <h3>Register a Business Account</h3>
       <form onSubmit={handleSubmit}>
         <div className="input_container">
-          <label>Username: </label>
+          <label>Enter Business Name: </label>
           <input
             type="username"
             name="username"
@@ -68,6 +69,14 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
             type="address"
             name="address"
             onChange={(e) => setData({ ...data, address: e.target.value })}
+          />
+        </div>
+        <div className="input_container">
+          <label>City: </label>
+          <input
+            type="city"
+            name="city"
+            onChange={(e) => setData({ ...data, city: e.target.value })}
           />
         </div>
         <button onClick={onRegisterSubmit}>register</button>

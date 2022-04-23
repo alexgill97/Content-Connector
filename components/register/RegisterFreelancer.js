@@ -15,6 +15,7 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
     description: '',
     avatar: '',
     address: '',
+    city: '',
     uid: currentUser,
     isOnline: true,
   });
@@ -69,6 +70,14 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
             name="address"
             onChange={(e) => setData({ ...data, address: e.target.value })}
           />
+          <div className="input_container">
+          <label>City: </label>
+          <input
+            type="city"
+            name="city"
+            onChange={(e) => setData({ ...data, city: e.target.value })}
+          />
+        </div>
         </div>
         <button onClick={onRegisterSubmit}>register</button>
       </form>

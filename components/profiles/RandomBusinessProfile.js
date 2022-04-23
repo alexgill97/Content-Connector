@@ -3,15 +3,27 @@ import React, { useState, useEffect } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { firestore } from '../../firebase/clientApp';
+import Image from 'next/image';
+
 
 export default function otherBusinessProfile({
   avatar,
   username,
   description,
   address,
-  portfoliodescription,
-  portfolioimage,
+  portfolio,
 }) {
+  const portfolioMap = portfolio.map((x) => (
+    <div>
+      <div>
+        <Image src={x.image} height={100} width={100}></Image>
+      </div>
+      <div>
+        <div>{x.description}</div>
+      </div>
+    </div>
+  ));
+
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
@@ -25,8 +37,7 @@ export default function otherBusinessProfile({
       </div>
       <div>
         <div>
-          <img src={`${portfolioimage}`} />
-          <h1>{portfoliodescription}</h1>
+          <div>{portfolioMap}</div>
         </div>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>

@@ -1,13 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react';
 import styles from '../styles/Home.module.scss';
 import UserList from '../components/UserList';
+import PortfolioListItem from '/'
 import { collection, query, getDocs } from 'firebase/firestore';
 
-import { doc, getDoc, where } from 'firebase/firestore';
+import { doc, getDoc, where, collectionGroup } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 
 import { firestore } from '../firebase/clientApp';
 import { AuthContext } from '../firebase/context';
+import { FirebaseError } from 'firebase/app';
 
 const findingFreelancers = ({ users }) => {
 
@@ -70,15 +72,32 @@ export async function getServerSideProps() {
   const querySnapshot = await getDocs(
     query(collection(firestore, 'users'), where('isBusiness', '==', false))
   );
+
+  // const querySnapshot1 = await getDocs(
+  //   query(collectionGroup(firestore, `portfolio`),where("description", "==", "This is a test description"))
+  // );
+  
+
+  // let allPortfolios = []
   let allUsers = [];
   querySnapshot.forEach((doc) => {
-    // console.log(' => ', doc.data());
     allUsers.push(doc.data());
   });
+
+  // querySnapshot1.forEach((doc) => {
+  //   console.log(doc.data(), "portfolios test grab")
+  //   allPortfolios.push(doc.data());
+  // });
+  // snapshot.docs.map((doc) => (
+  //   allPortfolios.push(doc.data())
+  // ))
+
   console.log('allUsers', allUsers);
+  // console.log('allPortfolios', allPortfolios);
   return {
     props: {
       users: allUsers,
+      // portfolios: allPortfolios
     },
   };
 }
