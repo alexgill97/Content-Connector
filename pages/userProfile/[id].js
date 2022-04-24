@@ -43,8 +43,6 @@ const index = ({ users }) => {
 
   const [portfolio, setPortfolio] = useState([]);
 
-  let allPortfolios = [];
-
   const getUserData = async (id) => {
     getDoc(doc(firestore, 'users', id)).then((docSnap) => {
       if (docSnap.exists) {
@@ -53,18 +51,11 @@ const index = ({ users }) => {
     });
   };
 
-  // const getUserPortfolio = async (id) => {
-  //   getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
-  //     if (docSnap.exists) {
-  //       setPortfolio(docSnap.data());
-  //     }
-  //   });
-  // };
-
   const getUserPortfolio = async (id) => {
     const querySnapshot = await getDocs(
       query(collectionGroup(firestore, `portfolio`), where('uid', '==', id))
     );
+    let allPortfolios = [];
     querySnapshot.forEach((doc) => {
       allPortfolios.push(doc.data());
     });
@@ -129,7 +120,7 @@ const index = ({ users }) => {
               username={profile.username}
               portfolio={portfolio}
             />
-            <Modal />
+            {/* <Modal /> */}
           </div>
         ) : !profile.isBusiness && profile.uid !== currentUser ? (
           <div>
@@ -141,7 +132,7 @@ const index = ({ users }) => {
             />
           </div>
         ) : null}
-        )<h1>All users:</h1>
+        <h1>All users:</h1>
         <ul>{userList}</ul>
       </div>
     );

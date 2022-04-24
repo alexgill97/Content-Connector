@@ -2,6 +2,7 @@ import styles from '../../styles/Profile.module.scss';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../firebase/context';
 import Image from 'next/image';
+import PortfolioCarousel from './PortfolioCarousel';
 
 export default function freelanceProfile({
   avatar,
@@ -71,6 +72,7 @@ export default function freelanceProfile({
           </div>
         </body>
       </div>
+      <PortfolioCarousel portfolio={portfolio} />
     </main>
   );
 }
