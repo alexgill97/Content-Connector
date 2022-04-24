@@ -11,12 +11,12 @@ const addPost = ({ posts }) => {
   const router = useRouter();
 
   const [data, setData] = useState({
-    userid: currentUser,
-    username: userData.username,
-    lat: userData.lat,
-    long: userData.long,
-    address: userData.address,
-    avatar: userData.avatar,
+    // userid: currentUser,
+    // username: userData.username,
+    // lat: userData.lat,
+    // lng: userData.lng,
+    // address: userData.address,
+    // avatar: userData.avatar,
     postTitle: '',
     description: '',
   });
@@ -29,17 +29,27 @@ const addPost = ({ posts }) => {
 
   const onRegisterSubmit = (e) => {
     e.preventDefault();
-    console.log('data is', { userData });
-    setData({
+    // console.log('data is', { userData });
+    const formData = {
       ...data,
-      postAddress: `${userData.address}`,
-      postAvatar: `${userData.avatar}`,
-    });
-    createPost(currentUser, data);
+      userid: currentUser,
+      username: userData.username,
+      lat: userData.lat,
+      lng: userData.lng,
+      address: userData.address,
+      avatar: userData.avatar,
+    }
+    console.log(formData, "AAESEDFASDFSA")
+    createPost(currentUser, formData).then(()=>(
+      window.location.reload()
+    ))
+    // router.push("/addPost")
   };
+  
+  // console.log(currentUser, userData, 'asfdafaf');
 
   if (userData.uid === currentUser && userData.isBusiness) {
-    console.log(data);
+    // console.log(data);
     return (
       <div>
         <section>

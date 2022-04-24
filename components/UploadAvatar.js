@@ -35,11 +35,13 @@ const UploadAvatar = () => {
         const downloadURL = await getDownloadURL(imageRef);
         await updateDoc(doc(firestore, 'users', currentUser), {
           avatar: downloadURL,
-          
-        }).then(()=> router.push('/'))
-        
+        }).then(()=> {
+          return(router.push('/'))
+        }
+        ).then(()=>{
+          return(window.location.reload())
+        })
       }
-      
     );
     setSelectedFile(null);
   };

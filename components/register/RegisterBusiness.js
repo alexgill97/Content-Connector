@@ -7,14 +7,13 @@ import Geocode from 'react-geocode';
 
 const RegisterBusiness = ({ setLoading, setStep }) => {
   const router = useRouter();
-  const [address1, setAddress] = useState('');
   const { currentUser, userData } = useContext(AuthContext);
   Geocode.setLanguage('en');
-
+  
   Geocode.setRegion('na');
-
+  
   Geocode.setApiKey('AIzaSyDNT14Q8_dETR4hSxsE94Ipd2qP3rqV4dE');
-
+  
   const [data, setData] = useState({
     isBusiness: true,
     username: '',
@@ -27,7 +26,7 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
     uid: currentUser,
     isOnline: true,
   });
-
+  
   const registerUserDb = async (userId, data) => {
     await setDoc(doc(firestore, 'users', userId), {
       ...data,
@@ -38,30 +37,30 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
     e.preventDefault();
   };
   
-  const test = (data) => {
-    Geocode.fromAddress(`${data}`).then(
+  
+  
+  const onRegisterSubmit = () => {
+    setLoading(true);
+    setStep(3);
+    Geocode.fromAddress(data.address).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        setData({ ...data, lat: lat, lng: lng });
+        console.log(`the long is ${lng} and the lat is ${lat}` )
+        // setData({ ...data, lat: lat, lng: lng });
+        const formData ={...data, lat: lat, lng: lng}
+        console.log(formData)
+        registerUserDb(currentUser, formData);
       },
       (error) => {
         console.error(error);
       }
-    );
-  }
-
-
-  const onRegisterSubmit = () => {
-    console.log('data is', data);
-    setLoading(true);
-    setStep(3);
-    test(data.address);
-    // setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
-    registerUserDb(currentUser, data);
-    setLoading(false);
-  };
-
-  return (
+      );
+      // setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
+      setLoading(false);
+    };
+    
+    // console.log('data is', data);
+    return (
     <section>
       <h1>{data.uid}</h1>
       {data.username}
@@ -102,6 +101,7 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
           />
         </div>
         <button onClick={onRegisterSubmit}>register</button>
+        <button onClick={()=>(console.log(data))}>FF</button>
       </form>
     </section>
   );

@@ -39,8 +39,11 @@ function Modal() {
           uid: currentUser,
         });
       }
-    );
+    ).then(()=> {
+      return(window.location.reload())
+    });
     setSelectedFile(null);
+    
   };
 
   // ======================

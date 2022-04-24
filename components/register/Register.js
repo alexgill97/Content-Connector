@@ -11,13 +11,6 @@ const Register = () => {
   const [step, setStep] = useState(1);
   const [isFreelancer, setIsFreelancer] = useState(false);
   const [loading, setLoading] = useState(false);
-  
-  
-  // Geocoding things
-
-
-
-
 
 
   return (
