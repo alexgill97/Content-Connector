@@ -17,10 +17,6 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
       query(collectionGroup(firestore, `portfolio`), where('uid', '==', id))
     );
     querySnapshot.forEach((doc) => {
-      // console.log(
-      //   'ssssssssssssssssssssssssssssssssssportfolios test grab',
-      //   doc.data()
-      // );
       allPortfolios.push(doc.data());
     });
     setPortfolio(allPortfolios);
@@ -30,48 +26,49 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
     getUserPortfolio(uid);
   }, []);
 
-  // console.log('allPortfolios', allPortfolios);
-  // const { portfolio } = test
   if (portfolio) {
     const portfolioMap = portfolio.map((x) => (
       <div>
-        <div>
-          <Image src={x.image} height={100} width={100}></Image>
-        </div>
-        <div>
-          <div>{x.description}</div>
+        <div className={`${styles.portfoliodiv}`}>
+          <div>
+            <Image src={x.image} height={300} width={300} className={`${styles.portfoliopicture}`}></Image>
+          </div>
+          {/* <div className={`${styles.portfoliodesc}`}>
+            <div>{x.description}</div>
+          </div> */}
         </div>
       </div>
     ));
-
-    console.log('sssssssssssssssssportfolios test grab', portfolio);
-
     return (
-      <div className={`${styles.container}`}>
-        <div className={`${styles.userListBorder}`}>
-          <Link href={`/userProfile/${uid}`}>
-            <div className={`${styles.username}`}>
-              <img src={avatar}></img>
-              {username}
-            </div>
-          </Link>
+      <div className={`${styles.b}`}>
+        <div className={`${styles.container} `}>
+          <div className={`${styles.userListBorder}`}>
+            <Link href={`/userProfile/${uid}`}>
+              <div className={`${styles.a}`}>
+                <img src={avatar}></img>
+                {username}
+              </div>
+            </Link>
+          </div>
+          <div className={`${styles.description}`}> {description} </div>
+          <div className={`${styles.portfolios}`}>{portfolioMap}</div>
         </div>
-        <div className={`${styles.description}`}> {description} </div>
-        <div>{portfolioMap}</div>
       </div>
     );
   } else {
     return (
-      <div className={`${styles.container}`}>
-        <div className={`${styles.userListBorder}`}>
-          <Link href={`/userProfile/${uid}`}>
-            <div className={`${styles.username}`}>
-              <img src={avatar}></img>
-              {username}
-            </div>
-          </Link>
+      <div className={`${styles.b}`}>
+        <div className={`${styles.container}`}>
+          <div className={`${styles.userListBorder}`}>
+            <Link href={`/userProfile/${uid}`}>
+              <div className={`${styles.username}`}>
+                <img src={avatar}></img>
+                {username}
+              </div>
+            </Link>
+          </div>
+          <div className={`${styles.description}`}> {description} </div>
         </div>
-        <div className={`${styles.description}`}> {description} </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import styles from '../styles/Home.module.scss';
+import styles from '../styles/FindingFreelancers.module.scss';
 import UserList from '../components/UserList';
 import PortfolioListItem from '/'
 import { collection, query, getDocs } from 'firebase/firestore';
@@ -40,6 +40,7 @@ const findingFreelancers = ({ users }) => {
   }, [currentUser]);
   console.log('findingasdasdada', users);
 
+
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.aboutBody}`}>
@@ -57,10 +58,6 @@ const findingFreelancers = ({ users }) => {
             portfolio
           </p>
         </div>
-        {/* <img
-              src="/mapsphoto.jpeg"
-              className={`${styles.picture1}`}
-            /> */}
       </div>
     </div>
   );
@@ -72,32 +69,14 @@ export async function getServerSideProps() {
   const querySnapshot = await getDocs(
     query(collection(firestore, 'users'), where('isBusiness', '==', false))
   );
-
-  // const querySnapshot1 = await getDocs(
-  //   query(collectionGroup(firestore, `portfolio`),where("description", "==", "This is a test description"))
-  // );
-  
-
-  // let allPortfolios = []
   let allUsers = [];
   querySnapshot.forEach((doc) => {
     allUsers.push(doc.data());
   });
-
-  // querySnapshot1.forEach((doc) => {
-  //   console.log(doc.data(), "portfolios test grab")
-  //   allPortfolios.push(doc.data());
-  // });
-  // snapshot.docs.map((doc) => (
-  //   allPortfolios.push(doc.data())
-  // ))
-
   console.log('allUsers', allUsers);
-  // console.log('allPortfolios', allPortfolios);
   return {
     props: {
       users: allUsers,
-      // portfolios: allPortfolios
     },
   };
 }
