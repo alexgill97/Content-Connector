@@ -3,6 +3,8 @@ import { AuthContext } from '../firebase/context';
 import Link from 'next/link';
 import Logout from './Logout';
 import { updateCurrentUser } from 'firebase/auth';
+import styles from '../styles/navbar.module.scss';
+import Image from 'next/image';
 
 const Navbar = () => {
   const { userData, currentUser } = useContext(AuthContext);
@@ -37,42 +39,30 @@ const Navbar = () => {
 
   console.log('userData', userData);
   return (
-    <div className="fullNav">
-      <div className="titleNav">
-        <Link href="/">
-          <h3 className="buttonNav">Content Connector</h3>
-        </Link>
+    <nav className={styles.nav_main}>
+      <div className={styles.nav_left}>
+        <p>Content</p>
+        <p>Connector</p>
       </div>
-      {navLinks.map((link, index) => {
-        return (
-          <h3 key={index} className="buttonNav">
-            <Link href={link.path}>
-              <div>{link.name}</div>
-            </Link>
-          </h3>
-        );
-      })}
-      {currentUser ? (
-        <h3 className="login">
-          {userData ? `Logged in as ${userData.username}` : null}
-
-          <Logout currentUser={currentUser} />
-        </h3>
-      ) : (
-        <div className="loginReg">
-          <div>
-            <Link href="/login">
-              <h3 className="buttonNav">Login</h3>
-            </Link>
+      <div className={styles.nav_middle}>
+        <p>Find Projects</p>
+        <p>Find Creators</p>
+      </div>
+      <div className={styles.nav_right}>
+        {userData.avatar ? (
+          <div className={styles.nav_right_user_true}>
+            <span>M</span>
+            <img src={userData.avatar}></img>
+            <Logout />
           </div>
+        ) : (
           <div>
-            <Link href="/register">
-              <h3 className="buttonNav">Register</h3>
-            </Link>
+            <p>Login</p>
+            <p>Register</p>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </nav>
   );
 };
 

@@ -8,16 +8,24 @@ import RandomFreelanceProfile from '../../components/profiles/RandomFreelancePro
 import RandomBusinessProfile from '../../components/profiles/RandomBusinessProfile';
 
 // import { addDoc, updateDoc, collection, doc, setDoc, getDocs, query, collectionGroup, where } from 'firebase/firestore';
-import { addDoc, updateDoc, collection, doc, setDoc, getDocs, query, collectionGroup, where, getDoc  } from 'firebase/firestore';
+import {
+  addDoc,
+  updateDoc,
+  collection,
+  doc,
+  setDoc,
+  getDocs,
+  query,
+  collectionGroup,
+  where,
+  getDoc,
+} from 'firebase/firestore';
 import { AuthContext } from '../../firebase/context';
 // import { doc, getDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 
 import Modal from '../../components/Modal';
 // import { render } from 'react-dom/cjs/react-dom.production.min';
-
-
-
 
 const index = ({ users }) => {
   const { userData, currentUser } = useContext(AuthContext);
@@ -33,10 +41,7 @@ const index = ({ users }) => {
   console.log(users);
   const [profile, setProfile] = useState({});
 
-
   const [portfolio, setPortfolio] = useState([]);
-
-
 
   let allPortfolios = [];
 
@@ -65,8 +70,6 @@ const index = ({ users }) => {
     });
     setPortfolio(allPortfolios);
   };
-  
-
 
   useEffect(() => {
     getUserData(id);
@@ -95,8 +98,6 @@ const index = ({ users }) => {
 
   // console.log('sssssssssssssssssportfolios test grab', data);
 
-  console.log('profile', { portfolio });
-
   if (portfolio) {
     return (
       <div>
@@ -108,7 +109,7 @@ const index = ({ users }) => {
               description={profile.description}
               username={profile.username}
               portfolio={portfolio}
-            /> 
+            />
           </div>
         ) : profile.isBusiness && profile.uid !== currentUser ? (
           <div>
