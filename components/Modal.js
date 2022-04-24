@@ -29,7 +29,7 @@ function Modal() {
 
   const uploadPortfolioItem = async () => {
     setData({ ...data, uid: currentUser });
-    const imageRef = ref(storage, `portfolio/${currentUser}/image`);
+    const imageRef = ref(storage, `portfolio/${currentUser}/${title}`);
     await uploadString(imageRef, selectedFile, 'data_url').then(
       async (snapshot) => {
         const downloadURL = await getDownloadURL(imageRef);
