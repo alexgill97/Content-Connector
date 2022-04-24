@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       <Component {...pageProps} />
     </AuthProvider>
   );

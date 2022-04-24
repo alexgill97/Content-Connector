@@ -1,13 +1,19 @@
-import { useRouter } from 'next/router';
+import { useRouter, useEffect } from 'next/router';
 import { AuthContext } from '../../firebase/context';
 import React, { useState, useContext } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../firebase/clientApp';
+import Geocode from 'react-geocode';
 
 const RegisterBusiness = ({ setLoading, setStep }) => {
   const router = useRouter();
-
+  const [address1, setAddress] = useState('');
   const { currentUser, userData } = useContext(AuthContext);
+  Geocode.setLanguage('en');
+
+  Geocode.setRegion('na');
+
+  Geocode.setApiKey('AIzaSyDNT14Q8_dETR4hSxsE94Ipd2qP3rqV4dE');
 
   const [data, setData] = useState({
     isBusiness: true,
@@ -15,6 +21,8 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
     description: '',
     avatar: '',
     address: '',
+    lat: '',
+    lng: '',
     city: '',
     uid: currentUser,
     isOnline: true,
@@ -29,12 +37,26 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  
+  const test = (data) => {
+    Geocode.fromAddress(`${data}`).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setData({ ...data, lat: lat, lng: lng });
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
 
   const onRegisterSubmit = () => {
     console.log('data is', data);
     setLoading(true);
     setStep(3);
-    setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
+    test(data.address);
+    // setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
     registerUserDb(currentUser, data);
     setLoading(false);
   };

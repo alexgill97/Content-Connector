@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RegisterFreelancer from './RegisterFreelancer';
 import RegisterBusiness from './RegisterBusiness';
 import RegisterInitial from './RegisterInitial';
 import UploadAvatar from '../UploadAvatar';
+import Geocode from 'react-geocode';
+
+
 
 const Register = () => {
   const [step, setStep] = useState(1);
   const [isFreelancer, setIsFreelancer] = useState(false);
   const [loading, setLoading] = useState(false);
+  
+  
+  // Geocoding things
+
+
+
+
+
 
   return (
     <div>
