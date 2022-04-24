@@ -9,15 +9,15 @@ const project = [
 ];
 
 const PortfolioCarousel = ({ portfolio }) => {
-  console.log(project);
+  console.log(portfolio);
 
   return (
     <section className={styles.section}>
       <h3>PortfolioCarousel</h3>
 
       <div className={styles.card_container}>
-        {project.map((image) => (
-          <PortfolioCarouselItem image={image} />
+        {portfolio.map(({ image, description }) => (
+          <PortfolioCarouselItem image={image} description={description} />
         ))}
       </div>
     </section>

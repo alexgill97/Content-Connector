@@ -67,28 +67,6 @@ const index = ({ users }) => {
     getUserPortfolio(id);
   }, [id]);
 
-  // let { address, avatar, description, isBusiness, isOnline, uid, username } =
-  //   profile;
-
-  // let {description, isBusiness, isOnline, uid, username} =
-  //   portfolio;
-
-  // console.log('allPortfolios', allPortfolios);
-  // const { portfolio } = test
-
-  // const portfolioMap = portfolio.map((x) => (
-  //   <div>
-  //     <div>
-  //       <Image src={x.image} height={100} width={100}></Image>
-  //     </div>
-  //     <div>
-  //       <div>{x.description}</div>
-  //     </div>
-  //   </div>
-  // ));
-
-  // console.log('sssssssssssssssssportfolios test grab', data);
-
   if (portfolio) {
     return (
       <div>
@@ -132,8 +110,6 @@ const index = ({ users }) => {
             />
           </div>
         ) : null}
-        <h1>All users:</h1>
-        <ul>{userList}</ul>
       </div>
     );
   } else {
@@ -176,8 +152,6 @@ const index = ({ users }) => {
             />
           </div>
         ) : null}
-        )<h1>All users:</h1>
-        <ul>{userList}</ul>
       </div>
     );
   }
