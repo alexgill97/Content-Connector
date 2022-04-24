@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
-import styles from '../styles/Home.module.scss';
+// import styles from '../styles/Home.module.scss';
+import styles from '../styles/FindingFreelancers.module.scss';
 import UserList from '../components/UserList';
 import { collection, query, getDocs } from 'firebase/firestore';
 
