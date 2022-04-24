@@ -7,6 +7,7 @@
   padding-right: 2em;
   padding-left: 2em;
   font-weight: bold;
+
 }
 
 .description{
@@ -17,6 +18,7 @@
   justify-content: center;
   padding-right: 2em;
   padding-left: 2em;
+
 }
 
 .container {
@@ -26,6 +28,7 @@
   display: flex;
   padding: 1em;
   border: 2px black solid;
+  border-width: thin;
 }
 
 .container img {
@@ -38,9 +41,10 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding-right: 2em;
   padding-left: 2em;
+  height: fit-content;
 }
 
 .portfoliodiv {
@@ -59,7 +63,7 @@
   flex-direction: column;
   width: 5%;
 }
-
+/////////////////////////////////////////////////
 .a {
   position: relative;
   cursor: pointer;
@@ -67,6 +71,7 @@
   flex-direction: column;
   align-content: center;
   padding-bottom: 5px;
+  align-items: center;
 }
 
 .a::before {
@@ -164,7 +169,8 @@ $c_0: #d4d4d4;
   border-radius: 20% !important;
   width: 100% !important;
 }
-.portfoliopicturediv {
-  border-radius: 20% !important;
-  width: 100% !important;
-}
+// .portfoliopicturediv {
+//   border-radius: 20% !important;
+//   width: 100% !important;
+//   display: flex !important;
+// }

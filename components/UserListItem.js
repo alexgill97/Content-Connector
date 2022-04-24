@@ -28,16 +28,14 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
 
   if (portfolio) {
     const portfolioMap = portfolio.map((x) => (
-      <div>
         <div className={`${styles.portfoliodiv}`}>
-          <div>
+          <div className={`${styles.portfoliopicturediv}`}>
             <Image src={x.image} height={300} width={300} className={`${styles.portfoliopicture}`}></Image>
           </div>
           {/* <div className={`${styles.portfoliodesc}`}>
             <div>{x.description}</div>
           </div> */}
         </div>
-      </div>
     ));
     return (
       <div className={`${styles.b}`}>

@@ -42,7 +42,7 @@ const findingFreelancers = ({ users }) => {
 
 
   return (
-    <div className={`${styles.container}`}>
+    <div className={`${styles.container} `}>
       <div className={`${styles.aboutBody}`}>
         <div className={`col-sm-8`}>
           <h2>
