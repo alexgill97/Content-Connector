@@ -1,27 +1,37 @@
 .home_main {
-  // height: 70vh;
-  display: flex;
-  margin: 3rem;
+  height: 78vh;
+  
+  margin: 0 3rem;
   background-color: whitesmoke;
+}
+
+.home_body {
+  margin-top: 4rem;
+  display: flex;
+
 }
 
 .home_left {
   flex: 1;
   font-family: 'Poppins';
+  margin: 0;
   p {
     margin-bottom: 0%;
     font-weight: 300;
   }
-  h1 {
+  
+  h3 {
+    padding: 0;
+    margin: 0;
     margin: 0%;
   }
   .title {
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 1.75rem;
     width: 100%;
   }
   .body {
-    font-size: medium;
+    font-size: 0.75rem;
     width: 75%;
   }
   .button {
@@ -56,7 +66,7 @@
   }
   .bothButtons {
     display: flex;
-    margin-top: 1em !important;
+    margin-top: 1rem !important;
   }
 }
 
@@ -75,38 +85,42 @@
   }
 
   .float1 {
-    position: absolute;
+    position: relative;
     height: 20%;
     width: 10%;
-    left: 52%;
-    bottom: 55%;
-    display: flex;
+    left: 40%;
+    margin-top: 10%;
+
     flex-direction: column;
     font-family: 'Poppins';
     background-color: white !important;
     border-radius: 5px;
     box-shadow: -4px 9px 20px -2px rgba(0, 0, 0, 0.1);
-    padding: 0.4rem;
+    padding: 2.5rem 2.5rem;
   }
 
 
   .float2 {
-    position: absolute;
-    height: 10%;
-    width: 16%;
-    left: 50%;
-    bottom: 21%;
+    position: relative;
+    height: 50px;
+    width: 200px;
+    overflow: visible;
+    left: 15%;
+    margin-top: 57%;
     display: flex;
     flex-direction: column;
     font-family: 'Poppins';
     background-color: white !important;
     border-radius: 5px;
     box-shadow: -4px 9px 20px -2px rgba(0, 0, 0, 0.1);
-    padding: 0.4rem;
+
+    padding-left: 5rem;
     
     .float2_container {
       border-radius: 15px;
+      width: 100%;
       background-color: white !important;
+      overflow: hidden;
 
       h5 {
         background-color: white !important;
@@ -151,10 +165,12 @@
 // }
 
 .bodyPhoto {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-top: -1rem;
   img {
     width: 100%;
-    height: 90%;
-    object-fit: fill;
+    height: 100%;
   }
 }

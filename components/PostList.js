@@ -15,7 +15,7 @@ const PostList = ({ posts }) => {
 
   return (
     <div>
-      <h1>All Posts :</h1>
+      <h1>My Posts :</h1>
       <ul>{postList}</ul>
     </div>
   );

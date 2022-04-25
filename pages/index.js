@@ -12,57 +12,66 @@ export default function Home() {
   return (
     <div>
       <main className={styles.home_main}>
-        <section className={styles.home_left}>
-          <div>
-            <p>
-              In a World where <em>Content</em> is <strong>King</strong>, Find
-              your <strong>Knights.</strong>
-            </p>
-          </div>
-          <div className={styles.title}>
-            <h1>Connect Freelancers with Local Businesses.</h1>
-          </div>
-          <div className={styles.body}>
-            typesetting industry. Lorem Ipsum has been the industry's standard
-            dummy text ever since the 1500s
-          </div>
-          {currentUser ? (
+        <body className={styles.home_body}>
+          <section className={styles.home_left}>
             <div>
-              <h4>Where Business meets Creativity</h4>
+              <p>
+                In a World where <em>Content</em> is <strong>King</strong>, Find
+                your <strong>Knights.</strong>
+              </p>
             </div>
-          ) : (
-            <div className={`${styles.bothButtons}`}>
-              <Link href="/login">
-                <button className={`${styles.button} ${styles.button_login}`}>
-                  Login
-                </button>
-              </Link>
-              <Link href="/register">
-                <button
-                  className={`${styles.button} ${styles.button_register}`}
-                >
-                  Register
-                </button>
-              </Link>
+            <div className={styles.title}>
+              <h3>
+                Connect Freelancers <br />
+                with
+                <br /> Local Businesses.
+              </h3>
             </div>
-          )}
-        </section>
-        <section className={styles.home_right}>
-          <div className={styles.image_container}>
-            <div className={styles.float1}>test</div>
-            <div className={styles.float2}>
-              <div className={styles.float2_container}>
-                <h5>Business Satisfacton</h5>
-                <p>over last 30 days</p>
+            <div className={styles.body}>
+              typesetting industry. Lorem Ipsum has been the industry's standard
+              dummy text ever since the 1500s
+            </div>
+            {currentUser ? (
+              <div>
+                <h4>Where Business meets Creativity</h4>
               </div>
+            ) : (
+              <div className={`${styles.bothButtons}`}>
+                <Link href="/login">
+                  <button className={`${styles.button} ${styles.button_login}`}>
+                    Login
+                  </button>
+                </Link>
+                <Link href="/register">
+                  <button
+                    className={`${styles.button} ${styles.button_register}`}
+                  >
+                    Register
+                  </button>
+                </Link>
+              </div>
+            )}
+          </section>
+          <section className={styles.home_right}>
+            <div className={styles.image_container}>
+              <div className={styles.float1}>test</div>
+              <div className={styles.float2}>
+                <div className={styles.float2_container}>
+                  <h5>Business Satisfacton</h5>
+                  <p>over last 30 days</p>
+                </div>
+              </div>
+              <img
+                src={'LHL_final_homepage.png'}
+                className={`${styles.photo}`}
+              />
             </div>
-            <img src={'LHL_final_homepage.png'} className={`${styles.photo}`} />
-          </div>
-        </section>
+          </section>
+        </body>
+        {/* <div className={styles.bodyPhoto}>
+          <img src={'final_bottom.png'} />
+        </div> */}
       </main>
-      <div className={styles.bodyPhoto}>
-        <img src={'LHL_final_bottom.png'} />
-      </div>
     </div>
   );
 }

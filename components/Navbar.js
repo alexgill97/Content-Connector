@@ -8,17 +8,6 @@ import Image from 'next/image';
 
 const Navbar = () => {
   const { userData, currentUser } = useContext(AuthContext);
-  const [isSelected, setIsSelected] = useState(false)
-  const [isSelected1, setIsSelected1] = useState(false)
-  const [isSelected2, setIsSelected2] = useState(false)
-  const [isSelected3, setIsSelected3] = useState(false)
-  const [isSelected4, setIsSelected4] = useState(false)
-
-
-
-
-
-
   const navLinks = [
     { name: 'Home', path: '/' },
     {
