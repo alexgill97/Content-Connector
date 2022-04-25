@@ -12,6 +12,7 @@ import {
 import { AuthContext } from '../firebase/context';
 
 const PostListItem = ({ postTitle, description, userid, address }) => {
+  
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
       query(
@@ -26,7 +27,6 @@ const PostListItem = ({ postTitle, description, userid, address }) => {
       })
     })
   };
-
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.userListBorder}`}>

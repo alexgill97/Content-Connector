@@ -1,10 +1,9 @@
-import styles from '../../styles/Profile.module.scss';
+import styles from '../../styles/business_profile.module.scss';
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { firestore } from '../../firebase/clientApp';
 import Image from 'next/image';
-
 
 export default function otherBusinessProfile({
   avatar,
@@ -25,25 +24,25 @@ export default function otherBusinessProfile({
   ));
 
   return (
-    <div>
-      <div className={`${styles.container} ${styles.bg} text-center`}>
-        <img src={avatar} className={`${styles.makeImageCircular}`}></img>
-        <h3>{username}</h3>
-        <h3>Business Address : {address} </h3>
-      </div>
-      <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>Description</h3>
-        <p>{description} </p>
-      </div>
-      <div>
-        <div>
-          <div>{portfolioMap}</div>
+    <main className={styles.profile_main}>
+      <div className={styles.profile_left}>
+        <div className={styles.avatar}>
+          <img src={avatar} />
+          <h3>{username}</h3>
         </div>
+        <div className={styles.description}>
+          <h5>About:</h5>
+          <p>{description}</p>
+        </div>
+        <div></div>
       </div>
-      <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>My Reviews</h3>
-        <p>Lorem ipsum..</p>
+      <div className={styles.profile_right}>
+        <div className={styles.profile_right_top}>
+          <div className={styles.top_users}>Top Users In Your Area:</div>
+          <div className={styles.profile_projects}>Your Projects</div>
+        </div>
+        <div className={styles.profile_messages}>Messages</div>
       </div>
-    </div>
+    </main>
   );
 }
