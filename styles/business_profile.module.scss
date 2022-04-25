@@ -1,0 +1,96 @@
+.profile_main {
+  margin-top: 10vh;
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile_left, .profile_right {
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+}
+
+.profile_left {
+  justify-content: space-between;
+  width: 20vw;
+  height: 70vh;
+  
+  .avatar {
+    width: 25%;
+    height: 7rem;
+    width: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  h3 {
+    border-bottom: 1px solid black;
+  }
+  .description {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h5 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+
+  }
+}
+
+.profile_right {
+  width: 65vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+
+
+  .profile_right_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5vh;
+
+    .top_users {
+      background-color: white;
+      height: 35vh;
+      width: 18vw;
+      border: 1px solid black;
+      margin-right: 2.5vw;
+      border-radius: 20px;
+    }
+    .profile_projects {
+      background-color: white;
+      height: 35vh;
+      width: 42vw;
+      border: 1px solid black;
+      margin-left: 2.5vw;
+      border-radius: 20px;
+    }
+  }
+
+  .profile_messages {
+    background-color: white;
+    width: 65vw;
+    height: 35vh;
+    border: 1px solid black;  
+    border-radius: 20px;
+    margin-top: 2.5vh;
+  }
+
+}
