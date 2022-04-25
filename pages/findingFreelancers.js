@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import styles from '../styles/FindingFreelancers.module.scss';
 import UserList from '../components/UserList';
-import PortfolioListItem from '/'
 import { collection, query, getDocs } from 'firebase/firestore';
 
 import { doc, getDoc, where, collectionGroup } from 'firebase/firestore';
@@ -12,8 +11,6 @@ import { AuthContext } from '../firebase/context';
 import { FirebaseError } from 'firebase/app';
 
 const findingFreelancers = ({ users }) => {
-
-  console.log('findingasdasdada', users);
   const { currentUser, userData } = useContext(AuthContext);
 
   const [profile, setProfile] = useState({});
@@ -38,8 +35,6 @@ const findingFreelancers = ({ users }) => {
   useEffect(() => {
     getUserPortfolio(currentUser);
   }, [currentUser]);
-  console.log('findingasdasdada', users);
-
 
   return (
     <div className={`${styles.container} `}>
@@ -73,7 +68,6 @@ export async function getServerSideProps() {
   querySnapshot.forEach((doc) => {
     allUsers.push(doc.data());
   });
-  console.log('allUsers', allUsers);
   return {
     props: {
       users: allUsers,

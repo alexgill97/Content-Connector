@@ -15,7 +15,6 @@ import { firestore } from '../firebase/clientApp';
 
 export default function Home() {
   const { currentUser, userData } = useContext(AuthContext);
-  console.log('userData', userData);
 
   return (
     <div>
@@ -72,4 +71,3 @@ export default function Home() {
     </div>
   );
 }
-

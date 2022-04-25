@@ -9,11 +9,11 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
   const router = useRouter();
   const { currentUser, userData } = useContext(AuthContext);
   Geocode.setLanguage('en');
-  
+
   Geocode.setRegion('na');
-  
+
   Geocode.setApiKey('AIzaSyDNT14Q8_dETR4hSxsE94Ipd2qP3rqV4dE');
-  
+
   const [data, setData] = useState({
     isBusiness: true,
     username: '',
@@ -26,7 +26,7 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
     uid: currentUser,
     isOnline: true,
   });
-  
+
   const registerUserDb = async (userId, data) => {
     await setDoc(doc(firestore, 'users', userId), {
       ...data,
@@ -36,31 +36,24 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  
-  
-  
+
   const onRegisterSubmit = () => {
     setLoading(true);
     setStep(3);
     Geocode.fromAddress(data.address).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        console.log(`the long is ${lng} and the lat is ${lat}` )
-        // setData({ ...data, lat: lat, lng: lng });
-        const formData ={...data, lat: lat, lng: lng}
-        console.log(formData)
+        const formData = { ...data, lat: lat, lng: lng };
         registerUserDb(currentUser, formData);
       },
       (error) => {
         console.error(error);
       }
-      );
-      // setData({ ...data, isBusiness: true, isOnline: true, avatar: '' });
-      setLoading(false);
-    };
-    
-    // console.log('data is', data);
-    return (
+    );
+    setLoading(false);
+  };
+
+  return (
     <section>
       <h1>{data.uid}</h1>
       {data.username}
@@ -101,7 +94,6 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
           />
         </div>
         <button onClick={onRegisterSubmit}>register</button>
-        <button onClick={()=>(console.log(data))}>FF</button>
       </form>
     </section>
   );

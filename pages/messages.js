@@ -19,7 +19,7 @@ import styles from '../styles/Message.module.scss';
 import MessageForm from '../components/MessageForm';
 import Message from '../components/Message';
 import User from '../components/User';
-import Link from 'next/link'
+import Link from 'next/link';
 const Messages = () => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState('');
@@ -46,7 +46,6 @@ const Messages = () => {
 
   const selectUser = async (user) => {
     setChat(user);
-    console.log(user);
 
     const user2 = user.uid;
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
@@ -70,8 +69,6 @@ const Messages = () => {
       await updateDoc(doc(firestore, 'lastMsg', id), { unread: false });
     }
   };
-
-  console.log(msgs);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

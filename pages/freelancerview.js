@@ -47,7 +47,6 @@ export async function getServerSideProps() {
   query.forEach((doc) => {
     searchResults.push(doc.data());
   });
-  console.log('searchResults', searchResults);
   return {
     props: {
       searchResults,

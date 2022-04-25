@@ -38,7 +38,6 @@ const index = ({ users }) => {
 
   const router = useRouter();
   const { id } = router.query;
-  console.log(users);
   const [profile, setProfile] = useState({});
 
   const [portfolio, setPortfolio] = useState([]);
@@ -164,10 +163,8 @@ export async function getServerSideProps() {
   );
   let allUsers = [];
   querySnapshot.forEach((doc) => {
-    // console.log(' => ', doc.data());
     allUsers.push(doc.data());
   });
-  console.log('allUsers', allUsers);
   return {
     props: {
       users: allUsers,

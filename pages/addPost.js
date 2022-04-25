@@ -11,12 +11,6 @@ const addPost = ({ posts }) => {
   const router = useRouter();
 
   const [data, setData] = useState({
-    // userid: currentUser,
-    // username: userData.username,
-    // lat: userData.lat,
-    // lng: userData.lng,
-    // address: userData.address,
-    // avatar: userData.avatar,
     postTitle: '',
     description: '',
   });
@@ -29,7 +23,6 @@ const addPost = ({ posts }) => {
 
   const onRegisterSubmit = (e) => {
     e.preventDefault();
-    // console.log('data is', { userData });
     const formData = {
       ...data,
       userid: currentUser,
@@ -38,18 +31,11 @@ const addPost = ({ posts }) => {
       lng: userData.lng,
       address: userData.address,
       avatar: userData.avatar,
-    }
-    console.log(formData, "AAESEDFASDFSA")
-    createPost(currentUser, formData).then(()=>(
-      window.location.reload()
-    ))
-    // router.push("/addPost")
+    };
+    createPost(currentUser, formData).then(() => window.location.reload());
   };
-  
-  // console.log(currentUser, userData, 'asfdafaf');
 
   if (userData.uid === currentUser && userData.isBusiness) {
-    // console.log(data);
     return (
       <div>
         <section>
@@ -80,8 +66,6 @@ const addPost = ({ posts }) => {
                   setData({
                     ...data,
                     description: e.target.value,
-                    // postAddress: `${userData.address}`,
-                    // postAvatar: `${userData.avatar}`,
                   })
                 }
               />
@@ -105,18 +89,10 @@ export async function getServerSideProps() {
   let allPosts = [];
   querySnapshot.forEach((doc) => {
     allPosts.push(doc.data());
-
-    // console.log(' => ', doc.data());
   });
-  console.log('allPosts', allPosts);
   return {
     props: {
       posts: allPosts,
     },
   };
 }
-
-// // const msgsRef = collection(firestore, 'messages', id, 'chat');
-//     const q = query(msgsRef, orderBy('createdAt', 'asc'));
-
-//     onSnapshot(q, (querySnapshot) => {
