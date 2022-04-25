@@ -60,12 +60,8 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <div className={styles.diagonal_box}>
-        <div className={styles.diagonal_box_bottom}>
-          <div className={styles.content}>
-            <div></div>
-          </div>
-        </div>
+      <div className={styles.bodyPhoto}>
+        <img src={'LHL_final_bottom.png'} />
       </div>
     </div>
   );
