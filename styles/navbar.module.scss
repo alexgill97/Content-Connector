@@ -7,9 +7,12 @@
   background-color: white;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Poppins';
+  font-size: large;
 }
 
 .nav_left {
+  cursor: pointer;
   margin: 0;
   padding: 0;
   padding-left: 1rem;
@@ -22,6 +25,7 @@
 }
 
 .nav_middle {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +41,7 @@
   justify-content: center;
 
   .nav_right_user_true {
+    cursor: pointer;
     display: flex;
     align-items: center;
     margin-right: 1rem;
@@ -44,9 +49,83 @@
       height: 3rem;
       width: 3rem;
       object-fit: cover;
-      border-radius: 50%; 
+      border-radius: 50%;
+      margin-right: 1em;
+    }
+    span {
+      margin-right: 0.5em;
     }
   }
-
-  
 }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+.a {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-bottom: 0px;
+  align-items: center;
+}
+
+.a::before {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #1155cc;
+  bottom: 0;
+  left: 8;
+  top:1.5em;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.logout {
+  font-size: medium;
+  font-family: 'Poppins';
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+// @mixin button-bg($bg) {
+//   background: $bg;
+
+//   .btn {
+//     color: white;
+//     text-decoration: none;
+//     padding: 5px 10px;
+//     border-radius: 3px;
+//     font-family: 'Poiret One', cursive;
+//     font-size: 2em;
+//     &:hover {
+//       background: darken($bg, 8%);
+//       transition: all 0.3s ease;
+//     }
+//     &:active {
+//       background: darken($bg, 25%);
+//     }
+//   }
+// }
+
+.nav_right_signin {
+  cursor: pointer;
+  display: flex;
+  margin-right: 1em;
+  p {
+    padding-right: 1em;
+  }
+}
+
