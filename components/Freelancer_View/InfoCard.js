@@ -10,9 +10,6 @@ export const InfoCard = ({
   postTitle,
   description,
   address,
-  star,
-  price,
-  total,
   styles,
 }) => {
   return (

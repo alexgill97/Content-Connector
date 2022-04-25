@@ -41,14 +41,14 @@ const MapComponent = ({ searchResults }) => {
               </p>
             </a>
           </Marker>
-          {selectedLocation.long === result.long ? (
+          {selectedLocation.lng === result.lng ? (
             <Popup
               onClose={() => setSelectedLocation({})}
               closeOnClick={false}
               latitude={result.lat}
-              longitude={result.long}
+              longitude={result.lng}
             >
-              <h1>{result.title}</h1>
+              <h1>{result.postTitle}</h1>
             </Popup>
           ) : (
             false

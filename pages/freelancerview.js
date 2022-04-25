@@ -31,7 +31,7 @@ const freelancerview = ({ searchResults }) => {
         </section>
         <section className={styles.map_section}>
           <div className={styles.map_container}>
-            {/* <MapComponent searchResults={searchResults} /> */}
+            <MapComponent searchResults={searchResults} />
           </div>
         </section>
       </main>

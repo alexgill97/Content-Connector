@@ -48,7 +48,7 @@ const Navbar = () => {
         <p>Find Creators</p>
       </div>
       <div className={styles.nav_right}>
-        {userData.avatar ? (
+        {(currentUser && userData) ? (
           <div className={styles.nav_right_user_true}>
             <span>M</span>
             <img src={userData.avatar}></img>

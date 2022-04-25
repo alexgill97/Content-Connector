@@ -12,8 +12,8 @@ const Logout = ({ currentUser }) => {
       isOnline: false,
     });
     await signOut(auth).then(() => {
-      router.push('/login');
-    });
+      window.location.reload()
+    })
   };
   return (
     <button onClick={onLogoutSubmit} className="button">
