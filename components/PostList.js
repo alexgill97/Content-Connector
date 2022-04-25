@@ -3,8 +3,6 @@ import PostListItem from './PostListItem';
 import Delete from './Delete';
 
 const PostList = ({ posts }) => {
-  console.log(posts, 'teasdfasfdsfsdfsdfsdfsdf');
-
   const postList = posts.map((x) => (
     <PostListItem
       key={x.postTitle}
@@ -12,10 +10,9 @@ const PostList = ({ posts }) => {
       uid={x.uid}
       description={x.description}
       {...x}
-    >
-    </PostListItem>
+    ></PostListItem>
   ));
-  console.log(postList);
+
   return (
     <div>
       <h1>All Posts :</h1>

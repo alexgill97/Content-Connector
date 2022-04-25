@@ -14,7 +14,6 @@ const RegisterInitial = ({ setStep, setIsFreelancer, loading, setLoading }) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((cred) => {
-        console.log(cred);
         setLoading(false);
         setStep(2);
       })

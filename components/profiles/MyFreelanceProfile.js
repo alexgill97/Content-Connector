@@ -12,7 +12,6 @@ export default function freelanceProfile({
   portfolio,
 }) {
   const { userData } = useContext(AuthContext);
-  console.log('photo', portfolio);
 
   const portfolioMap = portfolio.map((x) => (
     <div>

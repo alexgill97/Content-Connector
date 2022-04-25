@@ -31,7 +31,6 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
   };
 
   const onRegisterSubmit = () => {
-    console.log('data is', data);
     setLoading(true);
     setStep(3);
     setData({ ...data, isBusiness: false, isOnline: true, avatar: '' });
@@ -71,13 +70,13 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
             onChange={(e) => setData({ ...data, address: e.target.value })}
           />
           <div className="input_container">
-          <label>City: </label>
-          <input
-            type="city"
-            name="city"
-            onChange={(e) => setData({ ...data, city: e.target.value })}
-          />
-        </div>
+            <label>City: </label>
+            <input
+              type="city"
+              name="city"
+              onChange={(e) => setData({ ...data, city: e.target.value })}
+            />
+          </div>
         </div>
         <button onClick={onRegisterSubmit}>register</button>
       </form>

@@ -7,7 +7,7 @@ const MapComponent = ({ searchResults }) => {
   const [selectedLocation, setSelectedLocation] = useState({});
 
   const coordinates = searchResults.map((result) => ({
-    longitude: result.long,
+    longitude: result.lng,
     latitude: result.lat,
   }));
 
@@ -30,7 +30,7 @@ const MapComponent = ({ searchResults }) => {
     >
       {searchResults.map((result) => (
         <div>
-          <Marker latitude={result.lat} longitude={result.long}>
+          <Marker latitude={result.lat} longitude={result.lng}>
             <a
               onClick={() => {
                 setSelectedLocation(result);

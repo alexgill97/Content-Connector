@@ -37,7 +37,6 @@ const Navbar = () => {
     },
   ];
 
-  console.log('userData', userData);
   return (
     <nav className={styles.nav_main}>
       <div className={styles.nav_left}>

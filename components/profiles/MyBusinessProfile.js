@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../firebase/context';
 import Image from 'next/image';
 
-
 export default function businessProfile({
   avatar,
   username,
@@ -13,8 +12,6 @@ export default function businessProfile({
   portfolioimage,
 }) {
   const { userData } = useContext(AuthContext);
-
-  console.log('photo', portfolio);
 
   const portfolioMap = portfolio.map((x) => (
     <div>
@@ -27,14 +24,13 @@ export default function businessProfile({
     </div>
   ));
 
-
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
         <img src={`${avatar}`} className={`${styles.makeImageCircular}`}></img>
         <h3>{username}</h3>
         <h3>
-          Business ddddddAddress : {address} <button>Edit Address</button>
+          Business Address : {address} <button>Edit Address</button>
         </h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
