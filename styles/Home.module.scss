@@ -1,16 +1,16 @@
 .bg {
-  background-color: #f7f7f7;
+  background-color: #ffffff;
 }
 .container {
-  border-top: 2px solid black;
+  // border-top: 2px solid black;
   padding: 60px 50px;
   display: inline-flex;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   position: relative;
 }
 .jumbotron {
   background-color: #f4511e;
-  color: #fff;
+  color: rgb(255, 255, 255);
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
 }
@@ -33,7 +33,7 @@
   flex-direction: column;
   top: 27em;
   position: absolute;
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 .titleCenter {
   display: flex;
