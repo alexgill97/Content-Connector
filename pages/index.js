@@ -1,74 +1,72 @@
 import styles from '../styles/Home.module.scss';
 import Link from 'next/link';
 import UserList from '../components/UserList';
+// import HomeImage from '../LHL_final homepage.png'
 
 import React, { useContext } from 'react';
-
 import { AuthContext } from '../firebase/context';
-
-import { collection, query, getDocs } from 'firebase/firestore';
-
-import { doc, getDoc, where } from 'firebase/firestore';
-import { useRouter } from 'next/router';
-
-import { firestore } from '../firebase/clientApp';
 
 export default function Home() {
   const { currentUser, userData } = useContext(AuthContext);
 
   return (
     <div>
-      <main>
-        <div>
-          <div className={`${styles.titleCenter}`}>
-            {/* <img src="/Photography1.png" className={`${styles.photo}`} /> */}
+      <main className={styles.home_main}>
+        <section className={styles.home_left}>
+          <div>
+            <p>
+              In a World where <em>Content</em> is <strong>King</strong>, Find
+              your <strong>Knights.</strong>
+            </p>
+          </div>
+          <div className={styles.title}>
+            <h1>Connect Freelancers with Local Businesses.</h1>
+          </div>
+          <div className={styles.body}>
+            typesetting industry. Lorem Ipsum has been the industry's standard
+            dummy text ever since the 1500s
+          </div>
+          {currentUser ? (
+            <div>
+              <h4>Where Business meets Creativity</h4>
+            </div>
+          ) : (
+            <div className={`${styles.bothButtons}`}>
+              <Link href="/login">
+                <button className={`${styles.button} ${styles.button_login}`}>
+                  Login
+                </button>
+              </Link>
+              <Link href="/register">
+                <button
+                  className={`${styles.button} ${styles.button_register}`}
+                >
+                  Register
+                </button>
+              </Link>
+            </div>
+          )}
+        </section>
+        <section className={styles.home_right}>
+          <div className={styles.image_container}>
+            <div className={styles.float1}>test</div>
+            <div className={styles.float2}>
+              <div className={styles.float2_container}>
+                <h5>Business Satisfacton</h5>
+                <p>over last 30 days</p>
+              </div>
+            </div>
+            <img src={'LHL_final_homepage.png'} className={`${styles.photo}`} />
+          </div>
+        </section>
+      </main>
+      <div className={styles.diagonal_box}>
+        <div className={styles.diagonal_box_bottom}>
+          <div className={styles.content}>
+            <div></div>
           </div>
         </div>
-        <div className={`${styles.container}`}>
-          <div className={`${styles.aboutBody}`}/>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
-
-  // {currentUser ? (
-    //   <div className={`${styles.title} ${styles.titleCenter}`}>
-    //     <h1 className="login">Content Connector</h1>
-    //     <h4>Where Business meets Creativity</h4>
-    //   </div>
-  // ) : (
-    //   <div className={`${styles.title}`}>
-    //     <h1 className={`${styles.titleCenter}`}>Are you...</h1>
-    //     <div className={`${styles.buttonCenter}`}>
-    //       <Link href="/login">
-    //         <button className={`${styles.button}`}>
-    //           An existing user
-    //         </button>
-    //       </Link>
-    //       <Link href="/register">
-    //         <button className={`${styles.button}`}>A new user</button>
-    //       </Link>
-    //     </div>
-    //   </div>
-    // )}
-          //   <div className={`col-sm-8`}>
-          //     <h2>
-          //       <strong>About Company Page</strong>
-          //     </h2>
-          //     <h4>
-          //       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          //       eiusmod
-          //     </h4>
-          //     <p>
-          //       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          //       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-          //       enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          //       nisi ut aliquip ex
-          //     </p>
-          //   </div>
-          //   <img
-          //     src="/ConnectingPeopleAbout.png"
-          //     className={`${styles.picture1}`}
-          //     />
-          // </div>
