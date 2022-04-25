@@ -34,6 +34,7 @@ function Modal() {
       async (snapshot) => {
         const downloadURL = await getDownloadURL(imageRef);
         await setDoc(doc(firestore, 'users', currentUser, 'portfolio', title), {
+          title: title,
           image: downloadURL,
           description: description,
           uid: currentUser,

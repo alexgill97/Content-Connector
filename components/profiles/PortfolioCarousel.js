@@ -8,8 +8,8 @@ const PortfolioCarousel = ({ portfolio }) => {
       <h3>PortfolioCarousel</h3>
 
       <div className={styles.card_container}>
-        {portfolio.map(({ image, description }) => (
-          <PortfolioCarouselItem image={image} description={description} />
+        {portfolio.map(({ image, description, uid, title }) => (
+          <PortfolioCarouselItem image={image} description={description} uid={uid} title={title} />
         ))}
       </div>
     </section>

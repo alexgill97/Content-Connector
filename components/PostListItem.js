@@ -1,34 +1,40 @@
 import Link from 'next/link';
 import styles from '../styles/UserList.module.scss';
-import React from 'react';
 import Delete from './Delete';
-import { deleteDoc } from 'firebase/firestore';
-
+import React, { useContext } from 'react';
+import { auth, firestore } from '../firebase/clientApp';
+import {
+  doc,
+  deleteDoc,
+  where,
+  getDocs, query, collection
+} from 'firebase/firestore';
+import { AuthContext } from '../firebase/context';
 
 const PostListItem = ({ postTitle, description, userid, address }) => {
-
-  console.log(userid)
-  const deleteForm = document.querySelector('.delete')
-  deleteForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-
-    const docRef = doc(db, 'posts', deleteForm.userid)
-    deleteDoc(docRef)
-    .then(()=>)
-  })
-
-
+  const asyncFunction = async () => {
+    const querySnapshot = await getDocs(
+      query(
+        collection(firestore, 'posts'),
+        where('userid', '==', userid),
+        where('postTitle', '==', postTitle)
+      )
+    );
+    querySnapshot.forEach((doc) => {
+      deleteDoc(doc.ref).then(()=>{
+        window.location.reload()
+      })
+    })
+  };
 
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.userListBorder}`}>
-        <div className={`${styles.username}`}>
-          {postTitle}
-        </div>
+        <div className={`${styles.username}`}>{postTitle}</div>
       </div>
       <div className={`${styles.description}`}> {description} </div>
       <div>{address}</div>
-      <Delete postTitle={postTitle}/>
+      <button onClick={asyncFunction}> Delete </button>
     </div>
   );
 };
