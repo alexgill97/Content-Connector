@@ -1,6 +1,7 @@
 import React from 'react';
 import PostListItem from './PostListItem';
 import Delete from './Delete';
+import styles from '../styles/PostList.module.scss';
 
 const PostList = ({ posts }) => {
   const postList = posts.map((x) => (
@@ -14,8 +15,10 @@ const PostList = ({ posts }) => {
   ));
 
   return (
-    <div>
-      <h1>My Posts :</h1>
+    <div className={styles.card_container}>
+      <div>
+        <h1>My Posts:</h1>
+      </div>
       <ul>{postList}</ul>
     </div>
   );
