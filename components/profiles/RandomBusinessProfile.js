@@ -1,9 +1,17 @@
 import styles from '../../styles/business_profile.module.scss';
 import React, { useState, useEffect } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
-import { firestore } from '../../firebase/clientApp';
 import Image from 'next/image';
+import {
+  collection,
+  query,
+  where,
+  addDoc,
+  getDocs,
+  doc,
+} from 'firebase/firestore';
+import { firestore } from '../../firebase/clientApp';
+
 
 export default function otherBusinessProfile({
   avatar,
@@ -12,10 +20,33 @@ export default function otherBusinessProfile({
   address,
   portfolio,
 }) {
-  const portfolioMap = portfolio.map((x) => (
+  const [posts, setPosts] = useState([])
+  
+  let allPosts = [];
+  const asyncFunction = async () => {
+    const querySnapshot = await getDocs(
+      query(
+        collection(firestore, 'posts'),
+        where('address', '==', address)
+      )
+    );
+    querySnapshot.forEach((doc) => {
+      allPosts.push(doc.data());
+    });
+    console.log(allPosts);
+    setPosts(allPosts)
+  };
+  
+  useEffect(() => {
+    asyncFunction().then(()=>(
+      portfolioMap
+    ));
+  }, []);
+
+  const portfolioMap = posts.map((x) => (
     <div>
       <div>
-        <Image src={x.image} height={100} width={100}></Image>
+      <div>{x.postTitle}</div>
       </div>
       <div>
         <div>{x.description}</div>
@@ -31,17 +62,20 @@ export default function otherBusinessProfile({
           <h3>{username}</h3>
         </div>
         <div className={styles.description}>
-          <h5>About:</h5>
+          <h2>About:</h2>
           <p>{description}</p>
         </div>
         <div></div>
       </div>
       <div className={styles.profile_right}>
         <div className={styles.profile_right_top}>
-          <div className={styles.top_users}>Top Users In Your Area:</div>
-          <div className={styles.profile_projects}>Your Projects</div>
+          <div className={styles.top_users}>Their information</div>
+          <div className={styles.profile_projects}>Top Users In Their Area:</div>
         </div>
-        <div className={styles.profile_messages}>Messages</div>
+        <div className={styles.profile_messages}>Their Posts:</div>
+        <div>
+          {portfolioMap}
+        </div>
       </div>
     </main>
   );

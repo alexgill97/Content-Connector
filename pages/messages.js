@@ -17,7 +17,7 @@ import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import styles from '../styles/Message.module.scss';
 
 import MessageForm from '../components/MessageForm';
-import Message from '../components/Message';
+import MessageItem from '../components/MessageItem';
 import User from '../components/User';
 import Link from 'next/link';
 const Messages = () => {
@@ -133,7 +133,7 @@ const Messages = () => {
               <div className={`${styles.messages}`}>
                 {msgs.length
                   ? msgs.map((msg, i) => (
-                      <Message key={i} msg={msg} user1={user1} />
+                      <MessageItem key={i} msg={msg} user1={user1} />
                     ))
                   : null}
               </div>

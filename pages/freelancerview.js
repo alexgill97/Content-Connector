@@ -5,6 +5,8 @@ import { InfoCard } from '../components/Freelancer_View/InfoCard';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../firebase/clientApp';
 
+import Message from '../components/Message';
+
 const freelancerview = ({ searchResults }) => {
   return (
     <div className={styles.freelancerview}>
@@ -12,19 +14,23 @@ const freelancerview = ({ searchResults }) => {
         <section className={styles.project_list}>
           <h1>Freelancer View</h1>
           <div>
-            {searchResults.map(({ avatar, description, postTitle, uid }) => {
-              const image = avatar
-                ? avatar
+            {searchResults.map((result) => {
+              const image = result.avatar
+                ? result.avatar
                 : 'https://firebasestorage.googleapis.com/v0/b/content-connector-fb9f1.appspot.com/o/avatar%2FrveDkWrIOgTZ0D2Kzcq9fRYTEya2%2Fimage?alt=media&token=086ee938-6d45-49d5-915a-378965db7911';
-              return (
-                <InfoCard
-                  key={uid}
-                  uid={uid}
-                  styles={styles}
-                  avatar={image}
-                  postTitle={postTitle}
-                  description={description}
-                />
+                return (
+                
+                <>
+                  <InfoCard
+                    key={result.uid}
+                    uid={result.uid}
+                    styles={styles}
+                    avatar={image}
+                    postTitle={result.postTitle}
+                    description={result.description}
+                  />
+                  <Message requestedUser={result} />
+                </>
               );
             })}
           </div>

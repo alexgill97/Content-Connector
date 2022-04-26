@@ -11,13 +11,13 @@ import {
 } from 'firebase/firestore';
 import { AuthContext } from '../firebase/context';
 
-const PostListItem = ({ postTitle, description, userid, address }) => {
+const PostListItem = ({ postTitle, description, uid, address }) => {
   
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
       query(
         collection(firestore, 'posts'),
-        where('userid', '==', userid),
+        where('uid', '==', uid),
         where('postTitle', '==', postTitle)
       )
     );

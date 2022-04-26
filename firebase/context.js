@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({
     userProviderId: '',
-    userId: '',
+    uid: '',
     userName: '',
     userEmail: '',
     userPhotoLink: '',

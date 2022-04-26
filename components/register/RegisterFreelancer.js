@@ -20,8 +20,8 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
     isOnline: true,
   });
 
-  const registerUserDb = async (userId, data) => {
-    await setDoc(doc(firestore, 'users', userId), {
+  const registerUserDb = async (uid, data) => {
+    await setDoc(doc(firestore, 'users', uid), {
       ...data,
     });
   };

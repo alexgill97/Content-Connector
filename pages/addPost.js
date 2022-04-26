@@ -15,7 +15,7 @@ const addPost = ({ posts }) => {
     description: '',
   });
 
-  const createPost = async (userId, data) => {
+  const createPost = async (uid, data) => {
     await addDoc(collection(firestore, 'posts'), {
       ...data,
     });
@@ -25,7 +25,7 @@ const addPost = ({ posts }) => {
     e.preventDefault();
     const formData = {
       ...data,
-      userid: currentUser,
+      uid: currentUser,
       username: userData.username,
       lat: userData.lat,
       lng: userData.lng,

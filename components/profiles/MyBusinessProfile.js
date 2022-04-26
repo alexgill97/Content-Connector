@@ -28,7 +28,7 @@ export default function businessProfile({
   });
   const [posts, setPosts] = useState([])
 
-  const createPost = async (userId, data) => {
+  const createPost = async (uid, data) => {
     await addDoc(collection(firestore, 'posts'), {
       ...data,
     });
@@ -38,7 +38,7 @@ export default function businessProfile({
     e.preventDefault();
     const formData = {
       ...data,
-      userid: currentUser,
+      uid: currentUser,
       username: userData.username,
       lat: userData.lat,
       lng: userData.lng,
@@ -63,7 +63,7 @@ export default function businessProfile({
     const querySnapshot = await getDocs(
       query(
         collection(firestore, 'posts'),
-        where('userid', '==', currentUser)
+        where('uid', '==', currentUser)
       )
     );
     let allPosts = [];

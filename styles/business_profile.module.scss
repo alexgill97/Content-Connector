@@ -5,38 +5,45 @@
   justify-content: space-around;
 }
 
-.profile_left, .profile_right {
+.profile_left,
+.profile_right {
   background-color: white;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-
 }
 
 .profile_left {
   justify-content: space-between;
-  width: 20vw;
+  width: 30vw;
   height: 70vh;
-  
+
   .avatar {
-    width: 25%;
+    width: 100% !important;
+    height: 40% !important;
     height: 7rem;
     width: 7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    max-height: fit-content;
+    max-width: fit-content;
   }
   img {
     border-radius: 50%;
     object-fit: cover;
     height: 100%;
     width: 100%;
+    max-height: fit-content;
+    max-width: fit-content;
   }
   h3 {
     border-bottom: 1px solid black;
+    font-family: 'Poppins' !important;
+    font-size: large !important;
+    text-transform: uppercase;
   }
   .description {
     margin: 0;
@@ -44,13 +51,16 @@
     flex-direction: column;
     align-items: center;
 
-    h5 {
+    h2 {
       margin: 0;
+      font-family: 'Poppins' !important;
+      font-size: large !important;
     }
     p {
       margin: 0;
+      font-family: 'Poppins' !important;
+      font-size: large !important;
     }
-
   }
 }
 
@@ -59,7 +69,6 @@
   height: 70vh;
   display: flex;
   flex-direction: column;
-
 
   .profile_right_top {
     display: flex;
@@ -88,9 +97,8 @@
     background-color: white;
     width: 65vw;
     height: 35vh;
-    border: 1px solid black;  
+    border: 1px solid black;
     border-radius: 20px;
     margin-top: 2.5vh;
   }
-
 }
