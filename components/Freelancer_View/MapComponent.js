@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MapGL, { Marker, Popup } from 'react-map-gl';
 import { getCenter } from 'geolib';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import styles from '../../styles/MapComponent.module.scss';
 
 const MapComponent = ({ searchResults }) => {
   const [selectedLocation, setSelectedLocation] = useState({});
@@ -30,14 +31,16 @@ const MapComponent = ({ searchResults }) => {
     >
       {searchResults.map((result) => (
         <div>
-          <Marker latitude={result.lat} longitude={result.lng}>
-            <a
-              onClick={() => {
-                setSelectedLocation(result);
-              }}
-            >
+          <Marker
+            latitude={result.lat}
+            longitude={result.lng}
+            onClick={() => {
+              setSelectedLocation(result);
+            }}
+          >
+            <a>
               <p role="img" aria-label="push-pin">
-                👇
+                <span class="material-symbols-outlined">arrow_downward</span>
               </p>
             </a>
           </Marker>
@@ -47,8 +50,16 @@ const MapComponent = ({ searchResults }) => {
               closeOnClick={false}
               latitude={result.lat}
               longitude={result.lng}
+              className={styles.popup}
             >
-              <h1>{result.postTitle}</h1>
+              {' '}
+              <div className={styles.popupdiv}>
+                <img src={result.avatar} />
+                <div>
+                  <h1>{result.postTitle}</h1>
+                  <h3>{result.description}</h3>
+                </div>
+              </div>
             </Popup>
           ) : (
             false
