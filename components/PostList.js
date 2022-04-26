@@ -16,9 +16,7 @@ const PostList = ({ posts }) => {
 
   return (
     <div className={styles.card_container}>
-      <div>
-        <h1>My Posts:</h1>
-      </div>
+      <h1>My Posts:</h1>
       <ul>{postList}</ul>
     </div>
   );

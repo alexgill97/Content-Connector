@@ -24,7 +24,7 @@ const ProfileCarouselItem = ({ image, description, uid, title }) => {
         <img src={image} alt="" />
       </div>
       <div className={styles.info_container}>
-        <h4>{title}</h4>
+        <h1>{title}</h1>
         <p className={styles.info_description}>{description}</p>
       </div>
       <button onClick={asyncFunction}> Delete </button>

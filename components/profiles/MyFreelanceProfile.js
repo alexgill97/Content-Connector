@@ -73,6 +73,9 @@ export default function freelanceProfile({
         </body>
       </div>
       <Modal />
+      <div className={styles.section}>
+        <h3>Your Portfolios</h3>        
+      </div>
       <PortfolioCarousel portfolio={portfolio} />
     </main>
   );

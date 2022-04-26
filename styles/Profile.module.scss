@@ -1,6 +1,7 @@
 .main {
   padding-top: 2rem;
   background-color: whitesmoke;
+  font-family: 'Poppins' !important;
 }
 
 .top_profile {
@@ -9,7 +10,8 @@
   align-items: center;
   p {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins' !important;
+    text-transform: capitalize;
   }
   .media_type {
     font-size: 0.75rem;
@@ -26,36 +28,38 @@
 }
 
 .body_profile {
+  margin-top: 3%;
   padding-top: 1rem;
   display: flex;
   align-items: center;
+  font-family: "Poppins";
   justify-content: center;
-  justify-content: space-between;
-  font-family: 'Lato', sans-serif;
 
   h2 {
     font-size: 0.8rem;
     color: rgba(84, 78, 78, 0.489);
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins';
   }
-  
 }
 
 .body_left {
   display: flex;
   flex-direction: column;
-  padding-left: 1rem; 
+  padding-left: 1rem;
+  margin-right: 25% !important;
   p {
     font-size: 1rem;
-  } 
+    text-transform: capitalize;
+  }
 }
 
 .body_right {
   display: flex;
   flex-direction: column;
   text-align: right;
-  margin-right: 1rem;  
+  margin-right: 1rem;
   font-size: 2rem;
+  margin-left: 25% !important;
 }
 
 .avatar_outline {
@@ -67,7 +71,6 @@
   width: 12rem;
   margin-top: 0rem;
   border: rgba(216, 215, 215, 0.506) solid 1px;
-
 }
 .avatar {
   border-radius: 129px;
@@ -75,15 +78,37 @@
   width: 20rem !important;
   object-fit: cover;
   margin-top: 3rem;
+  margin-right: 3em;
+}
+
+.section {
+  h3 {
+    margin-left: 25%;
+    margin-top: 4em;
+    margin-bottom: 2em;
+  }
 }
 
 
+
+
+
+
+
+
+
+////////////////////////////////////////////
 .mainBusiness {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
   box-shadow: inset 0px 0px 60px 40px whitesmoke;
+  flex-direction: column;
+  max-width: min-content;
+  align-items: center;
+  min-width: 50%;
+  margin-left: 25%;
+  font-family: 'Poppins' !important;
+
   .divOne {
     display: flex;
     align-items: center !important;
@@ -94,7 +119,7 @@
     border: 2px solid black;
     border-radius: 2em;
   }
-  
+
   h1 {
     text-transform: capitalize;
     padding-bottom: 0.5em;
@@ -102,14 +127,16 @@
   p {
     text-transform: capitalize;
   }
-  // .postListdiv {
-  //   align-items: flex-start !important;
-  // }
+  .postListdiv {
+    width: 80%;
+  }
 }
 
 .businessForm {
   box-sizing: border-box;
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -121,14 +148,11 @@
     display: inline-block;
     text-transform: capitalize;
   }
-  
   button:hover {
     background-color: #1155cc;
-  color: white;
+    color: white;
   }
 }
-
-
 
 .button {
   cursor: pointer;
@@ -142,3 +166,5 @@
   display: inline-block;
   transition-duration: 0.4s;
 }
+
+

@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../firebase/context';
 import { firestore, storage } from '../firebase/clientApp';
+import styles from '../styles/Modal.module.scss';
 
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadString } from 'firebase/storage';
@@ -50,34 +51,36 @@ function Modal() {
   // ======================
 
   return (
-    <div>
-      <h3>Upload Portfolio Item</h3>
-      Post photo URL: {data.avatar}
-      <div>
+    <div className={styles.main}>
+      <h3>Add a Portfolio to Your Profile</h3>
+      Photo: {data.avatar}
+      <div className={styles.divOne}>
         {selectedFile ? (
           <img
             src={selectedFile}
             onDoubleClick={() => setSelectedFile(null)}
             alt=""
           />
-        ) : null}
+        ) : <div> No Photo...yet!</div>}
       </div>
       <div>
         <input type="file" onChange={addImageToPortfolio} />
       </div>
-      Description for title:
+      Title of Portfolio Project:
       <div>
         <input
           type="title"
           name="title"
+          placeholder="Portfolio Project Title"
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      Description for post:
+      Description for Portfolio Project:
       <div>
         <input
           type="description"
           name="description"
+          placeholder="Portfolio Project Description"
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>

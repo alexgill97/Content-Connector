@@ -9,34 +9,36 @@ import {
   doc,
   deleteDoc,
   where,
-  getDocs, query, collection
+  getDocs,
+  query,
+  collection,
 } from 'firebase/firestore';
 import { AuthContext } from '../firebase/context';
 
 const PostListItem = ({ postTitle, description, uid, address }) => {
-  
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
       query(
         collection(firestore, 'posts'),
         where('uid', '==', uid),
-        where('postTitle', '==', postTitle)
+        where('postTitle', '==', postTitle),
+        where('description','==', description)
       )
     );
     querySnapshot.forEach((doc) => {
-      deleteDoc(doc.ref).then(()=>{
-        window.location.reload()
-      })
-    })
+      deleteDoc(doc.ref).then(() => {
+        window.location.reload();
+      });
+    });
   };
   return (
-    <div className={``}>
-      <div className={``}>
-        <div className={``}>{postTitle}</div>
+    <div className={styles.border}>
+      <div className={styles.borderdiv}>
+        <h1>{postTitle}</h1>
+        <p>{description}</p>
+        <p><em>{address}</em></p>
+        <button onClick={asyncFunction}> Delete </button>
       </div>
-      <div className={``}> {description} </div>
-      <div>{address}</div>
-      <button onClick={asyncFunction}> Delete </button>
     </div>
   );
 };

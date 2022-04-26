@@ -108,8 +108,6 @@ export default function businessProfile({ profile }) {
             </button>
           </form>
         </section>
-      </div>
-      <div className={styles.postListdiv}>
         <PostList posts={posts} />
       </div>
     </div>
