@@ -18,9 +18,8 @@ const freelancerview = ({ searchResults }) => {
               const image = result.avatar
                 ? result.avatar
                 : 'https://firebasestorage.googleapis.com/v0/b/content-connector-fb9f1.appspot.com/o/avatar%2FrveDkWrIOgTZ0D2Kzcq9fRYTEya2%2Fimage?alt=media&token=086ee938-6d45-49d5-915a-378965db7911';
-                return (
-                
-                <>
+              return (
+                <div>
                   <InfoCard
                     key={result.uid}
                     uid={result.uid}
@@ -29,8 +28,9 @@ const freelancerview = ({ searchResults }) => {
                     postTitle={result.postTitle}
                     description={result.description}
                   />
+
                   <Message profile={result} />
-                </>
+                </div>
               );
             })}
           </div>
