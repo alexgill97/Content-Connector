@@ -114,9 +114,9 @@ const Message = ({ profile }) => {
   };
 
   return (
-    <main className={styles.main_message}>
-      {chat ? (
-        <>
+    <>
+      {chat && (
+        <main className={styles.main_message}>
           <div className={styles.chat_header}>
             <Link href={`/userProfile/${chat.uid}`}>{chat.username}</Link>
           </div>
@@ -135,13 +135,9 @@ const Message = ({ profile }) => {
               setImg={setImg}
             />
           </div>
-        </>
-      ) : (
-        <h3 className={`${styles.no_conv}`}>
-          Select a user to start conversation
-        </h3>
+        </main>
       )}
-    </main>
+    </>
   );
 };
 
