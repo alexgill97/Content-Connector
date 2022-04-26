@@ -9,9 +9,6 @@ const MessageItem = ({ msg, user1 }) => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [msg]);
 
-  console.log(msg);
-  console.log(user1);
-
   return (
     <>
       {msg.from === user1 ? (

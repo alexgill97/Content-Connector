@@ -5,9 +5,11 @@ import Logout from './Logout';
 import { updateCurrentUser } from 'firebase/auth';
 import styles from '../styles/navbar.module.scss';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const { userData, currentUser } = useContext(AuthContext);
+  const router = useRouter();
   const navLinks = [
     { name: 'Home', path: '/' },
     {
@@ -36,8 +38,16 @@ const Navbar = () => {
     },
   ];
 
+  const path = router.pathname;
+
   return (
-    <nav className={styles.nav_main}>
+    <nav
+      className={
+        path === '/freelancerview'
+          ? styles.nav_main_freelancerview
+          : styles.nav_main
+      }
+    >
       <div className={styles.nav_left}>
         <Link href="/">
           <p>Content</p>
@@ -48,10 +58,10 @@ const Navbar = () => {
       </div>
       <div className={styles.nav_middle}>
         <Link href="/freelancerview">
-          <p className={`${styles.a}`} >Find Projects</p>
+          <p className={`${styles.a}`}>Find Projects</p>
         </Link>
         <Link href="/findingFreelancers">
-          <p className={`${styles.a}`} >Find Creators</p>
+          <p className={`${styles.a}`}>Find Creators</p>
         </Link>
       </div>
       <div className={styles.nav_right}>

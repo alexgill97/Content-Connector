@@ -11,6 +11,21 @@
   font-size: large;
 }
 
+.nav_main_freelancerview {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  z-index: 50;
+  display: flex;
+  height: 10vh;
+  background-color: whitesmoke;
+  align-items: center;
+  justify-content: space-between !important;
+  font-family: 'Poppins';
+  font-size: large;
+
+}
+
 .nav_left {
   cursor: pointer;
   margin: 0;
