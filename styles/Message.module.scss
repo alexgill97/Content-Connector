@@ -4,29 +4,86 @@ border: solid 1px black;
 background-color: #0084ff;
 height: 100%;
 width: 100%;
+font-family: 'Lato';
 
 
 .chat_header {
   background-color: #0084ff;
-  height: 20%;
+  height: 25%;
   border-bottom-right-radius: 30px !important;
   text-align: right;
   background-color: #0084ff;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  border-bottom-right-radius: 40px;
 
     p {
       margin: 0;
-
-      border-bottom-right-radius: 30px !important;
+      font-size: 0.75rem;
+      background-color: #0084ff;
+      color: white;
+    }
+    img {
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0.1rem 0.5rem;
     }
   }
 
   .messages_container {
+    position: relative;
     height: 70%;
+    padding: 0.5rem;
+    overflow-y: scroll;
+    background-color: white;
+    border-bottom: 1px solid rgba(59, 59, 59, 0.605);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 10rem;
+    word-wrap: break-word;
+
+
+    .message_user1 {      
+      background-color: rgb(198, 198, 198);
+      border-radius: 1.125rem 0 1.125rem 1.125rem;
+      font-size: 1rem;
+      width: fit-content;
+      max-width: 66%;
+      margin: 0.1rem 0.1rem 0.1rem auto;
+      padding: 0.3rem 1rem;
+    }
+
+    .message_user2 {      
+      background-color: #0084ff;      
+      border-radius: 0 1.125rem 1.125rem 1.125rem;
+      font-size: 1rem;
+      width: fit-content;
+      max-width: 66%;
+      margin: 0.1rem auto 0.1rem 0.1rem ;
+      padding: 0.3rem 1rem;
+    }
   }
 
-  .styles.messages_form {
-    height: 10%;
-  }
+    .message_form {
+      height: 10%;
+      display: flex;
+      align-items: center;
+      
+      .message_input {
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-left: 0.2rem;
+        outline: none;
+        border: none;
+        height: 100%;
+        width: 80%;
+      }
+    }
 
 }
 

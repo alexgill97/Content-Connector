@@ -117,9 +117,12 @@ const Message = ({ profile }) => {
     <>
       {chat && (
         <main className={styles.main_message}>
-          <div className={styles.chat_header}>
-            <Link href={`/userProfile/${chat.uid}`}>{chat.username}</Link>
-          </div>
+          <section className={styles.chat_header}>
+            <Link href={`/userProfile/${chat.uid}`}>
+              <img src={profile.avatar} alt="" />
+            </Link>
+            <p>{chat.username}</p>
+          </section>
           <div className={styles.messages_container}>
             {msgs.length
               ? msgs.map((msg, i) => (

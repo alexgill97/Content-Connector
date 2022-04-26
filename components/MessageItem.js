@@ -9,33 +9,17 @@ const MessageItem = ({ msg, user1 }) => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [msg]);
 
+  console.log(msg);
+  console.log(user1);
+
   return (
-    <div
-      className={
-        msg.from === user1
-          ? `${styles.message_wrapper} ${styles.own}`
-          : `${styles.message_wrapper}`
-      }
-      ref={scrollRef}
-    >
+    <>
       {msg.from === user1 ? (
-        <div className={`${styles.displayforId}`}>You:</div>
+        <div className={styles.message_user1}>{msg.text}</div>
       ) : (
-        <div className={`${styles.displayforId}`}>Them:</div>
+        <div className={styles.message_user2}>{msg.text}</div>
       )}
-      <p
-        className={
-          msg.from === user1
-            ? `${styles.message_wrapper} ${styles.me}`
-            : `${styles.message_wrapper} ${styles.friend}`
-        }
-      >
-        {msg.media ? <img src={msg.media} alt={msg.text} /> : null}
-        {msg.text}
-        <br />
-        <small>{/* <Moment fromNow>{msg.createdAt.toDate()}</Moment> */}</small>
-      </p>
-    </div>
+    </>
   );
 };
 
