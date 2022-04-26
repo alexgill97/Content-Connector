@@ -1,0 +1,52 @@
+
+.popup {
+  object-fit: contain;
+  background-color: white !important;
+  overflow: hidden;
+  .popupdiv {
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: white !important
+  }
+  div {
+    background-color: white !important;
+  }
+  img {
+    height: 80% !important;
+    width: 20% !important;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    background-color: white !important;
+    display: inline-flex !important;
+  }
+  h1 {
+    margin-left: 0.5em;
+    height: 100% !important;
+    width: 80% !important;
+    background-color: white !important;
+    text-transform: capitalize;
+  }
+  h3 {
+    margin-left: 0.75em;
+    height: 100% !important;
+    width: 95% !important;
+    background-color: white !important;
+  }
+}
+.material-symbols-outlined {
+  width: 3em;
+  height: 2em;
+  background-color: red !important;
+  background: transparent !important;
+  background-image: transparent !important;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+/* <img src={result.avatar} className={styles.pin} /> */
