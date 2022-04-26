@@ -13,16 +13,16 @@ export default function freelanceProfile({
 }) {
   const { userData } = useContext(AuthContext);
 
-  const portfolioMap = portfolio.map((x) => (
-    <div>
-      <div>
-        <Image src={x.image} height={100} width={100}></Image>
-      </div>
-      <div>
-        <div>{x.description}</div>
-      </div>
-    </div>
-  ));
+  // const portfolioMap = portfolio.map((x) => (
+  //   <div>
+  //     <div>
+  //       <Image src={x.image} height={100} width={100}></Image>
+  //     </div>
+  //     <div>
+  //       <div>{x.description}</div>
+  //     </div>
+  //   </div>
+  // ));
 
   return (
     <main className={styles.main}>

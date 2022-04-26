@@ -14,11 +14,7 @@ import {
 import { firestore } from '../../firebase/clientApp';
 
 export default function businessProfile({
-  avatar,
-  username,
-  description,
-  address,
-  portfolio,
+  profile
 }) {
   const { userData, currentUser } = useContext(AuthContext);
 
@@ -47,17 +43,6 @@ export default function businessProfile({
     };
     createPost(currentUser, formData).then(() => window.location.reload());
   };
-
-  const portfolioMap = portfolio.map((x) => (
-    <div>
-      <div>
-        <Image src={x.image} height={100} width={100}></Image>
-      </div>
-      <div>
-        <div>{x.description}</div>
-      </div>
-    </div>
-  ));
   
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
@@ -82,24 +67,20 @@ export default function businessProfile({
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
-        <img src={`${avatar}`} className={`${styles.makeImageCircular}`}></img>
-        <h3>{username}</h3>
+        <img src={`${profile.avatar}`} className={`${styles.makeImageCircular}`}></img>
+        <h3>{profile.username}</h3>
         <h3>
-          Business Address : {address} <button>Edit Address</button>
+          Business Address : {profile.address}
         </h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
         <h3>Description</h3>
         <p>
-          {description} <button>Edit Description</button>
+          {profile.description}
         </p>
       </div>
       <div>
-        <div>{portfolioMap}</div>
-      </div>
-      <div className={`${styles.container} ${styles.bg2} text-center`}>
-        <h3>My Posts</h3>
-        <p>Lorem ipsum..</p>
+        {/* <div>{portfolioMap}</div> */}
       </div>
       <div>
         <section>

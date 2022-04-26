@@ -39,7 +39,7 @@ export default function otherBusinessProfile({ profile, portfolio }) {
           <h3>{x.postTitle}</h3>
         </div>
       </div>
-      <div>
+      <div className={styles.backgroundWhite}>
         <div className={styles.portfolioDescription}>
           <h5>{x.description}</h5>
         </div>
@@ -55,19 +55,26 @@ export default function otherBusinessProfile({ profile, portfolio }) {
           <h3>{profile.username}</h3>
         </div>
         <div className={styles.description}>
+          <h2>Address:</h2>
+          <p>{profile.address}</p>
           <h2>About:</h2>
           <p>{profile.description}</p>
         </div>
-        <div></div>
       </div>
       <div className={styles.profile_right}>
         <div className={styles.profile_right_top}>
-          <div className={styles.top_users}>Their information</div>
-          {/* <div className={styles.profile_messages}><Message profile={profile} /></div> */}
+          <div className={styles.satisfaction}>
+            <h4>Satisfaction Score</h4>
+          </div>
+          <div>
+          <div className={styles.profile_messages}></div>
+            {/* <Message profile={profile} /></div> */}
+
+          </div>
         </div>
         <div className={styles.profile_projects}>
-          <strong>Their Posts:</strong>
-          <div>{portfolioMap}</div>
+          <strong className={styles.backgroundWhiteStrong}>Their Posts:</strong>
+          <div className={styles.backgroundWhite}>{portfolioMap}</div>
         </div>
         <div></div>
       </div>

@@ -39,7 +39,7 @@ const index = ({ users }) => {
   const router = useRouter();
   const { id } = router.query;
   const [profile, setProfile] = useState({});
-
+  const [posts, setPosts] = useState([]);
   const [portfolio, setPortfolio] = useState([]);
 
   const getUserData = async (id) => {
@@ -66,6 +66,7 @@ const index = ({ users }) => {
     getUserPortfolio(id);
   }, [id]);
 
+  console.log(portfolio)
   if (portfolio) {
     return (
       <div>

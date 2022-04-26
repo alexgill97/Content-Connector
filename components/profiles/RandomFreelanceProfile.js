@@ -8,9 +8,7 @@ import Image from 'next/image';
 
 
 export default function otherFreelanceProfile({
-  avatar,
-  username,
-  description,
+  profile,
   portfolio
 }) {
 
@@ -28,13 +26,13 @@ if (portfolio) {
   return (
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
-        <img src={avatar} className={`${styles.makeImageCircular}`}></img>
-        <h3>{username}</h3>
+        <img src={profile.avatar} className={`${styles.makeImageCircular}`}></img>
+        <h3>{profile.username}</h3>
         <h3>Photographer</h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
         <h3>Description</h3>
-        <p>{description}</p>
+        <p>{profile.description}</p>
       </div>
       <div>
         <div>
@@ -52,12 +50,12 @@ if (portfolio) {
     <div>
       <div className={`${styles.container} ${styles.bg} text-center`}>
         <img src={avatar} className={`${styles.makeImageCircular}`}></img>
-        <h3>{username}</h3>
+        <h3>{profile.username}</h3>
         <h3>Photographer</h3>
       </div>
       <div className={`${styles.container} ${styles.bg2} text-center`}>
         <h3>Description</h3>
-        <p>{description}</p>
+        <p>{profile.description}</p>
       </div>
       <div>
       </div>

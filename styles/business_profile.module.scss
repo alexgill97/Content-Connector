@@ -8,18 +8,20 @@
 
 .profile_left,
 .profile_right {
-  background-color: white;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white !important;
 }
 
 .profile_left {
-  justify-content: space-between;
   width: 30vw;
   height: 70vh;
   padding: 1rem;
+  background-color: white !important;
+  display: flex;
+  justify-content: center;
   
 
   .avatar {
@@ -32,6 +34,7 @@
     align-items: center;
     max-height: fit-content;
     max-width: fit-content;
+    background-color: white !important;
   }
   img {
     border-radius: 50%;
@@ -40,28 +43,33 @@
     width: 100%;
     max-height: fit-content;
     max-width: fit-content;
+    background-color: white !important;
   }
   h3 {
     border-bottom: 1px solid black;
     font-family: 'Poppins' !important;
     font-size: large !important;
     text-transform: uppercase;
+    background-color: white !important;
   }
   .description {
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white !important;
 
     h2 {
       margin: 0;
       font-family: 'Poppins' !important;
       font-size: large !important;
+      background-color: white !important;
     }
     p {
       margin: 0;
       font-family: 'Poppins' !important;
       font-size: large !important;
+      background-color: white !important;
     }
   }
 }
@@ -76,41 +84,48 @@
     display: flex;
     justify-content: space-between;
 
-
-    .top_users {
-      background-color: white;
+    .satisfaction {
+      justify-content: center !important;
+      align-items: center !important;
+      align-content: center ;
+      background-color: white !important;
       height: 35vh;
       width: 18vw;
       border: 1px solid black;
       margin-right: 2.5vw;
       border-radius: 20px;
-
+      padding-left: 8%;
+      h4 {
+        font-family: 'Poppins' !important;
+        background-color: white !important;
+      }
     }
     .profile_messages {
-      background-color: white;
+      background-color: white !important;
       height: 35vh;
       width: 42vw;
       border: 1px solid black;
       margin-left: 2.5vw;
       border-radius: 20px;
-
+      margin-bottom: 2.5vh;
     }
   }
 
   .profile_projects {
-    background-color: white;
     width: 65vw;
     height: 35vh;
     border: 1px solid black;
     border-radius: 20px;
-    margin-top: 2.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white !important;
+    
   }
 }
 
 .portfoliodiv {
+  background-color: white !important;
   display: inline-flex;
   flex-direction: column;
   justify-items: center;
@@ -125,20 +140,35 @@
   object-fit: fill !important;
   .portfoliodivunder {
     width: 80%;
+    background-color: white !important;
   }
 }
 
 .portfolioTitle {
+  background-color: white !important;
   font-family: 'Poppins' !important;
   h3 {
     text-transform: uppercase;
+    background-color: white !important;
   }
 }
 
 .portfolioDescription {
   font-family: 'Poppins' !important;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: white !important;
   h5 {
     text-transform: capitalize;
+    background-color: white !important;
     margin: 0px
   }
+}
+
+.backgroundWhite {
+  background-color: white !important;
+}
+.backgroundWhiteStrong {
+  background-color: white !important;
+  margin-top:3%
 }
