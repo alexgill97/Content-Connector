@@ -72,29 +72,19 @@ const index = ({ users }) => {
         {profile.isBusiness && profile.uid === currentUser ? (
           <div>
             <MyBusinessProfile
-              address={profile.address}
-              avatar={profile.avatar}
-              description={profile.description}
-              username={profile.username}
-              portfolio={portfolio}
+              profile={profile}
             />
           </div>
         ) : profile.isBusiness && profile.uid !== currentUser ? (
           <div>
             <RandomBusinessProfile
-              address={profile.address}
-              avatar={profile.avatar}
-              description={profile.description}
-              username={profile.username}
-              portfolio={portfolio}
+              profile={profile}
             />
           </div>
         ) : !profile.isBusiness && profile.uid === currentUser ? (
           <div>
             <MyFreelanceProfile
-              avatar={profile.avatar}
-              description={profile.description}
-              username={profile.username}
+              profile={profile}
               portfolio={portfolio}
             />
             {/* <Modal /> */}
@@ -102,9 +92,7 @@ const index = ({ users }) => {
         ) : !profile.isBusiness && profile.uid !== currentUser ? (
           <div>
             <RandomFreelanceProfile
-              avatar={profile.avatar}
-              description={profile.description}
-              username={profile.username}
+              profile={profile}
               portfolio={portfolio}
             />
           </div>

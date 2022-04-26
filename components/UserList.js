@@ -17,7 +17,7 @@ const UserList = ({ users, portfolio }) => {
         user={x}
         {...x}
       ></UserListItem>
-      <Message requestedUser={x} />
+      <Message profile={x} />
     </>
   ));
 

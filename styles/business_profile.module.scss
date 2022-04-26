@@ -1,3 +1,4 @@
+
 .profile_main {
   margin-top: 10vh;
   height: 80vh;
@@ -12,13 +13,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 }
 
 .profile_left {
   justify-content: space-between;
   width: 30vw;
   height: 70vh;
+  padding: 1rem;
+  
 
   .avatar {
     width: 100% !important;
@@ -73,7 +75,7 @@
   .profile_right_top {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2.5vh;
+
 
     .top_users {
       background-color: white;
@@ -82,23 +84,61 @@
       border: 1px solid black;
       margin-right: 2.5vw;
       border-radius: 20px;
+
     }
-    .profile_projects {
+    .profile_messages {
       background-color: white;
       height: 35vh;
       width: 42vw;
       border: 1px solid black;
       margin-left: 2.5vw;
       border-radius: 20px;
+
     }
   }
 
-  .profile_messages {
+  .profile_projects {
     background-color: white;
     width: 65vw;
     height: 35vh;
     border: 1px solid black;
     border-radius: 20px;
     margin-top: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.portfoliodiv {
+  display: inline-flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  border: 2px solid black;
+  height: 9rem;
+  margin-right: 15px;
+  margin-top: 15px;
+  width: 10rem;
+  border-radius: 10px;
+  object-fit: fill !important;
+  .portfoliodivunder {
+    width: 80%;
+  }
+}
+
+.portfolioTitle {
+  font-family: 'Poppins' !important;
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+.portfolioDescription {
+  font-family: 'Poppins' !important;
+  h5 {
+    text-transform: capitalize;
+    margin: 0px
   }
 }

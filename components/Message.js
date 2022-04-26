@@ -25,7 +25,7 @@ import Link from 'next/link';
 import { AuthContext } from '../firebase/context';
 
 
-const Message = ({requestedUser}) => {
+const Message = ({profile}) => {
   // const [users, setUsers] = useState([]);
   const [chat, setChat] = useState('');
   const [text, setText] = useState('');
@@ -37,10 +37,10 @@ const Message = ({requestedUser}) => {
   const user1 = currentUser;
 
   // const getUser2 = async () => {
-  //   console.log('reqUser', requestedUser)
+  //   console.log('reqUser', profile)
   //  const querySnapshot = await getDocs(
       
-  //     query(collection(firestore, 'users'), where('uid', '==', requestedUser))
+  //     query(collection(firestore, 'users'), where('uid', '==', profile))
   //   );
   //   querySnapshot.forEach((doc) => {
   //     setUser3(doc.data())
@@ -48,9 +48,9 @@ const Message = ({requestedUser}) => {
   // }
 
   useEffect(() => {
-    selectUser(requestedUser)
+    selectUser(profile)
   }
-  , [requestedUser])
+  , [profile])
   
 
   const selectUser = async (user) => {
@@ -81,8 +81,8 @@ const Message = ({requestedUser}) => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(requestedUser, "tesssts")
-    const user2 = requestedUser.uid;
+    // console.log(profile, "tesssts")
+    const user2 = profile.uid;
     // messages => id => chat => add doc
 
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
@@ -118,7 +118,7 @@ const Message = ({requestedUser}) => {
   };
   
   return (
-    <div className={`${styles.father}`}>
+    <main className={`${styles.father}`}>
       <div className={`${styles.home_container}`}>
         
         <div className={`${styles.messages_container}`}>
@@ -150,7 +150,7 @@ const Message = ({requestedUser}) => {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

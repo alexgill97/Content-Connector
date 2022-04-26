@@ -11,45 +11,38 @@ import {
   doc,
 } from 'firebase/firestore';
 import { firestore } from '../../firebase/clientApp';
+import Message from '../Message';
 
+export default function otherBusinessProfile({ profile, portfolio }) {
+  const [posts, setPosts] = useState([]);
 
-export default function otherBusinessProfile({
-  avatar,
-  username,
-  description,
-  address,
-  portfolio,
-}) {
-  const [posts, setPosts] = useState([])
-  
   let allPosts = [];
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
-      query(
-        collection(firestore, 'posts'),
-        where('address', '==', address)
-      )
+      query(collection(firestore, 'posts'), where('address', '==', profile.address))
     );
     querySnapshot.forEach((doc) => {
       allPosts.push(doc.data());
     });
     console.log(allPosts);
-    setPosts(allPosts)
+    setPosts(allPosts);
   };
-  
+
   useEffect(() => {
-    asyncFunction().then(()=>(
-      portfolioMap
-    ));
+    asyncFunction().then(() => portfolioMap);
   }, []);
 
   const portfolioMap = posts.map((x) => (
-    <div>
-      <div>
-      <div>{x.postTitle}</div>
+    <div className={styles.portfoliodiv}>
+      <div className={styles.portfoliodivunder}>
+        <div className={styles.portfolioTitle}>
+          <h3>{x.postTitle}</h3>
+        </div>
       </div>
       <div>
-        <div>{x.description}</div>
+        <div className={styles.portfolioDescription}>
+          <h5>{x.description}</h5>
+        </div>
       </div>
     </div>
   ));
@@ -58,24 +51,25 @@ export default function otherBusinessProfile({
     <main className={styles.profile_main}>
       <div className={styles.profile_left}>
         <div className={styles.avatar}>
-          <img src={avatar} />
-          <h3>{username}</h3>
+          <img src={profile.avatar} />
+          <h3>{profile.username}</h3>
         </div>
         <div className={styles.description}>
           <h2>About:</h2>
-          <p>{description}</p>
+          <p>{profile.description}</p>
         </div>
         <div></div>
       </div>
       <div className={styles.profile_right}>
         <div className={styles.profile_right_top}>
           <div className={styles.top_users}>Their information</div>
-          <div className={styles.profile_projects}>Top Users In Their Area:</div>
+          {/* <div className={styles.profile_messages}><Message profile={profile} /></div> */}
         </div>
-        <div className={styles.profile_messages}>Their Posts:</div>
-        <div>
-          {portfolioMap}
+        <div className={styles.profile_projects}>
+          <strong>Their Posts:</strong>
+          <div>{portfolioMap}</div>
         </div>
+        <div></div>
       </div>
     </main>
   );

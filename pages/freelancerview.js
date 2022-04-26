@@ -29,7 +29,7 @@ const freelancerview = ({ searchResults }) => {
                     postTitle={result.postTitle}
                     description={result.description}
                   />
-                  <Message requestedUser={result} />
+                  <Message profile={result} />
                 </>
               );
             })}
