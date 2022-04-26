@@ -35,6 +35,39 @@
     background-color: white !important;
   }
 }
+
+.marker{
+  margin: 0;
+  padding: 0;
+  border-radius: 50% 50% 50% 0;
+  border: 4px solid rgb(47, 12, 203);
+  width: 3rem;
+  height: 3rem;
+  transform: rotate(-45deg);
+  background-color: rgb(47, 12, 203);;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: transparent;
+    transform: rotate(45deg);
+    z-index: 2;
+  }
+}
+.marker:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+  background-color: #fff;
+  z-index: 1;
+
+}
+
 .material-symbols-outlined {
   width: 3em;
   height: 2em;

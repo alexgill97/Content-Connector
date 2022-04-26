@@ -21,6 +21,7 @@ const MapComponent = ({ searchResults }) => {
     longitude: center.longitude,
     zoom: 11,
   });
+  console.log(Marker);
 
   return (
     <MapGL
@@ -32,17 +33,17 @@ const MapComponent = ({ searchResults }) => {
       {searchResults.map((result) => (
         <div>
           <Marker
+            style={{ backgroundColor: 'transparent' }}
             latitude={result.lat}
             longitude={result.lng}
+            offsetTop={-50}
             onClick={() => {
               setSelectedLocation(result);
             }}
           >
-            <a>
-              <p role="img" aria-label="push-pin">
-                <span class="material-symbols-outlined">arrow_downward</span>
-              </p>
-            </a>
+            <div className={styles.marker}>
+              <img src={result.avatar} alt="" />
+            </div>
           </Marker>
           {selectedLocation.lng === result.lng ? (
             <Popup
@@ -52,7 +53,6 @@ const MapComponent = ({ searchResults }) => {
               longitude={result.lng}
               className={styles.popup}
             >
-              {' '}
               <div className={styles.popupdiv}>
                 <img src={result.avatar} />
                 <div>
