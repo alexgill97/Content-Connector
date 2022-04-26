@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import styles from '../styles/UserList.module.scss';
+// import styles from '../styles/UserList.module.scss';
 import Delete from './Delete';
 import React, { useContext } from 'react';
 import { auth, firestore } from '../firebase/clientApp';
+import styles from '../styles/PostList.module.scss';
+
 import {
   doc,
   deleteDoc,
@@ -28,11 +30,11 @@ const PostListItem = ({ postTitle, description, uid, address }) => {
     })
   };
   return (
-    <div className={`${styles.container}`}>
-      <div className={`${styles.userListBorder}`}>
-        <div className={`${styles.username}`}>{postTitle}</div>
+    <div className={``}>
+      <div className={``}>
+        <div className={``}>{postTitle}</div>
       </div>
-      <div className={`${styles.description}`}> {description} </div>
+      <div className={``}> {description} </div>
       <div>{address}</div>
       <button onClick={asyncFunction}> Delete </button>
     </div>

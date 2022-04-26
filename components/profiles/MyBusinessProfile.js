@@ -13,16 +13,14 @@ import {
 } from 'firebase/firestore';
 import { firestore } from '../../firebase/clientApp';
 
-export default function businessProfile({
-  profile
-}) {
+export default function businessProfile({ profile }) {
   const { userData, currentUser } = useContext(AuthContext);
 
   const [data, setData] = useState({
     postTitle: '',
     description: '',
   });
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   const createPost = async (uid, data) => {
     await addDoc(collection(firestore, 'posts'), {
@@ -43,57 +41,45 @@ export default function businessProfile({
     };
     createPost(currentUser, formData).then(() => window.location.reload());
   };
-  
+
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
-      query(
-        collection(firestore, 'posts'),
-        where('uid', '==', currentUser)
-      )
+      query(collection(firestore, 'posts'), where('uid', '==', currentUser))
     );
     let allPosts = [];
     querySnapshot.forEach((doc) => {
       allPosts.push(doc.data());
     });
     console.log(allPosts);
-    setPosts(allPosts)
+    setPosts(allPosts);
   };
 
   useEffect(() => {
     asyncFunction();
   }, []);
 
-  console.log(posts)
+  console.log(posts);
   return (
-    <div>
-      <div className={`${styles.container} ${styles.bg} text-center`}>
-        <img src={`${profile.avatar}`} className={`${styles.makeImageCircular}`}></img>
-        <h3>{profile.username}</h3>
-        <h3>
-          Business Address : {profile.address}
-        </h3>
-      </div>
-      <div className={`${styles.container} ${styles.bg2} text-center`}>
+    <div className={styles.mainBusiness}>
+      <div className={styles.divOne}>
+        <img src={`${profile.avatar}`} className={''}></img>
+        <h1>{profile.username}</h1>
+        <h3>Address</h3>
+        <p>{profile.address}</p>
         <h3>Description</h3>
-        <p>
-          {profile.description}
-        </p>
+        <p>{profile.description}</p>
       </div>
-      <div>
-        {/* <div>{portfolioMap}</div> */}
-      </div>
+      <div className={''}></div>
       <div>
         <section>
-          <h1>{data.uid}</h1>
-          <div>{data.postTitle}</div>
-          <div>{data.description}</div>
-          <h3>Add Request for Freelancer</h3>
-          <form>
-            <div className="input_container">
+          <h3>Add a Business Post</h3>
+          <form className={styles.businessForm}>
+            <div className={''}>
               <label>What is your project?</label>
               <input
                 type="postTitle"
                 name="postTitle"
+                placeholder="Post Name"
                 onChange={(e) =>
                   setData({
                     ...data,
@@ -102,11 +88,12 @@ export default function businessProfile({
                 }
               />
             </div>
-            <div className="input_container">
-              <label>A short description of project requirements </label>
+            <div className={''}>
+              <label>A short description of the project requirements... </label>
               <input
                 type="description"
                 name="description"
+                placeholder="Post Description"
                 onChange={(e) =>
                   setData({
                     ...data,
@@ -115,10 +102,14 @@ export default function businessProfile({
                 }
               />
             </div>
-
-            <button onClick={onRegisterSubmit}> Add Post! </button>
+            <button onClick={onRegisterSubmit} className={`${styles.button}`}>
+              {' '}
+              Add Post!{' '}
+            </button>
           </form>
         </section>
+      </div>
+      <div className={styles.postListdiv}>
         <PostList posts={posts} />
       </div>
     </div>

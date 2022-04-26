@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../firebase/context';
 import UserListItem from './UserListItem';
-import styles from '../styles/FindingFreelancers.module.scss';
+import styles from '../styles/UserList.module.scss';
 import Message from '../components/Message';
 const UserList = ({ users, portfolio }) => {
   const { userData, currentUser } = useContext(AuthContext);
@@ -23,7 +23,7 @@ const UserList = ({ users, portfolio }) => {
 
   return (
     <div>
-      <h1>Freelancers :</h1>
+      <h1>All Freelancers:</h1>
       <ul>{userList}</ul>
     </div>
   );

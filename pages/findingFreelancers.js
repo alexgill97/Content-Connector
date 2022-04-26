@@ -40,18 +40,9 @@ const findingFreelancers = ({ users }) => {
     <div className={`${styles.container} `}>
       <div className={`${styles.aboutBody}`}>
         <div className={`col-sm-8`}>
-          <h2>
-            <strong>Placeholder for Freelancers</strong>
-          </h2>
-          <h4>Querying users based on isBusiness:false</h4>
           <div className={`${styles.aboutBody}`}>
             <UserList users={users} profile={profile} />
           </div>
-          <p>
-            setting a Layout for what's gonna show here from BUSINESS
-            PERSPECTIVE. Different users in their own containers, showing their
-            portfolio
-          </p>
         </div>
       </div>
     </div>

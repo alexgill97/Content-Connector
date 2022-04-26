@@ -30,7 +30,9 @@
   border: 2px black solid;
   border-width: thin;
 }
-
+.containerdiv {
+  display: block;
+}
 .container img {
   max-height: 70px;
   max-width: 70px;
