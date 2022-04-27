@@ -56,7 +56,7 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
         />
          */}
         <div className={styles.extraCarousel}>
-          <Carousel portfolio={portfolio} />
+          <Carousel uid={uid} />
           <div className={styles.card__overlay}>
             <div className={styles.card__header}>
               <img className={styles.card__thumb} src={avatar} alt="" />

@@ -1,48 +1,24 @@
 
-.freelancerview {
-  height: 90vh;
-}
-
-.main {
-  display: flex;
-}
-
-.project_list {
-  flex-grow: 1;
-}
-
-.business_list {
-  display: flex;
-  flex-direction: column;
-}
-
-.map_section {
-  flex-grow: 3;
-  top: 10vh;
-  position: sticky;
-  height: 90vh;
-  width: 60vw;
-  position: sticky;
-} 
-
-.infocard_container {
-  overflow-y: scroll;
-  height: 80vh;
-
   .info_card {
     display: flex;
     padding: 0.75rem 0.5rem;
     border-bottom: 1px solid black;
     cursor: pointer;
     align-items: center;
-  
+    height: 200px;
   }
   
   .info_card_image {
-    position: relative;
-    height: 6rem;
-    width: 10rem;
-    border-radius: 5px;
+    height: 100%;
+    border-radius: 15px;
+
+    img {
+      height: 80%;
+      width: 80%;
+      object-fit: contain;
+      border-radius: 15px;
+    }
+    
   }
   
   .info_card:hover {
@@ -65,13 +41,4 @@
     width: 2.5rem;
     padding-top: 0.5rem;
   }
-}
 
-
-@media screen and (min-width: 768px) { 
-  // .map {
-  //   visibility: visible;
-  //   display: inline-flex;
-  //   flex-basis: 60%;
-  // }
- }

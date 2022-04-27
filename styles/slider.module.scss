@@ -1,22 +1,28 @@
 .slider {
-  position: relative;
-  height: 80vh;
+
+  height: 80%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .image {
-  width: 45em;
-  height: 600px;
-  // border-radius: 10px;
-  object-fit: contain;
+  width: 100%;
+  height: 80%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  
 }
 
 .right_arrow {
-  position: absolute;
-  top: 50%;
-  right: 3em;
+  position: relative;
+  top: 20%;
+  left: 80%;
   font-size: 3rem;
   color: #1155cc;
   z-index: 10;
@@ -26,9 +32,9 @@
 }
 
 .left_arrow {
-  position: absolute;
-  top: 50%;
-  left: 3em;
+  position: relative;
+  top: 20%;
+  left: 20%;
   font-size: 3rem;
   color: #1155cc;
   z-index: 10;

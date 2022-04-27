@@ -2,17 +2,41 @@ import styles from '../styles/slider.module.scss';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import React, { useState, useContext } from 'react';
 import { firestore } from '../firebase/clientApp';
-import { doc, deleteDoc } from 'firebase/firestore';
+import {
+  doc,
+  deleteDoc,
+  getDocs,
+  where,
+  query,
+  collectionGroup,
+} from 'firebase/firestore';
 import { AuthContext } from '../firebase/context';
 
-export default function Slider({ portfolio }) {
+export default function Slider({ portfolio, uid }) {
+  const [userPortfolio, setUserPortfolio] = useState(portfolio || []);
+  let allPortfolios = [];
+
+  if (!portfolio) {
+    (async () => {
+      const querySnapshot = await getDocs(
+        query(collectionGroup(firestore, `portfolio`), where('uid', '==', uid))
+      );
+      querySnapshot.forEach((doc) => {
+        allPortfolios.push(doc.data());
+      });
+      setUserPortfolio(allPortfolios);
+    })();
+  }
+
+  console.log(userPortfolio);
+
   const [current, setCurrent] = useState(0);
-  const length = portfolio.length;
+  const length = userPortfolio.length;
   const { currentUser } = useContext(AuthContext);
 
   const asyncFunction = async (e) => {
-    await deleteDoc(doc(firestore, 'users', e.uid, 'portfolio', e.title)).then(() =>
-      window.location.reload()
+    await deleteDoc(doc(firestore, 'users', e.uid, 'portfolio', e.title)).then(
+      () => window.location.reload()
     );
   };
 
@@ -24,7 +48,7 @@ export default function Slider({ portfolio }) {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  if (!Array.isArray(portfolio) || portfolio.length <= 0) {
+  if (!Array.isArray(userPortfolio) || userPortfolio.length <= 0) {
     return null;
   }
 
@@ -35,7 +59,7 @@ export default function Slider({ portfolio }) {
         className={styles.right_arrow}
         onClick={nextSlide}
       />
-      {portfolio.map((slide, index) => {
+      {userPortfolio.map((slide, index) => {
         return (
           <div
             className={
@@ -44,10 +68,17 @@ export default function Slider({ portfolio }) {
             key={index}
           >
             {index === current && (
-              <div>
-                <img src={slide.image} alt="image" className={styles.image} />
+              <div className={styles.image}>
+                <img src={slide.image} alt="image" />
                 <div className={styles.description}>{slide.description}</div>
-                {(currentUser === slide.uid) ? <button onClick={() => asyncFunction(slide)} className={styles.button}> Delete </button> : null}
+                {currentUser === slide.uid ? (
+                  <button
+                    onClick={() => asyncFunction(slide)}
+                    className={styles.button}
+                  >
+                    Delete
+                  </button>
+                ) : null}
               </div>
             )}
           </div>

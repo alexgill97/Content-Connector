@@ -35,17 +35,6 @@ const Message = ({ profile }) => {
   const { currentUser } = useContext(AuthContext);
   const user1 = currentUser;
 
-  // const getUser2 = async () => {
-  //   console.log('reqUser', profile)
-  //  const querySnapshot = await getDocs(
-
-  //     query(collection(firestore, 'users'), where('uid', '==', profile))
-  //   );
-  //   querySnapshot.forEach((doc) => {
-  //     setUser3(doc.data())
-  //   })
-  // }
-
   useEffect(() => {
     selectUser(profile);
   }, [profile]);

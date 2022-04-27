@@ -1,7 +1,6 @@
 
 .main_message {
-border: solid 1px black;
-background-color: #0084ff;
+
 height: 100%;
 width: 100%;
 font-family: 'Lato';
@@ -9,7 +8,7 @@ font-family: 'Lato';
 
 .chat_header {
   background-color: #0084ff;
-  height: 25%;
+  height: 3rem;
   border-bottom-right-radius: 30px !important;
   text-align: right;
   background-color: #0084ff;
@@ -73,11 +72,13 @@ font-family: 'Lato';
       height: 10%;
       display: flex;
       align-items: center;
+      border-bottom: 1px solid rgba(59, 59, 59, 0.605);
+
       
       .message_input {
         padding: 0 !important;
-        margin: 0 !important;
-        margin-left: 0.2rem;
+
+        margin-left: 0.5rem;
         outline: none;
         border: none;
         height: 100%;
