@@ -53,16 +53,19 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
       </section>
       <section className={styles.card__overlay}>
         <div className={styles.card__header}>
-          <Link href={`userProfile/${uid}`}>
-            <img className={styles.card__thumb} src={avatar} alt="" />
-          </Link>
+        <Link href={`userProfile/${uid}`}>
+          <img className={styles.card__thumb} src={avatar} alt="" />
+        </Link>  
           <div className={styles.card__title}>
             <h3>{username}</h3>
           </div>
         </div>
         <div className={styles.card__description}>
           <p>{description}</p>
-          {!hidden ? (
+          {/* <Link href={`userProfile/${uid}`}>
+            <button className={styles.messageContainer}>Profile</button>
+          </Link> */}
+          {/* {!hidden ? (
             <div>
               <button
                 onClick={() => setHidden(!hidden)}
@@ -77,7 +80,7 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
             </div>
           ) : (
             <button onClick={() => setHidden(!hidden)}>Send Message</button>
-          )}
+          )} */}
         </div>
       </section>
     </main>

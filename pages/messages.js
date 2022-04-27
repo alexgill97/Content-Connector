@@ -35,19 +35,24 @@ const Messages = ({ users }) => {
           </div>
         ))}{' '}
       </div>
-
-      <div className={styles.message_container}>
-        {selectedUser && !hidden ? (
-          <Message profile={selectedUser} />
-        ) : (
-          <div>Send Message</div>
-        )}
-        {selectedUser && !selectedUser.isBusiness && (
-          <div className={styles.carousel_container}>
-            <Carousel uid={selectedUser.uid} />
-          </div>
-        )}
-      </div>
+      {!hidden ? (
+        <div className={styles.message_container}>
+          {selectedUser && <Message profile={selectedUser} />}
+          {selectedUser && !selectedUser.isBusiness && (
+            <div className={styles.carousel_container}>
+              <Carousel uid={selectedUser.uid} />
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className={styles.message_container}>
+          {selectedUser && !selectedUser.isBusiness && (
+            <div className={styles.carousel_container}>
+              <Carousel uid={selectedUser.uid} />
+            </div>
+          )}
+        </div>
+      )}
     </main>
   );
 };

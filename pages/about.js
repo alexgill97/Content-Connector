@@ -15,7 +15,7 @@ export default function About() {
             <p>example@example.com</p> */}
             <p>
               <Link href="https://github.com/JamesMurphyy" target="_blank">
-                <button className={`${styles.button}`}>Contact</button>
+                <button className={`${styles.button}`}>Github</button>
               </Link>
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function About() {
             <p>example@example.com</p> */}
             <p>
               <Link href="https://github.com/alexgill97" target="_blank">
-                <button className={`${styles.button}`}>Contact</button>
+                <button className={`${styles.button}`}>Github</button>
               </Link>
             </p>
           </div>
@@ -49,7 +49,7 @@ export default function About() {
             <p>example@example.com</p> */}
             <p>
               <Link href="https://github.com/princerequino" target="_blank">
-                <button className={`${styles.button}`}>Contact</button>
+                <button className={`${styles.button}`}>Github</button>
               </Link>
             </p>
           </div>

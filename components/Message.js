@@ -112,6 +112,28 @@ const Message = ({ profile }) => {
               <img src={profile.avatar} alt="" />
             </Link>
             <p>{chat.username}</p>
+            <div>
+              {!hidden ? (
+                <button
+                  onClick={() => setHidden(!hidden)}
+                  className={styles.buttonTwo}
+                >
+                  <img
+                    src={'close_FILL0_wght400_GRAD0_opsz40.png'}
+                    className={styles.cancelButton}
+                  />{' '}
+                </button>
+              ) : (
+                <div>
+                  <button
+                    onClick={() => setHidden(!hidden)}
+                    className={styles.buttonTwo}
+                  >
+                    <div>Open</div>{' '}
+                  </button>
+                </div>
+              )}
+            </div>
           </section>
           <div className={styles.messages_container}>
             {msgs.length
@@ -128,25 +150,6 @@ const Message = ({ profile }) => {
               setImg={setImg}
             />
           </div>
-          {/* {!hidden ? (
-            <div>
-              <button
-                onClick={() => setHidden(!hidden)}
-                className={styles.buttonTwo}
-              >
-                <div>Close</div>{' '}
-              </button>
-            </div>
-          ) : (
-            <div>
-              <button
-                onClick={() => setHidden(!hidden)}
-                className={styles.buttonTwo}
-              >
-                <div>Open</div>{' '}
-              </button>
-            </div>
-          )} */}
         </main>
       ) : null}
     </>

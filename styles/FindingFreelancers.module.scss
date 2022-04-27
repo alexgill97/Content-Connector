@@ -1,6 +1,10 @@
 .container {
   display: flex;
-  flex-direction: column;
+  height: 90vh;
+  white-space: nowrap;
+  margin-left: 5%;
+  margin-right: 25%;
+  width: 80vw;
 }
 
 // .aboutBody {
