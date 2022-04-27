@@ -1,3 +1,12 @@
+.messages {
+  margin-top: 10em !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10em !important;
+}
+
 .main {
   padding-top: 2rem;
   background-color: whitesmoke;
@@ -110,7 +119,7 @@
 
 .section {
   h3 {
-    margin-left: 7%;
+    margin-left: 10em;
     margin-top: 4em;
     margin-bottom: 3em
     // margin-bottom: 2em;
@@ -191,7 +200,6 @@
 
 
 
-
 /////////////////////////////////
 
 
@@ -212,18 +220,28 @@
 .image {
   width: 100%;
   height: 80%;
-
+  display: inline-flex;
+  flex-direction: column;
   img {
     height: 100%;
     object-fit: cover;
+    
+  }
+  div {
+    align-self: center !important;
+  }
+  button {
+    width: 20% !important;
+    // margin-left: 25.7em;
+    align-self: center !important;
   }
   
 }
 
 .right_arrow {
   position: absolute;
-  top: 115%;
-  left: 85%;
+  top: 165%;
+  left: 75%;
   font-size: 1.5rem;
   color: #1155cc;
   z-index: 10;
@@ -233,8 +251,8 @@
 }
 .left_arrow {
   position: absolute;
-  top: 115%;
-  right: 85%;
+  top: 165%;
+  right: 75%;
   font-size: 1.5rem;
   color: #1155cc;
   z-index: 10;
@@ -270,6 +288,7 @@
   margin-top: 1em;
   display: inline-block;
   transition-duration: 0.4s;
+  // margin-bottom: 15em;
 }
 .button:hover {
   background-color: #cc1111;
