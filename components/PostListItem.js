@@ -1,5 +1,4 @@
 import Link from 'next/link';
-// import styles from '../styles/UserList.module.scss';
 import Delete from './Delete';
 import React, { useContext } from 'react';
 import { auth, firestore } from '../firebase/clientApp';

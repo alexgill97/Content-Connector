@@ -5,9 +5,11 @@ import React, { useEffect, useState } from 'react';
 import { doc, getDoc, where, collectionGroup } from 'firebase/firestore';
 import { firestore } from '../firebase/clientApp';
 import { collection, query, getDocs } from 'firebase/firestore';
-import { async } from '@firebase/util';
+
+import Message from '../components/Message';
 
 const UserListItem = ({ user, username, uid, avatar, description }) => {
+  const [hidden, setHidden] = useState(true);
   const [portfolio, setPortfolio] = useState([]);
   let allPortfolios = [];
 
@@ -25,55 +27,85 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
     getUserPortfolio(uid);
   }, []);
 
-  if (portfolio) {
-    const portfolioMap = portfolio.map((x) => (
-      <div className={`${styles.portfoliodiv}`}>
-        <div className={`${styles.portfoliopicturediv}`}>
-          <Image
-            src={x.image}
-            height={300}
-            width={300}
-            className={`${styles.portfoliopicture}`}
-          ></Image>
-        </div>
-        {/* <div className={`${styles.portfoliodesc}`}>
+  const portfolioMap = portfolio.map((x) => (
+    <div>
+      <div>
+        <img
+          src={x.image}
+          height={300}
+          width={300}
+          className={`${styles.portfoliopicture}`}
+        ></img>
+      </div>
+      {/* <div className={`${styles.portfoliodesc}`}>
             <div>{x.description}</div>
           </div> */}
-      </div>
-    ));
-    return (
-      <div className={`${styles.b}`}>
-        <div className={`${styles.container} `}>
-          <div className={`${styles.userListBorder}`}>
-            <Link href={`/userProfile/${uid}`}>
-              <div className={`${styles.a}`}>
-                <img src={avatar}></img>
-                {username}
-              </div>
-            </Link>
+    </div>
+  ));
+
+  // const changeState = () => (
+  //   hidden ? setHidden(!hidden) : setHidden(hidden)
+  // )
+  return (
+    <li className={styles.test}>
+      <a className={styles.card}>
+        <img
+          src="https://i.imgur.com/oYiTqum.jpg"
+          className={styles.card__image}
+          alt=""
+        />
+        <div className={styles.card__overlay}>
+          <div className={styles.card__header}>
+            <img className={styles.card__thumb} src={avatar} alt="" />
+            <div
+              className={`${styles.card__header}-text ${styles.card__title}`}
+            >
+              <h3>{username}</h3>
+            </div>
           </div>
-          <div className={`${styles.description}`}> {description} </div>
-          <div className={`${styles.portfolios}`}>{portfolioMap}</div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className={`${styles.b}`}>
-        <div className={`${styles.container}`}>
-          <div className={`${styles.userListBorder}`}>
-            <Link href={`/userProfile/${uid}`}>
-              <div className={`${styles.username}`}>
-                <img src={avatar}></img>
-                {username}
+          <p className={styles.card__description}>
+            {description}
+
+            {!hidden ? (
+              <div>
+                <button
+                  onClick={() => setHidden(!hidden)}
+                  className={styles.buttonTwo}
+                >
+                  {' '}
+                  <img src={'close_FILL0_wght400_GRAD0_opsz40.png'} className={styles.cancelButton}/>{' '}
+                </button>
+                <Message profile={user} className={styles.messageContainer} />
               </div>
-            </Link>
-          </div>
-          <div className={`${styles.description}`}> {description} </div>
+            ) : (
+              <button onClick={() => setHidden(!hidden)}> Send Message </button>
+            )}
+          </p>
         </div>
-      </div>
-    );
-  }
+      </a>
+    </li>
+  );
 };
 
 export default UserListItem;
+
+// return (
+//   <div className={styles.body}>
+//     <div className={styles.card}>
+//       <Link href={`/userProfile/${uid}`}>
+//         <div className={``}>
+//           <img src={avatar} className={styles.card__image}></img>
+//         </div>
+//       </Link>
+//       <div className={styles.card__overlay}>{username}</div>
+//     </div>
+//     <div className={styles.description}>
+//       {description}
+//       <button onClick={() => setHidden(!hidden)}> Send Message </button>
+//       {!hidden ? (
+//         <Message profile={user} className={styles.messageContainer} />
+//       ) : null}
+//     </div>
+//     <div className={`${styles.portfoliodiv}`}>{portfolioMap}</div>
+//   </div>
+// );

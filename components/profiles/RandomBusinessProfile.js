@@ -68,8 +68,7 @@ export default function otherBusinessProfile({ profile, portfolio }) {
           </div>
           <div>
           <div className={styles.profile_messages}></div>
-            {/* <Message profile={profile} /></div> */}
-
+            <Message profile={profile} />
           </div>
         </div>
         <div className={styles.profile_projects}>

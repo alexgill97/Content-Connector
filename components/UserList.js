@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../firebase/context';
 import UserListItem from './UserListItem';
-import styles from '../styles/UserList.module.scss';
 import Message from '../components/Message';
+import styles from '../styles/UserList.module.scss';
 const UserList = ({ users, portfolio }) => {
   const { userData, currentUser } = useContext(AuthContext);
 
@@ -17,14 +17,14 @@ const UserList = ({ users, portfolio }) => {
         user={x}
         {...x}
       ></UserListItem>
-      <Message profile={x} />
     </>
   ));
 
   return (
     <div>
-      <h1>All Freelancers:</h1>
-      <ul>{userList}</ul>
+      <ul className={styles.cards}>
+        <li>{userList}</li>
+      </ul>
     </div>
   );
 };

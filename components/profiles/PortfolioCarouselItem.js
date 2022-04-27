@@ -10,8 +10,7 @@ import {
 } from 'firebase/firestore';
 import { AuthContext } from '../../firebase/context';
 const ProfileCarouselItem = ({ image, description, uid, title }) => {
-  
-  
+  const { currentUser } = useContext(AuthContext);
   const asyncFunction = async () => {
     await deleteDoc(doc(firestore, "users", uid , 'portfolio', title)).then(()=>(
       window.location.reload())
@@ -27,7 +26,7 @@ const ProfileCarouselItem = ({ image, description, uid, title }) => {
         <h1>{title}</h1>
         <p className={styles.info_description}>{description}</p>
       </div>
-      <button onClick={asyncFunction}> Delete </button>
+      {(currentUser === uid) ? <button onClick={asyncFunction}> Delete </button> : null}
     </div>
   );
 };

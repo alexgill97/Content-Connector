@@ -57,6 +57,9 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.nav_middle}>
+        <Link href="/about">
+          <p className={`${styles.a}`}>About Us</p>
+        </Link>
         <Link href="/freelancerview">
           <p className={`${styles.a}`}>Find Projects</p>
         </Link>
