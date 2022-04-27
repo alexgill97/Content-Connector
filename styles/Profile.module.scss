@@ -112,6 +112,7 @@
   h3 {
     margin-left: 7%;
     margin-top: 4em;
+    margin-bottom: 3em
     // margin-bottom: 2em;
   }
 }
@@ -184,4 +185,93 @@
   margin-top: 1em;
   display: inline-block;
   transition-duration: 0.4s;
+}
+
+
+
+
+
+
+/////////////////////////////////
+
+
+
+
+
+
+
+.slider {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10em;
+}
+
+.image {
+  width: 100%;
+  height: 80%;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+}
+
+.right_arrow {
+  position: absolute;
+  top: 115%;
+  left: 85%;
+  font-size: 1.5rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+.left_arrow {
+  position: absolute;
+  top: 115%;
+  right: 85%;
+  font-size: 1.5rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide_active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  cursor: pointer;
+  background-color: #e47a7a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  float: right;
+  margin-top: 1em;
+  display: inline-block;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: #cc1111;
+  color: white;
 }

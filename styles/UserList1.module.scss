@@ -2,14 +2,13 @@ $surface-color: #fff;
 $curve: 40;
 
 .cards {
-  width: 20rem;
-  height: 20rem;
-  display: -ms-inline-grid;
+  width: 20em;
+  height: 20em;
+  display: block;
   grid-row: 3;
-
-
-
 }
+
+
 
 .carousel_container {
   height: 70%;
@@ -33,6 +32,7 @@ $curve: 40;
   border-radius: 40px ;
   font-family: 'Poppins';
   background-color: #fef8f8;
+
 }
 
 .card__overlay {

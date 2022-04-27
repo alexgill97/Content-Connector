@@ -21,11 +21,9 @@ const UserList = ({ users, portfolio }) => {
   ));
 
   return (
-
-      <div className={styles.cards}>
-        {userList}
-      </div>
-
+    <div className={styles.cards}>
+      {userList}
+    </div>
   );
 };
 export default UserList;

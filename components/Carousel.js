@@ -13,91 +13,146 @@ import {
 import { AuthContext } from '../firebase/context';
 
 export default function Slider({ portfolio, uid }) {
-  const [userPortfolio, setUserPortfolio] = useState(portfolio || []);
-  let allPortfolios = [];
+  // console.log(portfolio)
 
-  // if (!portfolio) {
-  //   (async () => {
-  //     const querySnapshot = await getDocs(
-  //       query(collectionGroup(firestore, `portfolio`), where('uid', '==', uid))
-  //     );
-  //     querySnapshot.forEach((doc) => {
-  //       allPortfolios.push(doc.data());
-  //     });
-  //     setUserPortfolio(allPortfolios);
-  //   })();
-  // }
+  if (portfolio) {
+    const [current, setCurrent] = useState(0);
+    const length = portfolio.length;
+    const { currentUser } = useContext(AuthContext);
 
-  if (!portfolio) {
-    useEffect(() => {
-      getUserPortfolio(uid);
-    }, [uid]);
-  }
-  const getUserPortfolio = async (id) => {
-    const querySnapshot = await getDocs(
-      query(collectionGroup(firestore, `portfolio`), where('uid', '==', id))
+    const asyncFunction = async (e) => {
+      await deleteDoc(
+        doc(firestore, 'users', e.uid, 'portfolio', e.title)
+      ).then(() => window.location.reload());
+    };
+
+    const nextSlide = () => {
+      setCurrent(current === length - 1 ? 0 : current + 1);
+    };
+
+    const prevSlide = () => {
+      setCurrent(current === 0 ? length - 1 : current - 1);
+    };
+
+    if (!Array.isArray(portfolio) || portfolio.length <= 0) {
+      return null;
+    }
+    console.log(portfolio);
+    return (
+      <section className={styles.slider}>
+        <FaArrowAltCircleLeft
+          className={styles.left_arrow}
+          onClick={prevSlide}
+        />
+        <FaArrowAltCircleRight
+          className={styles.right_arrow}
+          onClick={nextSlide}
+        />
+        {portfolio.map((slide, index) => {
+          return (
+            <div
+              className={
+                index === current ? `${styles.slide_active}` : `${styles.slide}`
+              }
+              key={index}
+            >
+              {index === current && (
+                <div className={styles.image}>
+                  <img src={slide.image} alt="image" />
+                  {/* {currentUser === slide.uid ? (
+                    <button
+                      onClick={() => asyncFunction(slide)}
+                      className={styles.button}
+                    >
+                      Delete
+                    </button>
+                  ) : null} */}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </section>
     );
-    querySnapshot.forEach((doc) => {
-      allPortfolios.push(doc.data());
-    });
-    setUserPortfolio(allPortfolios);
-  };
+  } else {
+    const [userPortfolio, setUserPortfolio] = useState(portfolio || []);
+    let allPortfolios = [];
 
-  console.log(userPortfolio);
+    if (!portfolio) {
+      useEffect(() => {
+        getUserPortfolio(uid);
+      }, [uid]);
+    }
 
-  const [current, setCurrent] = useState(0);
-  const length = userPortfolio.length;
-  const { currentUser } = useContext(AuthContext);
+    const getUserPortfolio = async (id) => {
+      const querySnapshot = await getDocs(
+        query(collectionGroup(firestore, `portfolio`), where('uid', '==', id))
+      );
+      querySnapshot.forEach((doc) => {
+        allPortfolios.push(doc.data());
+      });
+      setUserPortfolio(allPortfolios);
+    };
 
-  const asyncFunction = async (e) => {
-    await deleteDoc(doc(firestore, 'users', e.uid, 'portfolio', e.title)).then(
-      () => window.location.reload()
+    console.log(userPortfolio);
+
+    const [current, setCurrent] = useState(0);
+    const length = userPortfolio.length;
+    const { currentUser } = useContext(AuthContext);
+
+    const asyncFunction = async (e) => {
+      await deleteDoc(
+        doc(firestore, 'users', e.uid, 'portfolio', e.title)
+      ).then(() => window.location.reload());
+    };
+
+    const nextSlide = () => {
+      setCurrent(current === length - 1 ? 0 : current + 1);
+    };
+
+    const prevSlide = () => {
+      setCurrent(current === 0 ? length - 1 : current - 1);
+    };
+
+    if (!Array.isArray(userPortfolio) || userPortfolio.length <= 0) {
+      return null;
+    }
+    console.log(userPortfolio);
+    return (
+      <section className={styles.slider}>
+        <FaArrowAltCircleLeft
+          className={styles.left_arrow}
+          onClick={prevSlide}
+        />
+        <FaArrowAltCircleRight
+          className={styles.right_arrow}
+          onClick={nextSlide}
+        />
+        {userPortfolio.map((slide, index) => {
+          return (
+            <div
+              className={
+                index === current ? `${styles.slide_active}` : `${styles.slide}`
+              }
+              key={index}
+            >
+              {index === current && (
+                <div className={styles.image}>
+                  <img src={slide.image} alt="image" />
+                  {/* {currentUser === slide.uid ? (
+                    <button
+                      onClick={() => asyncFunction(slide)}
+                      className={styles.button}
+                    >
+                      Delete
+                    </button>
+                  ) : null} */}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </section>
     );
-  };
-
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
-
-  if (!Array.isArray(userPortfolio) || userPortfolio.length <= 0) {
-    return null;
   }
-
-  return (
-    <section className={styles.slider}>
-      <FaArrowAltCircleLeft className={styles.left_arrow} onClick={prevSlide} />
-      <FaArrowAltCircleRight
-        className={styles.right_arrow}
-        onClick={nextSlide}
-      />
-      {userPortfolio.map((slide, index) => {
-        return (
-          <div
-            className={
-              index === current ? `${styles.slide_active}` : `${styles.slide}`
-            }
-            key={index}
-          >
-            {index === current && (
-              <div className={styles.image}>
-                <img src={slide.image} alt="image" />
-                {currentUser === slide.uid ? (
-                  <button
-                    onClick={() => asyncFunction(slide)}
-                    className={styles.button}
-                  >
-                    Delete
-                  </button>
-                ) : null}
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </section>
-  );
 }

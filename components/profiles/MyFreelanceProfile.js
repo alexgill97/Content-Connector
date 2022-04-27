@@ -1,30 +1,48 @@
 import styles from '../../styles/Profile.module.scss';
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../firebase/context';
 import Image from 'next/image';
 import Carousel from '../Carousel';
 import Modal from '../Modal';
 import Message from '../Message';
 
-export default function freelanceProfile({
-  avatar,
-  username,
-  description,
-  portfolio,
-}) {
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+
+import { firestore } from '../../firebase/clientApp';
+import {
+  doc,
+  deleteDoc,
+  getDocs,
+  where,
+  query,
+  collectionGroup,
+} from 'firebase/firestore';
+
+export default function freelanceProfile({ portfolio }) {
+
   const { userData } = useContext(AuthContext);
   const [hidden, setHidden] = useState(true);
-  // const portfolioMap = portfolio.map((x) => (
-  //   <div>
-  //     <div>
-  //       <Image src={x.image} height={100} width={100}></Image>
-  //     </div>
-  //     <div>
-  //       <div>{x.description}</div>
-  //     </div>
-  //   </div>
-  // ));
-  // console.log(portfolio)
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <main className={styles.main}>
       <div className={styles.profile_container}>
@@ -40,29 +58,6 @@ export default function freelanceProfile({
                 <h2>Biograpy</h2>
                 <p>{userData.description}</p>
               </div>
-              {/* <div>
-                <h2>Message</h2>
-                {!hidden ? (
-                  <div>
-                    <button
-                      onClick={() => setHidden(!hidden)}
-                      className={styles.buttonTwo}
-                    >
-                      {' '}
-                      <p className={styles.buttonOne}> Close </p>{' '}
-                    </button>
-                    <Message
-                      profile={userData}
-                      className={styles.messageContainer}
-                    />
-                  </div>
-                ) : (
-                  <button onClick={() => setHidden(!hidden)}>
-                    {' '}
-                    Send Message{' '}
-                  </button>
-                )}
-              </div> */}
               <div>
                 <h2>Specializations</h2>
                 <p>Front End Development</p>

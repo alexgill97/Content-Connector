@@ -1,25 +1,50 @@
 import styles from '../../styles/Profile.module.scss';
-import React, { useState, useEffect } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
+import React, { useState, useContext, useEffect } from 'react';
+import {
+  doc,
+  deleteDoc,
+  getDocs,
+  where,
+  query,
+  collectionGroup,
+} from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { firestore } from '../../firebase/clientApp';
 import Image from 'next/image';
 import PortfolioCarousel from './PortfolioCarousel';
 import Carousel from '../Carousel';
-
 import Message from '../Message';
+import { AuthContext } from '../../firebase/context';
+
+
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+
 export default function otherFreelanceProfile({ profile, portfolio }) {
   const [hidden, setHidden] = useState(true);
-  const portfolioMap = portfolio.map((x) => (
-    <div>
-      <div>
-        <Image src={x.image} height={100} width={100}></Image>
-      </div>
-      <div>
-        <div>{x.description}</div>
-      </div>
-    </div>
-  ));
+
+  const [current, setCurrent] = useState(0);
+  const length = portfolio.length;
+  const { currentUser } = useContext(AuthContext);
+
+  const asyncFunction = async (e) => {
+    await deleteDoc(doc(firestore, 'users', e.uid, 'portfolio', e.title)).then(
+      () => window.location.reload()
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  if (!Array.isArray(portfolio) || portfolio.length <= 0) {
+    return null;
+  }
+  console.log(portfolio);
+
   if (portfolio) {
     return (
       <main className={styles.main}>
@@ -91,8 +116,42 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
         <div className={styles.section}>
           <h3>Their Portfolios</h3>
         </div>
-        {/* <PortfolioCarousel portfolio={portfolio} /> */}
-        <Carousel portfolio={portfolio} />
+        
+        {/* <Carousel portfolio={portfolio} /> */}
+        <section className={styles.slider}>
+        <FaArrowAltCircleLeft
+          className={styles.left_arrow}
+          onClick={prevSlide}
+        />
+        <FaArrowAltCircleRight
+          className={styles.right_arrow}
+          onClick={nextSlide}
+        />
+        {portfolio.map((slide, index) => {
+          return (
+            <div
+              className={
+                index === current ? `${styles.slide_active}` : `${styles.slide}`
+              }
+              key={index}
+            >
+              {index === current && (
+                <div className={styles.image}>
+                  <img src={slide.image} alt="image" />
+                  {currentUser === slide.uid ? (
+                    <button
+                      onClick={() => asyncFunction(slide)}
+                      className={styles.button}
+                    >
+                      Delete
+                    </button>
+                  ) : null}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </section>
       </main>
     );
   } else {

@@ -108,10 +108,12 @@ const Message = ({ profile }) => {
       {chat && !hidden ? (
         <main className={styles.main_message}>
           <section className={styles.chat_header}>
-            <Link href={`/userProfile/${chat.uid}`}>
-              <img src={profile.avatar} alt="" />
-            </Link>
-            <p>{chat.username}</p>
+            <div className={styles.userAvatar}>
+              <Link href={`/userProfile/${chat.uid}`}>
+                <img src={profile.avatar} alt="" />
+              </Link>
+              <p>{chat.username}</p>
+            </div>
             <div>
               {!hidden ? (
                 <button
