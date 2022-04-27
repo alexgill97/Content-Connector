@@ -371,6 +371,7 @@ $curve: 40;
 }
 
 .card__description {
+  margin-top: 1em !important;
   padding: 0 2em 2em;
   margin: 0;
   color: white;
@@ -382,6 +383,7 @@ $curve: 40;
   background: linear-gradient(-45deg, #ffffff, #d1e6f5, #e2e2e2, #b6cefa);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  border-top-left-radius: 30%;
   button {
     transition-duration: 0.4s;
     margin-top: 1em;

@@ -56,6 +56,7 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
         />
         <div className={styles.card__overlay}>
           <div className={styles.card__header}>
+            {/* <div className={styles.card__arc}><path /></div> */}
             <img className={styles.card__thumb} src={avatar} alt="" />
             <div
               className={`${styles.card__header}-text ${styles.card__title}`}
@@ -73,7 +74,10 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
                   className={styles.buttonTwo}
                 >
                   {' '}
-                  <img src={'close_FILL0_wght400_GRAD0_opsz40.png'} className={styles.cancelButton}/>{' '}
+                  <img
+                    src={'close_FILL0_wght400_GRAD0_opsz40.png'}
+                    className={styles.cancelButton}
+                  />{' '}
                 </button>
                 <Message profile={user} className={styles.messageContainer} />
               </div>
