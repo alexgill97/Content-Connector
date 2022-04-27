@@ -1,5 +1,6 @@
 .main_user_messages {
   display: flex;
+  width: 65em;
 }
 
 .info_card_container {
@@ -14,7 +15,6 @@
   flex-direction: column;
   justify-content: center;
   padding-right: 2rem;
-
   .carousel_container{
     height: 60%;
     width: 80%;

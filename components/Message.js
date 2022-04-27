@@ -31,6 +31,7 @@ const Message = ({ profile }) => {
   const [img, setImg] = useState('');
   const [msgs, setMsgs] = useState([]);
   const [user3, setUser3] = useState();
+  const [hidden, setHidden] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const user1 = currentUser;
@@ -104,7 +105,7 @@ const Message = ({ profile }) => {
 
   return (
     <>
-      {chat && (
+      {chat && !hidden ? (
         <main className={styles.main_message}>
           <section className={styles.chat_header}>
             <Link href={`/userProfile/${chat.uid}`}>
@@ -127,8 +128,27 @@ const Message = ({ profile }) => {
               setImg={setImg}
             />
           </div>
+          {/* {!hidden ? (
+            <div>
+              <button
+                onClick={() => setHidden(!hidden)}
+                className={styles.buttonTwo}
+              >
+                <div>Close</div>{' '}
+              </button>
+            </div>
+          ) : (
+            <div>
+              <button
+                onClick={() => setHidden(!hidden)}
+                className={styles.buttonTwo}
+              >
+                <div>Open</div>{' '}
+              </button>
+            </div>
+          )} */}
         </main>
-      )}
+      ) : null}
     </>
   );
 };

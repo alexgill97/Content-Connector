@@ -11,8 +11,8 @@ export default function About() {
           <div className={`${styles.container}`}>
             <h2>James Murphy</h2>
             <p className={`${styles.title}`}>Developer</p>
-            <p>Write Description here</p>
-            <p>example@example.com</p>
+            {/* <p>Write Description here</p>
+            <p>example@example.com</p> */}
             <p>
               <Link href="https://github.com/JamesMurphyy" target="_blank">
                 <button className={`${styles.button}`}>Contact</button>
@@ -28,8 +28,8 @@ export default function About() {
           <div className={`${styles.container}`}>
             <h2>Alex Gillespie</h2>
             <p className={`${styles.title}`}>Developer</p>
-            <p>Write Description here</p>
-            <p>example@example.com</p>
+            {/* <p>Write Description here</p>
+            <p>example@example.com</p> */}
             <p>
               <Link href="https://github.com/alexgill97" target="_blank">
                 <button className={`${styles.button}`}>Contact</button>
@@ -45,8 +45,8 @@ export default function About() {
           <div className={`${styles.container}`}>
             <h2>Prince Requino</h2>
             <p className={`${styles.title}`}>Developer</p>
-            <p>Write Description here</p>
-            <p>example@example.com</p>
+            {/* <p>Write Description here</p>
+            <p>example@example.com</p> */}
             <p>
               <Link href="https://github.com/princerequino" target="_blank">
                 <button className={`${styles.button}`}>Contact</button>

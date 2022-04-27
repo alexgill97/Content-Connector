@@ -18,20 +18,30 @@ import User from '../components/User';
 import Link from 'next/link';
 const Messages = ({ users }) => {
   const [selectedUser, setSelectedUser] = useState(null);
+  const [hidden, setHidden] = useState(false);
+
+  const clickFunction = (profile) => {
+    setSelectedUser(profile);
+    setHidden(!hidden);
+  };
 
   console.log(selectedUser);
   return (
     <main className={styles.main_user_messages}>
       <div className={styles.info_card_container}>
         {users.map((profile) => (
-          <div onClick={() => setSelectedUser(profile)}>
+          <div onClick={() => clickFunction(profile)}>
             <UserInfoCard profile={profile} />
           </div>
         ))}{' '}
       </div>
 
       <div className={styles.message_container}>
-        {selectedUser && <Message profile={selectedUser} />}
+        {selectedUser && !hidden ? (
+          <Message profile={selectedUser} />
+        ) : (
+          <div>Send Message</div>
+        )}
         {selectedUser && !selectedUser.isBusiness && (
           <div className={styles.carousel_container}>
             <Carousel uid={selectedUser.uid} />
