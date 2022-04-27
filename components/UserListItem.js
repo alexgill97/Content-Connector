@@ -56,7 +56,6 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
         />
         <div className={styles.card__overlay}>
           <div className={styles.card__header}>
-            {/* <div className={styles.card__arc}><path /></div> */}
             <img className={styles.card__thumb} src={avatar} alt="" />
             <div
               className={`${styles.card__header}-text ${styles.card__title}`}
@@ -64,9 +63,8 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
               <h3>{username}</h3>
             </div>
           </div>
-          <p className={styles.card__description}>
-            {description}
-
+          <div className={styles.card__description}>
+            <p>{description}</p>
             {!hidden ? (
               <div>
                 <button
@@ -84,7 +82,7 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
             ) : (
               <button onClick={() => setHidden(!hidden)}> Send Message </button>
             )}
-          </p>
+          </div>
         </div>
       </a>
     </li>
