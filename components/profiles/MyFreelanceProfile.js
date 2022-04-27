@@ -2,7 +2,7 @@ import styles from '../../styles/Profile.module.scss';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../firebase/context';
 import Image from 'next/image';
-import PortfolioCarousel from './PortfolioCarousel';
+import Carousel from '../Carousel';
 import Modal from '../Modal';
 
 export default function freelanceProfile({
@@ -74,9 +74,9 @@ export default function freelanceProfile({
       </div>
       <Modal />
       <div className={styles.section}>
-        <h3>Your Portfolios</h3>        
+        <h3>Your Portfolios</h3>
       </div>
-      <PortfolioCarousel portfolio={portfolio} />
+      <Carousel portfolio={portfolio} />
     </main>
   );
 }
