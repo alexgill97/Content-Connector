@@ -18,12 +18,19 @@
   p {
     margin-bottom: 0%;
     font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+
   }
   
   h3 {
     padding: 0;
     margin: 0;
     margin: 0%;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 16px rgba(239, 226, 226, 0.263);
   }
   .title {
     font-weight: bold;
@@ -33,9 +40,12 @@
   .body {
     font-size: 1.75rem;
     width: 75%;
+    border-top: 1px solid #1156cc83;
   }
   .button {
+    background-color: rgb(241, 241, 241);
     border: none;
+    outline: none;
     color: #5a84a2;
     letter-spacing: 2px;
     padding: 16px 32px;
@@ -47,10 +57,7 @@
     cursor: pointer;
     border-radius: 8px;
     margin-right: 5px;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    2px 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.658), 5px 5px 10px #90a4ae;
   }
   .button_login {
     background-color: #7abde4;
@@ -60,10 +67,13 @@
   .button_login:hover {
     background-color: #1155cc;
     color: white;
+    
+
   }
   .button_register:hover {
-    background-color: #1155cc;
-    color: rgb(255, 255, 255);
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.658), 5px 5px 10px #90a4ae,
+    inset -5px -5px 10px rgba(255, 255, 255, 0.658), inset 5px 5px 10px #90a4ae5c;
+    color: #5a84a2;
   }
   .bothButtons {
     display: flex;

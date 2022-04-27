@@ -15,9 +15,9 @@ export default function Home() {
         <section className={styles.home_left}>
           <div className={styles.title}>
             <h3>
-              Connect Freelancers <br />
+              Connecting Businesses <br />
               with
-              <br /> Local Businesses.
+              <br /> Local Creators.
             </h3>
           </div>
           <div className={styles.body}>
