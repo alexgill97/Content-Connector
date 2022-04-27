@@ -23,7 +23,7 @@ export default function freelanceProfile({
   //     </div>
   //   </div>
   // ));
-
+  // console.log(portfolio)
   return (
     <main className={styles.main}>
       <div className={styles.profile_container}>

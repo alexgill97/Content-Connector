@@ -1,62 +1,58 @@
-import React, { useState } from 'react';
-
-import CaroueslBtn from './CarouselBtn';
 import styles from '../styles/slider.module.scss';
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import React, { useState, useContext } from 'react';
+import { firestore } from '../firebase/clientApp';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { AuthContext } from '../firebase/context';
 
 export default function Slider({ portfolio }) {
-  const [slideIndex, setSlideIndex] = useState(1);
+  const [current, setCurrent] = useState(0);
+  const length = portfolio.length;
+  const { currentUser } = useContext(AuthContext);
+
+  const asyncFunction = async (e) => {
+    await deleteDoc(doc(firestore, 'users', e.uid, 'portfolio', e.title)).then(() =>
+      window.location.reload()
+    );
+  };
 
   const nextSlide = () => {
-    if (slideIndex !== portfolio.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === portfolio.length) {
-      setSlideIndex(1);
-    }
+    setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
   const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
-      setSlideIndex(portfolio.length);
-    }
+    setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  const moveDot = (index) => {
-    setSlideIndex(index);
-  };
-
-  console.log(portfolio);
+  if (!Array.isArray(portfolio) || portfolio.length <= 0) {
+    return null;
+  }
 
   return (
-    <div className={styles.container_slider}>
-      {portfolio.map((obj, index) => {
+    <section className={styles.slider}>
+      <FaArrowAltCircleLeft className={styles.left_arrow} onClick={prevSlide} />
+      <FaArrowAltCircleRight
+        className={styles.right_arrow}
+        onClick={nextSlide}
+      />
+      {portfolio.map((slide, index) => {
         return (
           <div
-            key={obj.id}
             className={
-              slideIndex === index + 1 ? styles.active_anim, styles.slide : styles.slide
+              index === current ? `${styles.slide_active}` : `${styles.slide}`
             }
+            key={index}
           >
-            <img src={portfolio.image} />
+            {index === current && (
+              <div>
+                <img src={slide.image} alt="image" className={styles.image} />
+                <div className={styles.description}>{slide.description}</div>
+                {(currentUser === slide.uid) ? <button onClick={() => asyncFunction(slide)} className={styles.button}> Delete </button> : null}
+              </div>
+            )}
           </div>
         );
       })}
-      <CaroueslBtn moveSlide={nextSlide} direction={'next'} />
-      <CaroueslBtn moveSlide={prevSlide} direction={'prev'} />
-
-      <div className={styles.container_dots}>
-        {Array.from({ length: 5 }).map((item, index) => (
-          <div
-            onClick={() => moveDot(index + 1)}
-            className={
-              slideIndex === index + 1
-                ? 'styles.dot styles.active'
-                : 'styles.dot'
-            }
-          ></div>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }

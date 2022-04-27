@@ -1,78 +1,71 @@
-.container_slider {
-  max-width: 700px;
-  height: 500px;
-  margin: 100px auto 0;
+.slider {
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-@media screen and (max-width: 700px){
-  .container-slider {
-    margin: 100px 10px 0;
-  }
-}
-.slide {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  opacity: 0;
-  transition: opacity ease-in-out 0.4s;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.active_anim {
-  
-  opacity: 1;
-}
-
-.btn_slide {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #f1f1f1;
-  border: 1px solid rgba(34, 34, 34, 0.287);
-  position: absolute;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
-.btn_slide img {
-  width: 25px;
-  height: 25px;
-  pointer-events: none;
-}
-.prev {
-  top: 50%;
-  left: 20px;
-  transform: translateY(-60%);
-}
-.next {
-  top: 50%;
-  right: 20px;
-  transform: translateY(-60%);
+.image {
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
 }
 
-
-.container_dots {
+.right_arrow {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  right: 3em;
+  font-size: 3rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+
+}
+
+.left_arrow {
+  position: absolute;
+  top: 50%;
+  left: 3em;
+  font-size: 3rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide_active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+.description {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.dot {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 3px solid #f1f1f1;
-  margin: 0 5px;
-  background: #f1f1f1;
+
+.button {
+  cursor: pointer;
+  background-color: #e47a7a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  float: right;
+  margin-top: 1em;
+  display: inline-block;
+  transition-duration: 0.4s;
 }
-.dot.active {
-  background: rgb(32, 32, 32);
+.button:hover {
+  background-color: #cc1111;
+  color: white;
 }
