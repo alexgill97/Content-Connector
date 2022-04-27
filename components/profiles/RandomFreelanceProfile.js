@@ -7,7 +7,9 @@ import Image from 'next/image';
 import PortfolioCarousel from './PortfolioCarousel';
 import Carousel from '../Carousel';
 
+import Message from '../Message';
 export default function otherFreelanceProfile({ profile, portfolio }) {
+  const [hidden, setHidden] = useState(true);
   const portfolioMap = portfolio.map((x) => (
     <div>
       <div>
@@ -36,7 +38,26 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
                 </div>
                 <div>
                   <h2>Message</h2>
-                  <p>Chat Now</p>
+                  {!hidden ? (
+                    <div>
+                      <button
+                        onClick={() => setHidden(!hidden)}
+                        className={styles.buttonTwo}
+                      >
+                        {' '}
+                        <p className={styles.buttonOne}> Close </p>{' '}
+                      </button>
+                      <Message
+                        profile={profile}
+                        className={styles.messageContainer}
+                      />
+                    </div>
+                  ) : (
+                    <button onClick={() => setHidden(!hidden)}>
+                      {' '}
+                      Send Message{' '}
+                    </button>
+                  )}
                 </div>
                 <div>
                   <h2>Specializations</h2>

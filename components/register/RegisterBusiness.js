@@ -4,6 +4,7 @@ import React, { useState, useContext } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../firebase/clientApp';
 import Geocode from 'react-geocode';
+import styles from '../../styles/Register.module.scss';
 
 const RegisterBusiness = ({ setLoading, setStep }) => {
   const router = useRouter();
@@ -55,11 +56,11 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
 
   return (
     <section>
-      <h1>{data.uid}</h1>
+      {/* <h1>{data.uid}</h1>
       {data.username}
       {data.description}
-      {data.address}
-      <h3>Register a Business Account</h3>
+      {data.address} */}
+      {/* <h3>Register a Business Account</h3> */}
       <form onSubmit={handleSubmit}>
         <div className="input_container">
           <label>Enter Business Name: </label>
@@ -93,7 +94,7 @@ const RegisterBusiness = ({ setLoading, setStep }) => {
             onChange={(e) => setData({ ...data, city: e.target.value })}
           />
         </div>
-        <button onClick={onRegisterSubmit}>register</button>
+        <button className={styles.button} onClick={onRegisterSubmit}>Register</button>
       </form>
     </section>
   );

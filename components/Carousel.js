@@ -1,6 +1,6 @@
 import styles from '../styles/slider.module.scss';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { firestore } from '../firebase/clientApp';
 import {
   doc,
@@ -16,17 +16,34 @@ export default function Slider({ portfolio, uid }) {
   const [userPortfolio, setUserPortfolio] = useState(portfolio || []);
   let allPortfolios = [];
 
+  // if (!portfolio) {
+  //   (async () => {
+  //     const querySnapshot = await getDocs(
+  //       query(collectionGroup(firestore, `portfolio`), where('uid', '==', uid))
+  //     );
+  //     querySnapshot.forEach((doc) => {
+  //       allPortfolios.push(doc.data());
+  //     });
+  //     setUserPortfolio(allPortfolios);
+  //   })();
+  // }
+
+
+
   if (!portfolio) {
-    (async () => {
-      const querySnapshot = await getDocs(
-        query(collectionGroup(firestore, `portfolio`), where('uid', '==', uid))
-      );
-      querySnapshot.forEach((doc) => {
-        allPortfolios.push(doc.data());
-      });
-      setUserPortfolio(allPortfolios);
-    })();
+    useEffect(()=>{
+      getUserPortfolio(uid)
+    }, [uid])
   }
+  const getUserPortfolio = async (id) => {
+    const querySnapshot = await getDocs(
+      query(collectionGroup(firestore, `portfolio`), where('uid', '==', id))
+    );
+    querySnapshot.forEach((doc) => {
+      allPortfolios.push(doc.data());
+    });
+    setUserPortfolio(allPortfolios);
+  };
 
   console.log(userPortfolio);
 

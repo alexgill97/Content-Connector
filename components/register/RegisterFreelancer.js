@@ -3,6 +3,7 @@ import { AuthContext } from '../../firebase/context';
 import React, { useState, useContext } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../../firebase/clientApp';
+import styles from '../../styles/Register.module.scss';
 
 const RegisterFreelancer = ({ setLoading, setStep }) => {
   const router = useRouter();
@@ -40,11 +41,11 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
 
   return (
     <section>
-      <h1>{data.uid}</h1>
+      {/* <h1>{data.uid}</h1>
       {data.username}
       {data.description}
-      {data.address}
-      <h3>Register a Freelancer Account</h3>
+      {data.address} */}
+      {/* <h3>Register a Freelancer Account</h3> */}
       <form onSubmit={handleSubmit}>
         <div className="input_container">
           <label>Username: </label>
@@ -78,7 +79,7 @@ const RegisterFreelancer = ({ setLoading, setStep }) => {
             />
           </div>
         </div>
-        <button onClick={onRegisterSubmit}>register</button>
+        <button className={styles.button}  onClick={onRegisterSubmit}>Register</button>
       </form>
     </section>
   );

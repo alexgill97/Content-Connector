@@ -20,7 +20,7 @@ const Logout = ({ currentUser }) => {
     
   };
   return (
-    <button onClick={onLogoutSubmit} className={`${styles.logout} ${styles.a}`}>
+    <button onClick={onLogoutSubmit} className={`${styles.logout}`}>
       Logout
     </button>
   );

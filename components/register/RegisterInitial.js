@@ -3,6 +3,7 @@ import { registerUserAuth, loginUser } from '../../firebase/authFunctions';
 import { useRouter } from 'next/router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/clientApp';
+import styles from '../../styles/Register.module.scss';
 
 const RegisterInitial = ({ setStep, setIsFreelancer, loading, setLoading }) => {
   const [email, setEmail] = useState('');
@@ -21,11 +22,11 @@ const RegisterInitial = ({ setStep, setIsFreelancer, loading, setLoading }) => {
   };
 
   return (
+    <section  >
     <div>
       {error && <h1>error...</h1>}
       <div hidden={loading}>
-        <h3>Register an Account</h3>
-        <h3>{email}</h3>
+        {/* <h3>{email}</h3> */}
         <form onSubmit={onRegisterAuthSubmit}>
           <div className="input_container">
             <label>Email: </label>
@@ -44,14 +45,19 @@ const RegisterInitial = ({ setStep, setIsFreelancer, loading, setLoading }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <label>Select your role: </label>
 
-          <button onClick={onRegisterAuthSubmit}>register</button>
+
+
         </form>
-        <button onClick={() => setIsFreelancer(true)}>Freelancer</button>
-        <button onClick={() => setIsFreelancer(false)}>Business</button>
+        <label>Select your role: </label>
+        <div className={styles.roleButton}>
+        <button className={styles.button1} onClick={() => setIsFreelancer(true)}>Freelancer</button>
+        <button className={styles.button1} onClick={() => setIsFreelancer(false)}>Business</button>
+        </div>
       </div>
     </div>
+<button className={styles.button} onClick={onRegisterAuthSubmit}>Register</button>
+</section>
   );
 };
 

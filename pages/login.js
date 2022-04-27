@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { loginUser } from '../firebase/authFunctions';
 import { useRouter } from 'next/router';
+import styles from '../styles/Login.module.scss';
+
 
 const login = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,9 +20,10 @@ const login = () => {
   };
 
   return (
-    <section>
-      <h3>Login to your Account</h3>
-      <h3>{email}</h3>
+    <section className={styles.login}>
+      <div className={styles.loginContainer}>
+      <label>Login to your Account</label>
+
       <form onSubmit={handleSubmit}>
         <div className="input_container">
           <label>Email: </label>
@@ -39,7 +43,8 @@ const login = () => {
           />
         </div>
       </form>
-      <button onClick={onLoginSubmit}>login</button>
+      <button className={styles.button} onClick={onLoginSubmit}>Login</button>
+      </div>
     </section>
   );
 };

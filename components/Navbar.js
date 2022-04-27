@@ -81,10 +81,10 @@ const Navbar = () => {
         ) : (
           <div className={`${styles.nav_right_signin}`}>
             <Link href="/login">
-              <p className={styles.a}>Login</p>
+              <p className={`${styles.blueButton} ${styles.blueButton}`}>Login</p>
             </Link>
             <Link href="/register">
-              <p className={styles.a}>Register</p>
+              <p className={`${styles.a} ${styles.register}`}>Register</p>
             </Link>
           </div>
         )}

@@ -7,11 +7,11 @@ export default function About() {
     <div className={`${styles.row}`}>
       <div className={`${styles.column}`}>
         <div className={`${styles.card}`}>
-          <img src={teampic} alt="team picture" />
+          <img className={`${styles.image}`} src={'ProfilePicJames.jpg'} alt="team picture" />
           <div className={`${styles.container}`}>
             <h2>James Murphy</h2>
             <p className={`${styles.title}`}>Developer</p>
-            <p>Angel Daddy~</p>
+            <p>Write Description here</p>
             <p>example@example.com</p>
             <p>
               <Link href="https://github.com/JamesMurphyy" target="_blank">
@@ -24,11 +24,11 @@ export default function About() {
 
       <div className={`${styles.column}`}>
         <div className={`${styles.card}`}>
-          <img src={teampic} alt="team picture" />
+          <img  className={`${styles.image}`} src={'IMG_1207.JPG'} alt="team picture" />
           <div className={`${styles.container}`}>
             <h2>Alex Gillespie</h2>
             <p className={`${styles.title}`}>Developer</p>
-            <p>Ocean Eye Daddy~</p>
+            <p>Write Description here</p>
             <p>example@example.com</p>
             <p>
               <Link href="https://github.com/alexgill97" target="_blank">
@@ -41,11 +41,11 @@ export default function About() {
 
       <div className={`${styles.column}`}>
         <div className={`${styles.card}`}>
-          <img src={teampic} alt="team picture" />
+          <img className={`${styles.image}`} src={'prince_8x8.jpeg'} alt="team picture" />
           <div className={`${styles.container}`}>
             <h2>Prince Requino</h2>
             <p className={`${styles.title}`}>Developer</p>
-            <p>Legit Daddy~</p>
+            <p>Write Description here</p>
             <p>example@example.com</p>
             <p>
               <Link href="https://github.com/princerequino" target="_blank">

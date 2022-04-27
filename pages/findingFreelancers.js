@@ -37,14 +37,8 @@ const findingFreelancers = ({ users }) => {
   // }, [currentUser]);
 
   return (
-    <div className={`${styles.container} `}>
-      <div className={`${styles.aboutBody}`}>
-        <div className={`col-sm-8`}>
-          <div className={`${styles.aboutBody}`}>
-            <UserList users={users} profile={profile} />
-          </div>
-        </div>
-      </div>
+    <div className={styles.container}>
+      <UserList users={users} profile={profile} />
     </div>
   );
 };

@@ -32,7 +32,7 @@
   padding-top: 1rem;
   display: flex;
   align-items: center;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   justify-content: center;
 
   h2 {
@@ -50,6 +50,33 @@
   p {
     font-size: 1rem;
     text-transform: capitalize;
+  }
+  button {
+    cursor: pointer;
+    background-color: #7abde4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    // margin-top: em;
+    margin-right: 4.2em;
+    display: inline-block;
+    transition-duration: 0.4s;
+  }
+  button:hover {
+    transition-duration: 0.4s;
+    background-color: #1155cc;
+    color: white;
+  }
+  .buttonTwo {
+    background-color: #e47a7a;
+  }
+  .buttonTwo:hover {
+    background-color: #cc1111;
+  }
+  .buttonOne {
+    background-color: transparent;
   }
 }
 
@@ -88,14 +115,6 @@
     // margin-bottom: 2em;
   }
 }
-
-
-
-
-
-
-
-
 
 ////////////////////////////////////////////
 .mainBusiness {
@@ -166,5 +185,3 @@
   display: inline-block;
   transition-duration: 0.4s;
 }
-
-

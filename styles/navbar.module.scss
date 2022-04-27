@@ -23,7 +23,6 @@
   justify-content: space-between !important;
   font-family: 'Poppins';
   font-size: large;
-
 }
 
 .nav_left {
@@ -97,7 +96,7 @@
   background-color: #1155cc;
   bottom: 0;
   left: 8;
-  top:1.5em;
+  top: 1.5em;
   transform-origin: right;
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
@@ -106,14 +105,6 @@
 .a:hover::before {
   transform-origin: left;
   transform: scaleX(1);
-}
-
-.logout {
-  font-size: medium;
-  font-family: 'Poppins';
-  background-color: whitesmoke;
-  border: none;
-  cursor: pointer;
 }
 
 // @mixin button-bg($bg) {
@@ -145,3 +136,48 @@
   }
 }
 
+.blueButton {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-bottom: 0px;
+  background-color: #7abde4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  transition-duration: 0.4s;
+}
+.blueButton:hover {
+  background-color: #1155cc !important;
+  transition-duration: 0.4s;
+}
+.register {
+  margin-top: 0.5em;
+}
+.logout {
+  font-size: medium;
+  font-family: 'Poppins';
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-bottom: 0px;
+  background-color: #1155cc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  transition-duration: 0.4s;
+}
+.logout:hover {
+  background-color: #7abde4 !important;
+  transition-duration: 0.4s;
+}

@@ -54,13 +54,13 @@ export default function Home() {
           </section>
           <section className={styles.home_right}>
             <div className={styles.image_container}>
-              <div className={styles.float1}>test</div>
+              {/* <div className={styles.float1}>test</div>
               <div className={styles.float2}>
                 <div className={styles.float2_container}>
                   <h5>Business Satisfacton</h5>
                   <p>over last 30 days</p>
                 </div>
-              </div>
+              </div> */}
               <img
                 src={'LHL_final_homepage.png'}
                 className={`${styles.photo}`}

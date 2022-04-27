@@ -4,6 +4,7 @@ import { firestore, storage } from '../firebase/clientApp';
 import { addDoc, updateDoc, collection, doc } from 'firebase/firestore';
 import { ref, getDownloadURL, uploadString } from 'firebase/storage';
 import { useRouter } from 'next/router';
+import styles from '../styles/Register.module.scss';
 
 const UploadAvatar = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -47,14 +48,15 @@ const UploadAvatar = () => {
   };
   return (
     <div>
-      <h3>Upload An Avatar</h3>
-      <h3>{currentUser}</h3>
+      <h3 className={styles.uploadAvatar}>Upload An Avatar</h3>
+      {/* <h3>{currentUser}</h3> */}
       <div>
         {selectedFile ? (
           <img
             src={selectedFile}
             onDoubleClick={() => setSelectedFile(null)}
             alt=""
+            className={styles.image}
           />
         ) : null}
       </div>
@@ -62,7 +64,7 @@ const UploadAvatar = () => {
         <input type="file" onChange={selectUserAvatar} />
       </div>
       <div>
-        <button onClick={uploadUserAvatar}>Upload</button>
+        <button className={styles.button} onClick={uploadUserAvatar}>Upload</button>
       </div>
     </div>
   );

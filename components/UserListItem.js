@@ -47,21 +47,16 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
   //   hidden ? setHidden(!hidden) : setHidden(hidden)
   // )
   return (
-    <li className={styles.test}>
-      <a className={styles.card}>
-        {/* <img
-          src="https://i.imgur.com/oYiTqum.jpg"
-          className={styles.card__image}
-          alt=""
-        />
-         */}
-        <div className={styles.extraCarousel}>
-          <Carousel uid={uid} />
-          <div className={styles.card__overlay}>
+
+      <main className={styles.card}>
+          <section className={styles.carousel_container}>
+            <Carousel uid={uid} />
+          </section>
+          <section className={styles.card__overlay}>
             <div className={styles.card__header}>
               <img className={styles.card__thumb} src={avatar} alt="" />
               <div
-                className={`${styles.card__header}-text ${styles.card__title}`}
+                className={styles.card__title}
               >
                 <h3>{username}</h3>
               </div>
@@ -74,7 +69,6 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
                     onClick={() => setHidden(!hidden)}
                     className={styles.buttonTwo}
                   >
-                    {' '}
                     <img
                       src={'close_FILL0_wght400_GRAD0_opsz40.png'}
                       className={styles.cancelButton}
@@ -84,15 +78,14 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
                 </div>
               ) : (
                 <button onClick={() => setHidden(!hidden)}>
-                  {' '}
-                  Send Message{' '}
+
+                  Send Message
                 </button>
               )}
             </div>
-          </div>
-        </div>
-      </a>
-    </li>
+          </section>
+      </main>
+
   );
 };
 

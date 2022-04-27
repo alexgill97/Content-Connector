@@ -1,9 +1,10 @@
 import styles from '../../styles/Profile.module.scss';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../firebase/context';
 import Image from 'next/image';
 import Carousel from '../Carousel';
 import Modal from '../Modal';
+import Message from '../Message';
 
 export default function freelanceProfile({
   avatar,
@@ -12,7 +13,7 @@ export default function freelanceProfile({
   portfolio,
 }) {
   const { userData } = useContext(AuthContext);
-
+  const [hidden, setHidden] = useState(true);
   // const portfolioMap = portfolio.map((x) => (
   //   <div>
   //     <div>
@@ -39,10 +40,29 @@ export default function freelanceProfile({
                 <h2>Biograpy</h2>
                 <p>{userData.description}</p>
               </div>
-              <div>
+              {/* <div>
                 <h2>Message</h2>
-                <p>Chat Now</p>
-              </div>
+                {!hidden ? (
+                  <div>
+                    <button
+                      onClick={() => setHidden(!hidden)}
+                      className={styles.buttonTwo}
+                    >
+                      {' '}
+                      <p className={styles.buttonOne}> Close </p>{' '}
+                    </button>
+                    <Message
+                      profile={userData}
+                      className={styles.messageContainer}
+                    />
+                  </div>
+                ) : (
+                  <button onClick={() => setHidden(!hidden)}>
+                    {' '}
+                    Send Message{' '}
+                  </button>
+                )}
+              </div> */}
               <div>
                 <h2>Specializations</h2>
                 <p>Front End Development</p>

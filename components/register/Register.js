@@ -4,6 +4,7 @@ import RegisterBusiness from './RegisterBusiness';
 import RegisterInitial from './RegisterInitial';
 import UploadAvatar from '../UploadAvatar';
 import Geocode from 'react-geocode';
+import styles from '../../styles/Register.module.scss';
 
 
 
@@ -14,10 +15,13 @@ const Register = () => {
 
 
   return (
+    <section className={styles.login}>
+    <div className={styles.loginContainer}>
+      <label>Registration</label>
     <div>
-      <h3>{step}</h3>
+      {/* <h3>{step}</h3> */}
       {loading && <h1>loading...</h1>}
-      {isFreelancer ? <h3>freelancer</h3> : <h3>business</h3>}
+      {/* {isFreelancer ? <h3>freelancer</h3> : <h3>business</h3>} */}
       {step === 1 && (
         <RegisterInitial
           setLoading={setLoading}
@@ -34,6 +38,8 @@ const Register = () => {
       ) : null}
       {step === 3 && <UploadAvatar />}
     </div>
+    </div>
+    </section>
   );
 };
 
