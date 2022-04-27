@@ -35,21 +35,22 @@
     width: 75%;
   }
   .button {
-    display: flex;
-    align-items: center;
-    background-color: #b4c9c9; /* Green */
     border: none;
-    color: white;
+    color: #5a84a2;
+    letter-spacing: 2px;
     padding: 16px 32px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 1rem 2rem;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 8px;
     margin-right: 5px;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    2px 2px 8px rgba(0, 0, 0, 0.15);
   }
   .button_login {
     background-color: #7abde4;
