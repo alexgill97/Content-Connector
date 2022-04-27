@@ -249,10 +249,15 @@
 $surface-color: #fff;
 $curve: 40;
 .test {
-  display: inline-flex;
+  display: inline-block;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 1em;
+  border-radius: 40px ;
+}
+.extraCarousel{
+  object-fit: fill;
+  height: fit-content;
 }
 .body {
   font-family: 'Poppins';
@@ -260,22 +265,25 @@ $curve: 40;
 }
 
 .cards {
-  display: inline-flex;
+  display: inline-grid;
+  white-space: wrap;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin: 4rem 5vw;
+  margin-top: 5rem;
+  // margin-left:13%;
   padding: 0;
   list-style-type: none;
-  margin-left: 13em;
+  margin-left: 11em;
 }
 
 .card {
   position: relative;
   display: block;
-  height: 100%;
+  height: 100% !important;
   border-radius: 40px;
   overflow: hidden;
   text-decoration: none;
+
 }
 
 .card__image {
@@ -294,7 +302,7 @@ $curve: 40;
   transform: translateY(100%);
   transition: 0.2s ease-in-out;
   height: 50%;
-  max-height: 50%;
+  max-height: 80%;
   height: fit-content;
 }
 

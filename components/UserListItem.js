@@ -7,7 +7,7 @@ import { firestore } from '../firebase/clientApp';
 import { collection, query, getDocs } from 'firebase/firestore';
 
 import Message from '../components/Message';
-
+import Carousel from '../components/Carousel';
 const UserListItem = ({ user, username, uid, avatar, description }) => {
   const [hidden, setHidden] = useState(true);
   const [portfolio, setPortfolio] = useState([]);
@@ -49,39 +49,46 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
   return (
     <li className={styles.test}>
       <a className={styles.card}>
-        <img
+        {/* <img
           src="https://i.imgur.com/oYiTqum.jpg"
           className={styles.card__image}
           alt=""
         />
-        <div className={styles.card__overlay}>
-          <div className={styles.card__header}>
-            <img className={styles.card__thumb} src={avatar} alt="" />
-            <div
-              className={`${styles.card__header}-text ${styles.card__title}`}
-            >
-              <h3>{username}</h3>
-            </div>
-          </div>
-          <div className={styles.card__description}>
-            <p>{description}</p>
-            {!hidden ? (
-              <div>
-                <button
-                  onClick={() => setHidden(!hidden)}
-                  className={styles.buttonTwo}
-                >
-                  {' '}
-                  <img
-                    src={'close_FILL0_wght400_GRAD0_opsz40.png'}
-                    className={styles.cancelButton}
-                  />{' '}
-                </button>
-                <Message profile={user} className={styles.messageContainer} />
+         */}
+        <div className={styles.extraCarousel}>
+          <Carousel portfolio={portfolio} />
+          <div className={styles.card__overlay}>
+            <div className={styles.card__header}>
+              <img className={styles.card__thumb} src={avatar} alt="" />
+              <div
+                className={`${styles.card__header}-text ${styles.card__title}`}
+              >
+                <h3>{username}</h3>
               </div>
-            ) : (
-              <button onClick={() => setHidden(!hidden)}> Send Message </button>
-            )}
+            </div>
+            <div className={styles.card__description}>
+              <p>{description}</p>
+              {!hidden ? (
+                <div>
+                  <button
+                    onClick={() => setHidden(!hidden)}
+                    className={styles.buttonTwo}
+                  >
+                    {' '}
+                    <img
+                      src={'close_FILL0_wght400_GRAD0_opsz40.png'}
+                      className={styles.cancelButton}
+                    />{' '}
+                  </button>
+                  <Message profile={user} className={styles.messageContainer} />
+                </div>
+              ) : (
+                <button onClick={() => setHidden(!hidden)}>
+                  {' '}
+                  Send Message{' '}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </a>

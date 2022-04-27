@@ -7,9 +7,10 @@
 }
 
 .image {
-  width: 1000px;
+  width: 45em;
   height: 600px;
-  border-radius: 10px;
+  // border-radius: 10px;
+  object-fit: contain;
 }
 
 .right_arrow {
@@ -22,7 +23,6 @@
   cursor: pointer;
   user-select: none;
   background-color: transparent !important;
-
 }
 
 .left_arrow {
