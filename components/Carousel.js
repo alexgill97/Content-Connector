@@ -28,12 +28,10 @@ export default function Slider({ portfolio, uid }) {
   //   })();
   // }
 
-
-
   if (!portfolio) {
-    useEffect(()=>{
-      getUserPortfolio(uid)
-    }, [uid])
+    useEffect(() => {
+      getUserPortfolio(uid);
+    }, [uid]);
   }
   const getUserPortfolio = async (id) => {
     const querySnapshot = await getDocs(
@@ -87,7 +85,6 @@ export default function Slider({ portfolio, uid }) {
             {index === current && (
               <div className={styles.image}>
                 <img src={slide.image} alt="image" />
-                <div className={styles.description}>{slide.description}</div>
                 {currentUser === slide.uid ? (
                   <button
                     onClick={() => asyncFunction(slide)}

@@ -12,17 +12,16 @@
 
   img {
     height: 100%;
-    width: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
   
 }
 
 .right_arrow {
-  position: relative;
-  top: 20%;
-  left: 80%;
-  font-size: 3rem;
+  position: absolute;
+  top: 40%;
+  left: 85%;
+  font-size: 1.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;
@@ -31,10 +30,10 @@
 }
 
 .left_arrow {
-  position: relative;
-  top: 20%;
-  left: 20%;
-  font-size: 3rem;
+  position: absolute;
+  top: 40%;
+  right: 85%;
+  font-size: 1.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;

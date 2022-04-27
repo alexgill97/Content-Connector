@@ -257,7 +257,7 @@ $curve: 40;
 .carousel_container {
   height: 70%;
   width: 100%;
-  align-self: center;
+
 }
 
 .card {
@@ -281,8 +281,6 @@ $curve: 40;
 .card__overlay {
   position: absolute;
   bottom: 0;
-  left: 3%;
-  right: 10%;
   z-index: 1;
   background-color: white;
   transform: translateY(100%);
@@ -303,7 +301,7 @@ $curve: 40;
   height: 50%;
   gap: 2em;
   padding: 2em;
-  width: 60%;
+  width: 100%;
   background-color: white;
   transform: translateY(-100%);
   transition: 0.2s ease-in-out;

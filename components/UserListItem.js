@@ -47,45 +47,40 @@ const UserListItem = ({ user, username, uid, avatar, description }) => {
   //   hidden ? setHidden(!hidden) : setHidden(hidden)
   // )
   return (
-
-      <main className={styles.card}>
-          <section className={styles.carousel_container}>
-            <Carousel uid={uid} />
-          </section>
-          <section className={styles.card__overlay}>
-            <div className={styles.card__header}>
-              <img className={styles.card__thumb} src={avatar} alt="" />
-              <div
-                className={styles.card__title}
+    <main className={styles.card}>
+      <section className={styles.carousel_container}>
+        <Carousel uid={uid} />
+      </section>
+      <section className={styles.card__overlay}>
+        <div className={styles.card__header}>
+          <Link href={`userProfile/${uid}`}>
+            <img className={styles.card__thumb} src={avatar} alt="" />
+          </Link>
+          <div className={styles.card__title}>
+            <h3>{username}</h3>
+          </div>
+        </div>
+        <div className={styles.card__description}>
+          <p>{description}</p>
+          {!hidden ? (
+            <div>
+              <button
+                onClick={() => setHidden(!hidden)}
+                className={styles.buttonTwo}
               >
-                <h3>{username}</h3>
-              </div>
+                <img
+                  src={'close_FILL0_wght400_GRAD0_opsz40.png'}
+                  className={styles.cancelButton}
+                />{' '}
+              </button>
+              <Message profile={user} className={styles.messageContainer} />
             </div>
-            <div className={styles.card__description}>
-              <p>{description}</p>
-              {!hidden ? (
-                <div>
-                  <button
-                    onClick={() => setHidden(!hidden)}
-                    className={styles.buttonTwo}
-                  >
-                    <img
-                      src={'close_FILL0_wght400_GRAD0_opsz40.png'}
-                      className={styles.cancelButton}
-                    />{' '}
-                  </button>
-                  <Message profile={user} className={styles.messageContainer} />
-                </div>
-              ) : (
-                <button onClick={() => setHidden(!hidden)}>
-
-                  Send Message
-                </button>
-              )}
-            </div>
-          </section>
-      </main>
-
+          ) : (
+            <button onClick={() => setHidden(!hidden)}>Send Message</button>
+          )}
+        </div>
+      </section>
+    </main>
   );
 };
 
