@@ -48,14 +48,12 @@ const Navbar = () => {
           : styles.nav_main
       }
     >
-      <div className={styles.nav_left}>
-        <Link href="/">
-          <p>Content</p>
-        </Link>
-        <Link href="/">
-          <p>Connector</p>
-        </Link>
-      </div>
+      <Link href="/">
+        <div className={styles.nav_left}>
+          <img src="/LHL_final_logo.png" alt="" />
+          <p className={styles.nav_logo}>Content Connector</p>
+        </div>
+      </Link>
       <div className={styles.nav_middle}>
         <Link href="/about">
           <p className={`${styles.a}`}>About Us</p>
@@ -81,7 +79,9 @@ const Navbar = () => {
         ) : (
           <div className={`${styles.nav_right_signin}`}>
             <Link href="/login">
-              <p className={`${styles.blueButton} ${styles.blueButton}`}>Login</p>
+              <p className={`${styles.blueButton} ${styles.blueButton}`}>
+                Login
+              </p>
             </Link>
             <Link href="/register">
               <p className={`${styles.a} ${styles.register}`}>Register</p>
