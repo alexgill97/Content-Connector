@@ -22,10 +22,11 @@ export default function freelanceProfile({ portfolio, profile }) {
   console.log(profile);
   const [hidden, setHidden] = useState(true);
   const [current, setCurrent] = useState(0);
+  const { currentUser, userData } = useContext(AuthContext);
+  console.log(profile, "teststtststst");
 
   if (portfolio.length >= 1) {
     const length = portfolio.length;
-    const { currentUser } = useContext(AuthContext);
 
     const asyncFunction = async (e) => {
       await deleteDoc(
@@ -44,7 +45,6 @@ export default function freelanceProfile({ portfolio, profile }) {
     if (!Array.isArray(portfolio) || portfolio.length <= 0) {
       return null;
     }
-    console.log(portfolio);
     return (
       <main className={styles.main}>
         <div className={styles.profile_container}>
@@ -107,8 +107,9 @@ export default function freelanceProfile({ portfolio, profile }) {
             <button onClick={() => setHidden(!hidden)}> Send Message </button>
           )}
         </div>
+        <Modal />
         <div className={styles.section}>
-          <h3>Their Portfolios</h3>
+          <h3>Your Portfolios</h3>
         </div>
         {/* <Carousel portfolio={portfolio} /> */}
         {portfolio.length >= 1 && (

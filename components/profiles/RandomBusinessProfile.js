@@ -55,7 +55,9 @@ export default function otherBusinessProfile({ profile, portfolio }) {
           <h3>{profile.username}</h3>
         </div>
         <div className={styles.description}>
+          <div>
           <h2>Address:</h2>
+          </div>
           <p>{profile.address}</p>
           <h2>About:</h2>
           <p>{profile.description}</p>

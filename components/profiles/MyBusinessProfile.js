@@ -71,7 +71,7 @@ export default function businessProfile({ profile }) {
       </div>
       <div className={''}></div>
       <div>
-        <section>
+        <section className={styles.businessPost}>
           <h3>Add a Business Post</h3>
           <form className={styles.businessForm}>
             <div className={''}>

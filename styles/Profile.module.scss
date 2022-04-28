@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   p {
     margin: 0;
     font-family: 'Poppins' !important;
@@ -117,7 +117,7 @@
   width: 20rem !important;
   object-fit: cover;
   margin-right: 3em;
-  outline: 1px solid rgba(66, 66, 66, 0.368) ;
+  outline: 1px solid rgba(66, 66, 66, 0.368);
   outline-offset: 10px;
 }
 
@@ -125,34 +125,60 @@
   h3 {
     margin-left: 10em;
     margin-top: 4em;
-    margin-bottom: 3em
+    margin-bottom: 3em;
     // margin-bottom: 2em;
   }
 }
 
 ////////////////////////////////////////////
+
+
 .mainBusiness {
+  background: linear-gradient(-45deg, #e0e0e0, #dbdbdb, #c9cecf, #e0e0e0);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
   display: flex;
   justify-content: center;
-  box-shadow: inset 0px 0px 60px 40px whitesmoke;
+  box-shadow: inset 0px 0px 60px 40px #e0e0e0;
   flex-direction: column;
-  max-width: min-content;
+  width: 100%;
   align-items: center;
-  min-width: 50%;
-  margin-left: 25%;
+  // min-width: 50%;
+  // margin-left: 25%;
   font-family: 'Poppins' !important;
 
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  img {
+    margin-top: 2em !important;
+    margin-bottom: 2em;
+    border: 2px solid black;
+    border-radius: 2em;
+    height: 20em;
+    width: 20em;
+    object-fit: contain;
+  }
   .divOne {
     display: flex;
     align-items: center !important;
     flex-direction: column;
     margin-bottom: 3em;
   }
-  img {
-    border: 2px solid black;
-    border-radius: 2em;
-  }
 
+  button {
+    background-color: #7abde4;
+  }
   h1 {
     text-transform: capitalize;
     padding-bottom: 0.5em;
@@ -200,17 +226,7 @@
   transition-duration: 0.4s;
 }
 
-
-
-
-
 /////////////////////////////////
-
-
-
-
-
-
 
 .slider {
   height: 100%;
@@ -229,7 +245,6 @@
   img {
     height: 100%;
     object-fit: cover;
-    
   }
   div {
     align-self: center !important;
@@ -239,7 +254,6 @@
     // margin-left: 25.7em;
     align-self: center !important;
   }
-  
 }
 
 .right_arrow {

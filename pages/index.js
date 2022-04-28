@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           {currentUser ? (
             <div>
-              <h4>Where Business meets Creativity</h4>
+              {/* <h4>Where Business meets Creativity</h4> */}
             </div>
           ) : (
             <div className={`${styles.bothButtons}`}>

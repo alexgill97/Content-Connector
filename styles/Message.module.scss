@@ -1,8 +1,8 @@
 .main_message {
-  height: 100%;
+  height: 35%;
   width: 100%;
-  margin-top: 3em;
-  margin-left: 15em;
+  // margin-top: 3em;
+  // margin-left: 15em;
   font-family: 'Lato';
 
   .chat_header {
@@ -47,6 +47,9 @@
     justify-content: space-between;
     max-height: 10rem;
     word-wrap: break-word;
+    /////
+    padding-top: 39em;
+    // margin-bottom: 39em;
 
     .message_user1 {
       background-color: rgb(198, 198, 198);

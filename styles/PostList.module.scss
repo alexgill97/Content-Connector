@@ -15,6 +15,34 @@
   margin: 1em;
   display: inline-grid;
   width: 100%;
+  background: linear-gradient(-45deg, #fcebeb, #cccccc, #e7f5f8, #fdfdfd);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
+
+
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
   .borderdiv{
     width: 80%;
     margin: 1em;
