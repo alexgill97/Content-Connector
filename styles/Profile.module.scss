@@ -11,12 +11,14 @@
   padding-top: 2rem;
   background-color: whitesmoke;
   font-family: 'Poppins' !important;
+  padding: 2.5rem;
 }
 
 .top_profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   p {
     margin: 0;
     font-family: 'Poppins' !important;
@@ -59,6 +61,7 @@
   p {
     font-size: 1rem;
     text-transform: capitalize;
+    margin: 0.5rem 0;
   }
   button {
     cursor: pointer;
@@ -113,8 +116,9 @@
   height: 30rem !important;
   width: 20rem !important;
   object-fit: cover;
-  margin-top: 3rem;
   margin-right: 3em;
+  outline: 1px solid rgba(66, 66, 66, 0.368) ;
+  outline-offset: 10px;
 }
 
 .section {
