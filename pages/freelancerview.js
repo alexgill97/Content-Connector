@@ -13,7 +13,7 @@ const freelancerview = ({ searchResults }) => {
     <div className={styles.freelancerview}>
       <main className={styles.main}>
         <section className={styles.project_list}>
-          <h1>Freelancer View</h1>
+          <h1>Posts In Your Area</h1>
           <div className={styles.infocard_container}>
             {searchResults.map((result) => {
               const image = result.avatar

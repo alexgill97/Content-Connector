@@ -40,7 +40,7 @@ const Messages = ({ users }) => {
           {selectedUser && <Message profile={selectedUser} />}
           {selectedUser && !selectedUser.isBusiness && (
             <div className={styles.carousel_container}>
-              <Carousel uid={selectedUser.uid} />
+              {/* <Carousel uid={selectedUser.uid} /> */}
             </div>
           )}
         </div>
@@ -48,7 +48,7 @@ const Messages = ({ users }) => {
         <div className={styles.message_container}>
           {selectedUser && !selectedUser.isBusiness && (
             <div className={styles.carousel_container}>
-              <Carousel uid={selectedUser.uid} />
+              {/* <Carousel uid={selectedUser.uid} /> */}
             </div>
           )}
         </div>

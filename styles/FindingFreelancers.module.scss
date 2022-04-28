@@ -1,18 +1,11 @@
 .container {
   display: flex;
-  height: 90vh;
-  white-space: nowrap;
-  margin-left: 5%;
-  margin-right: 25%;
-  width: 80vw;
+  flex-wrap: wrap !important;
+  justify-content: center;
+  margin-top: 2em;
+  font-family: poppins;
+
 }
 
-// .aboutBody {
-//   display: flex;
-//   width: 100%;
-//   justify-content: center;
-// }
 
-// .portfolio1 {
-//   margin-right:2em
-// }
+
