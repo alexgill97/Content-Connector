@@ -23,7 +23,7 @@ export default function freelanceProfile({ portfolio, profile }) {
   const [hidden, setHidden] = useState(true);
   const [current, setCurrent] = useState(0);
   const { currentUser, userData } = useContext(AuthContext);
-  console.log(profile, "teststtststst");
+  console.log(profile, 'teststtststst');
 
   if (portfolio.length >= 1) {
     const length = portfolio.length;
@@ -115,11 +115,11 @@ export default function freelanceProfile({ portfolio, profile }) {
         {portfolio.length >= 1 && (
           <section className={styles.slider}>
             <FaArrowAltCircleLeft
-              className={styles.left_arrow}
+              className={styles.left_arrowOne}
               onClick={prevSlide}
             />
             <FaArrowAltCircleRight
-              className={styles.right_arrow}
+              className={styles.right_arrowOne}
               onClick={nextSlide}
             />
             {portfolio.map((slide, index) => {
@@ -207,11 +207,11 @@ export default function freelanceProfile({ portfolio, profile }) {
       {portfolio.length >= 1 && (
         <section className={styles.slider}>
           <FaArrowAltCircleLeft
-            className={styles.left_arrow}
+            className={styles.left_arrowOne}
             onClick={prevSlide}
           />
           <FaArrowAltCircleRight
-            className={styles.right_arrow}
+            className={styles.right_arrowOne}
             onClick={nextSlide}
           />
           {portfolio?.map((slide, index) => {
@@ -227,7 +227,9 @@ export default function freelanceProfile({ portfolio, profile }) {
                 {index === current && (
                   <div className={styles.image}>
                     <img src={slide.image} alt="image" />
-                    <div>{slide.description}</div>
+                    <div className={styles.description}>
+                      {slide.description}
+                    </div>
                     {currentUser === slide.uid ? (
                       <button
                         onClick={() => asyncFunction(slide)}

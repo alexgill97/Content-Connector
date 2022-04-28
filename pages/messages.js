@@ -29,6 +29,7 @@ const Messages = ({ users }) => {
   return (
     <main className={styles.main_user_messages}>
       <div className={styles.info_card_container}>
+        <div className={styles.messagesTitle}>Messages</div>
         {users.map((profile) => (
           <div onClick={() => clickFunction(profile)}>
             <UserInfoCard profile={profile} />

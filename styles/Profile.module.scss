@@ -235,6 +235,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 10em;
+  flex-direction: column;
 }
 
 .image {
@@ -244,10 +245,12 @@
   flex-direction: column;
   img {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    border-radius: 40px;
   }
   div {
     align-self: center !important;
+    font-size: large;
   }
   button {
     width: 20% !important;
@@ -259,25 +262,57 @@
 .right_arrow {
   position: absolute;
   top: 165%;
-  left: 75%;
-  font-size: 1.5rem;
+  left: 85%;
+  font-size: 4.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;
   user-select: none;
   background-color: transparent !important;
 }
+
 .left_arrow {
   position: absolute;
   top: 165%;
-  right: 75%;
-  font-size: 1.5rem;
+  right: 85%;
+  font-size: 4.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;
   user-select: none;
   background-color: transparent !important;
 }
+
+.right_arrowOne {
+  position: absolute;
+  top: 195% !important;
+  left: 75%;
+  font-size: 3.5rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+.left_arrowOne {
+  position: absolute;
+  top: 195% !important;
+  right: 75%;
+  font-size: 3.5rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+
+
+
+
+
+
 
 .slide {
   opacity: 0;
