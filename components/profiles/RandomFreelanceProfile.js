@@ -1,18 +1,9 @@
 import styles from '../../styles/Profile.module.scss';
 import React, { useState, useContext, useEffect } from 'react';
-import {
-  doc,
-  deleteDoc,
-  getDocs,
-  where,
-  query,
-  collectionGroup,
-} from 'firebase/firestore';
-import { useRouter } from 'next/router';
+import { doc, deleteDoc } from 'firebase/firestore';
+
 import { firestore } from '../../firebase/clientApp';
-import Image from 'next/image';
-import PortfolioCarousel from './PortfolioCarousel';
-import Carousel from '../Carousel';
+
 import Message from '../Message';
 import { AuthContext } from '../../firebase/context';
 
@@ -220,7 +211,6 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
       <div className={styles.section}>
         <h3>Their Portfolios</h3>
       </div>
-      {/* <Carousel portfolio={portfolio} /> */}
       {portfolio.length >= 1 && (
         <section className={styles.slider}>
           <FaArrowAltCircleLeft
