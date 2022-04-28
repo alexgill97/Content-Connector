@@ -4,14 +4,15 @@ $curve: 40;
 .cards {
   width: 20em;
   height: 20em;
-  display: block;
-  grid-row: 3;
+  // display: grid;
+  // grid-column: 3;
+  // grid-rows: 3;
 }
 
 
 
 .carousel_container {
-  height: 70%;
+  height: 100%;
   width: 100%;
 
 }

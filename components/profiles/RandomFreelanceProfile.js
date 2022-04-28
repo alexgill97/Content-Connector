@@ -42,7 +42,7 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
     if (!Array.isArray(portfolio) || portfolio.length <= 0) {
       return null;
     }
-    console.log(portfolio);
+
     return (
       <main className={styles.main}>
         <div className={styles.profile_container}>
@@ -55,10 +55,13 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
             <div className={styles.body_profile}>
               <section className={styles.body_left}>
                 <div>
-                  <h2>Biograpy</h2>
+                  <h2>About Me</h2>
                   <p>{profile.description}</p>
                 </div>
-                <div></div>
+                <div>
+                  <h2>Availability</h2>
+                  <p>More than 30 hrs/week</p>
+                </div>
                 <div>
                   <h2>Specializations</h2>
                   <p>Front End Development</p>
@@ -66,11 +69,11 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
                   <p>Copywriting</p>
                 </div>
               </section>
-              <div className={styles.avatar_outline}>
-                <div className={styles.avatar_div}>
-                  <img className={styles.avatar} src={profile.avatar}></img>
-                </div>
+
+              <div className={styles.avatar_div}>
+                <img className={styles.avatar} src={profile.avatar}></img>
               </div>
+
               <section className={styles.body_right}>
                 <div>
                   <h2>Years of Experience</h2>
