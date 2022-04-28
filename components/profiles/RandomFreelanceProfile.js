@@ -108,7 +108,7 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
                 {' '}
                 <p className={styles.buttonOne}> Close </p>{' '}
               </button> */}
-              <Message profile={profile} className={styles.messageContainer} />
+              <Message profile={profile} className={styles.messageContainer} hidden={hidden} setHidden={setHidden} showCloseButton />
             </div>
           ) : (
             <button className={styles.messageButton} onClick={() => setHidden(!hidden)}> Send Message </button>
@@ -210,14 +210,14 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
         <h2>Message</h2>
         {!hidden ? (
           <div>
-            <button
+            {/* <button
               onClick={() => setHidden(!hidden)}
               className={styles.buttonTwo}
             >
               {' '}
               <p className={styles.buttonOne}> Close </p>{' '}
-            </button>
-            <Message profile={profile} className={styles.messageContainer} />
+            </button> */}
+            <Message profile={profile} className={styles.messageContainer} showCloseButton />
           </div>
         ) : (
           <button onClick={() => setHidden(!hidden)}> Send Message </button>

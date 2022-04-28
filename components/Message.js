@@ -24,14 +24,14 @@ import Link from 'next/link';
 
 import { AuthContext } from '../firebase/context';
 
-const Message = ({ profile }) => {
+const Message = ({ profile, hidden, setHidden, showCloseButton }) => {
   // const [users, setUsers] = useState([]);
   const [chat, setChat] = useState('');
   const [text, setText] = useState('');
   const [img, setImg] = useState('');
   const [msgs, setMsgs] = useState([]);
   const [user3, setUser3] = useState();
-  const [hidden, setHidden] = useState(false);
+  
 
 
 
@@ -118,7 +118,7 @@ const Message = ({ profile }) => {
             </div>
             <div>
               {!hidden ? (
-                <button
+                showCloseButton && <button
                   onClick={() => setHidden(!hidden)}
                   className={styles.buttonTwo}
                 >
