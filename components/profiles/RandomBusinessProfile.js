@@ -73,7 +73,7 @@ export default function otherBusinessProfile({ profile, portfolio }) {
           </div>
         </div>
         <div className={styles.profile_projects}>
-          <strong className={styles.backgroundWhiteStrong}>Their Posts:</strong>
+          <strong className={styles.backgroundWhiteStrong}>{`${[profile.username]}'s Posts`}</strong>
           <div className={styles.backgroundWhite}>{portfolioMap}</div>
         </div>
         <div></div>

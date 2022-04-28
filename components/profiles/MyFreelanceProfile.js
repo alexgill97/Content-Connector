@@ -91,8 +91,8 @@ export default function freelanceProfile({ portfolio, profile }) {
           </body>
         </div>
         <div className={styles.messages}>
-          <h2>Message</h2>
-          {!hidden ? (
+          {/* <h2>Message</h2> */}
+          {/* {!hidden ? (
             <div>
               <button
                 onClick={() => setHidden(!hidden)}
@@ -105,7 +105,7 @@ export default function freelanceProfile({ portfolio, profile }) {
             </div>
           ) : (
             <button onClick={() => setHidden(!hidden)}> Send Message </button>
-          )}
+          )} */}
         </div>
         <Modal />
         <div className={styles.section}>

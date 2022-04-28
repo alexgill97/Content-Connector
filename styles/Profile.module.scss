@@ -118,7 +118,11 @@
 
 .section {
   h3 {
-    margin-left: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    // margin-left: 10em;
     margin-top: 4em;
     margin-bottom: 3em;
     // margin-bottom: 2em;
@@ -256,9 +260,9 @@
 
 .right_arrow {
   position: absolute;
-  top: 165%;
+  top: 155%;
   left: 75%;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;
@@ -268,9 +272,9 @@
 
 .left_arrow {
   position: absolute;
-  top: 165%;
+  top: 155%;
   right: 75%;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;

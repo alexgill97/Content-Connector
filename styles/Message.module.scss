@@ -49,6 +49,8 @@
     word-wrap: break-word;
     /////
     padding-top: 10em;
+
+
     // margin-bottom: 39em;
 
     .message_user1 {
@@ -70,6 +72,11 @@
       margin: 0.1rem auto 0.1rem 0.1rem;
       padding: 0.3rem 1rem;
     }
+  }
+
+  .messages_container:last-child {
+    position: sticky;
+
   }
 
   .message_form {

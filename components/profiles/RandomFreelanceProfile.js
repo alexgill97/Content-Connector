@@ -115,7 +115,7 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
           )}
         </div>
         <div className={styles.section}>
-          <h3>Their Portfolios</h3>
+          <h3>{`${profile.username}'s Portfolios`}</h3>
         </div>
         {/* <Carousel portfolio={portfolio} /> */}
         {portfolio.length >= 1 && (
@@ -224,7 +224,7 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
         )}
       </div>
       <div className={styles.section}>
-        <h3>Their Portfolios</h3>
+        <h3>{`${profile.username}'s Portfolios`}</h3>
       </div>
       {portfolio.length >= 1 && (
         <section className={styles.slider}>

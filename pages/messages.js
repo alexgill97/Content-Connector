@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import { AuthContext } from '../firebase/context';
 import { firestore, auth, storage } from '../firebase/clientApp';
 import {
@@ -34,7 +34,7 @@ const Messages = ({ users }) => {
           <div onClick={() => clickFunction(profile)}>
             <UserInfoCard profile={profile} />
           </div>
-        ))}{' '}
+        ))}
       </div>
       {!hidden ? (
         <div className={styles.message_container}>

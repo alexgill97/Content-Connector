@@ -1,11 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link' 
 
 const tempData = {
   username: 'chik-fil-a',
 };
 
 export const InfoCard = ({
+  uid,
   avatar,
   postTitle,
   description,
@@ -15,7 +17,9 @@ export const InfoCard = ({
   return (
     <div className={styles.info_card}>
       <div className={styles.info_card_image}>
-        <Image src={avatar} layout="fill" objectFit="cover" />
+        <Link href={`/userProfile/${uid}`}>
+          <Image src={avatar} layout="fill" objectFit="cover" />
+        </Link>
       </div>
       <div className={styles.info_card_info}>
         <h3>{postTitle}</h3>

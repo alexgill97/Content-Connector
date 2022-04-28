@@ -12,9 +12,9 @@ const MessageItem = ({ msg, user1 }) => {
   return (
     <>
       {msg.from === user1 ? (
-        <div className={styles.message_user1} ref={scrollRef}>{msg.text}</div>
+        <div className={styles.message_user1}>{msg.text}</div>
       ) : (
-        <div className={styles.message_user2} ref={scrollRef}>{msg.text}</div>
+        <div className={styles.message_user2}>{msg.text}</div>
       )}
     </>
   );

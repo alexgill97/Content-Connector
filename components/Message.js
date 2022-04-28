@@ -33,6 +33,8 @@ const Message = ({ profile }) => {
   const [user3, setUser3] = useState();
   const [hidden, setHidden] = useState(false);
 
+
+
   const { currentUser } = useContext(AuthContext);
   const user1 = currentUser;
 
