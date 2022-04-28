@@ -59,11 +59,11 @@ $curve: 40;
   transition: 0.2s ease-in-out;
 }
 
-.card:hover .card__header {
-  transform: translateY(0);
+.card__header:hover .card__header {
+  transform: translateY(10%);
 }
-.card:hover .card__overlay {
-  transform: translateY(0);
+.card__header:hover .card__overlay {
+  transform: translateY(10%);
 }
 
 

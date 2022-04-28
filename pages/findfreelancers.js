@@ -16,26 +16,6 @@ const findingFreelancers = ({ users }) => {
   const [profile, setProfile] = useState({});
   const [portfolio, setPortfolio] = useState({});
 
-  // const getUserData = async (id) => {
-  //   getDoc(doc(firestore, 'users', id)).then((docSnap) => {
-  //     if (docSnap.exists) {
-  //       setProfile(docSnap.data());
-  //     }
-  //   });
-  // };
-
-  // const getUserPortfolio = async (id) => {
-  //   getDoc(doc(firestore, 'portfolio', id)).then((docSnap) => {
-  //     if (docSnap.exists) {
-  //       setPortfolio(docSnap.data());
-  //     }
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   getUserPortfolio(currentUser);
-  // }, [currentUser]);
-
   return (
     <div className={styles.container}>
       <h1>Content Creators Near You</h1>

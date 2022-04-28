@@ -58,10 +58,10 @@ const Navbar = () => {
         <Link href="/about">
           <p className={`${styles.a}`}>About Us</p>
         </Link>
-        <Link href="/freelancerview">
+        <Link href="/findprojects">
           <p className={`${styles.a}`}>Find Projects</p>
         </Link>
-        <Link href="/findingFreelancers">
+        <Link href="/findfreelancers">
           <p className={`${styles.a}`}>Find Creators</p>
         </Link>
       </div>
