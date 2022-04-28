@@ -1,5 +1,5 @@
 .messages {
-  margin-top: 2rem !important;
+  margin-top: 10em !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   padding-top: 2rem;
   background-color: whitesmoke;
   font-family: 'Poppins' !important;
-  padding: 6rem;
+  padding: 2.5rem;
 }
 
 .top_profile {
@@ -58,9 +58,8 @@
   flex-direction: column;
   padding-left: 1rem;
   margin-right: 25% !important;
-  
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-transform: capitalize;
     margin: 0.5rem 0;
   }
@@ -98,20 +97,26 @@
   flex-direction: column;
   text-align: right;
   margin-right: 1rem;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-left: 25% !important;
 }
 
-.avatar_div {
-
+.avatar_outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 129px;
+  height: 27rem;
+  width: 12rem;
+  margin-top: 0rem;
+  border: rgba(216, 215, 215, 0.506) solid 1px;
 }
-
 .avatar {
   border-radius: 129px;
   height: 30rem !important;
   width: 20rem !important;
   object-fit: cover;
-  margin-right: 7rem;
+  margin-right: 3em;
   outline: 1px solid rgba(66, 66, 66, 0.368);
   outline-offset: 10px;
 }
@@ -230,6 +235,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 10em;
+  flex-direction: column;
 }
 
 .image {
@@ -239,10 +245,12 @@
   flex-direction: column;
   img {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    border-radius: 40px;
   }
   div {
     align-self: center !important;
+    font-size: large;
   }
   button {
     width: 20% !important;
@@ -254,25 +262,57 @@
 .right_arrow {
   position: absolute;
   top: 165%;
-  left: 75%;
-  font-size: 1.5rem;
+  left: 85%;
+  font-size: 4.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;
   user-select: none;
   background-color: transparent !important;
 }
+
 .left_arrow {
   position: absolute;
   top: 165%;
-  right: 75%;
-  font-size: 1.5rem;
+  right: 85%;
+  font-size: 4.5rem;
   color: #1155cc;
   z-index: 10;
   cursor: pointer;
   user-select: none;
   background-color: transparent !important;
 }
+
+.right_arrowOne {
+  position: absolute;
+  top: 195% !important;
+  left: 75%;
+  font-size: 3.5rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+.left_arrowOne {
+  position: absolute;
+  top: 195% !important;
+  right: 75%;
+  font-size: 3.5rem;
+  color: #1155cc;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+
+
+
+
+
+
 
 .slide {
   opacity: 0;
