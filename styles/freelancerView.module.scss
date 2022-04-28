@@ -45,6 +45,7 @@
     cursor: pointer;
     align-items: center;
     background-color:whitesmoke;
+    flex: 1;
   
   }
   
@@ -67,6 +68,7 @@
     flex-direction: column;
     padding-left: 1.25rem;
     background-color:whitesmoke !important;
+    flex: 2;
   }
   
   .info_card_info p {

@@ -43,7 +43,7 @@ export default function About() {
         <div className={`${styles.card}`}>
           <img className={`${styles.image}`} src={'prince_8x8.jpeg'} alt="team picture" />
           <div className={`${styles.container}`}>
-            <h2>Prince Requino</h2>
+            <h2>Prince Requiño</h2>
             <p className={`${styles.title}`}>Developer</p>
             {/* <p>Write Description here</p>
             <p>example@example.com</p> */}

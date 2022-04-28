@@ -15,11 +15,12 @@ import Message from '../Message';
 
 export default function otherBusinessProfile({ profile, portfolio }) {
   const [posts, setPosts] = useState([]);
-
+  console.log(profile)
   let allPosts = [];
+
   const asyncFunction = async () => {
     const querySnapshot = await getDocs(
-      query(collection(firestore, 'posts'), where('address', '==', profile.address))
+      query(collection(firestore, 'posts'), where('uid', '==', profile.uid))
     );
     querySnapshot.forEach((doc) => {
       allPosts.push(doc.data());
@@ -46,6 +47,7 @@ export default function otherBusinessProfile({ profile, portfolio }) {
       </div>
     </div>
   ));
+  console.log(posts)
 
   return (
     <main className={styles.profile_main}>
