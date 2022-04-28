@@ -55,9 +55,6 @@ const Navbar = () => {
         </div>
       </Link>
       <div className={styles.nav_middle}>
-        <Link href="/about">
-          <p className={`${styles.a}`}>About Us</p>
-        </Link>
         <Link href="/findprojects">
           <p className={`${styles.a}`}>Find Projects</p>
         </Link>

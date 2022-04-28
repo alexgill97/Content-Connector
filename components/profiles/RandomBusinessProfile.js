@@ -48,36 +48,38 @@ export default function otherBusinessProfile({ profile, portfolio }) {
 
   return (
     <main className={styles.profile_main}>
-      <div className={styles.profile_left}>
+      <section className={styles.profile_left}>
         <div className={styles.avatar}>
           <img src={profile.avatar} />
           <h3>{profile.username}</h3>
         </div>
         <div className={styles.description}>
           <div>
-          <h2>Address:</h2>
+            <h2>Address:</h2>
           </div>
           <p>{profile.address}</p>
           <h2>About:</h2>
           <p>{profile.description}</p>
         </div>
-      </div>
-      <div className={styles.profile_right}>
+      </section>
+      <section className={styles.profile_right}>
         <div className={styles.profile_right_top}>
           <div className={styles.satisfaction}>
             <h4>Satisfaction Score</h4>
           </div>
           <div>
-          <div className={styles.profile_messages}></div>
+            <div className={styles.profile_messages}></div>
             <Message profile={profile} />
           </div>
         </div>
         <div className={styles.profile_projects}>
-          <strong className={styles.backgroundWhiteStrong}>{`${[profile.username]}'s Posts`}</strong>
+          <strong className={styles.backgroundWhiteStrong}>{`${[
+            profile.username,
+          ]}'s Posts`}</strong>
           <div className={styles.backgroundWhite}>{portfolioMap}</div>
         </div>
         <div></div>
-      </div>
+      </section>
     </main>
   );
 }
