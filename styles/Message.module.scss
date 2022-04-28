@@ -48,7 +48,7 @@
     max-height: 10rem;
     word-wrap: break-word;
     /////
-    padding-top: 39em;
+    padding-top: 10em;
     // margin-bottom: 39em;
 
     .message_user1 {
@@ -77,10 +77,9 @@
     display: flex;
     align-items: center;
     border: 1px solid rgba(59, 59, 59, 0.605);
-
     .message_input {
       padding: 0 !important;
-
+      background-color: transparent;
       margin-left: 0.5rem;
       outline: none;
       border: none;

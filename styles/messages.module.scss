@@ -2,7 +2,14 @@
   display: flex;
   // width: 65em;
 }
-
+.messagesTitle {
+  font-family: 'Poppins';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: x-large;
+}
 .info_card_container {
   height: 90vh;
   flex: 1;

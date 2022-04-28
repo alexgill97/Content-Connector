@@ -11,8 +11,10 @@ export const UserInfoCard = ({ profile }) => {
       <section className={styles.info_card_info}>
         <h3>{profile.username}</h3>
         <div className={styles.info_card_right_title_empty}></div>
+        <div className={styles.description_city}>
         <p>{profile.description}</p>
-        <p>{profile.city}</p>
+        </div>
+        <p><em><b>{profile.city}</b></em></p>
       </section>
     </main>
   );

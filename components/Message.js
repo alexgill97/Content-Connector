@@ -121,7 +121,7 @@ const Message = ({ profile }) => {
                   className={styles.buttonTwo}
                 >
                   <img
-                    src={'close_FILL0_wght400_GRAD0_opsz40.png'}
+                    src={'../close_FILL0_wght400_GRAD0_opsz40.png'}
                     className={styles.cancelButton}
                   />{' '}
                 </button>
