@@ -45,18 +45,26 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
           <body className={styles.body}>
             <div className={styles.body_profile}>
               <section className={styles.body_left}>
-                <div>
+                <div
+                  style={{
+                    borderBottom: '1px solid rgba(54, 54, 54, 0.1)',
+                  }}
+                >
                   <h2>About Me</h2>
                   <p>{profile.description}</p>
                 </div>
-                <div>
+                <div
+                  style={{
+                    borderBottom: '1px solid rgba(54, 54, 54, 0.1)',
+                  }}
+                >
                   <h2>Availability</h2>
-                  <p>More than 30 hrs/week</p>
+                  <p>Full-Time</p>
                 </div>
                 <div>
                   <h2>Specializations</h2>
                   <p>Front End Development</p>
-                  <p>UI/UX Design</p>
+
                   <p>Copywriting</p>
                 </div>
               </section>
@@ -66,11 +74,19 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
               </div>
 
               <section className={styles.body_right}>
-                <div>
+                <div
+                  style={{
+                    borderBottom: '1px solid rgba(54, 54, 54, 0.1)',
+                  }}
+                >
                   <h2>Years of Experience</h2>
                   <p>3</p>
                 </div>
-                <div>
+                <div
+                  style={{
+                    borderBottom: '1px solid rgba(54, 54, 54, 0.1)',
+                  }}
+                >
                   <h2>Satisfaction Score</h2>
                   <p>96%</p>
                 </div>
@@ -83,7 +99,6 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
           </body>
         </div>
         <div className={styles.messages}>
-          <h2>Message</h2>
           {!hidden ? (
             <div>
               <button

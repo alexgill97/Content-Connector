@@ -1,5 +1,5 @@
 .messages {
-  margin-top: 10em !important;
+  margin-top: 2rem !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   padding-top: 2rem;
   background-color: whitesmoke;
   font-family: 'Poppins' !important;
-  padding: 2.5rem;
+  padding: 6rem;
 }
 
 .top_profile {
@@ -58,8 +58,9 @@
   flex-direction: column;
   padding-left: 1rem;
   margin-right: 25% !important;
+  
   p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-transform: capitalize;
     margin: 0.5rem 0;
   }
@@ -97,26 +98,20 @@
   flex-direction: column;
   text-align: right;
   margin-right: 1rem;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-left: 25% !important;
 }
 
-.avatar_outline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 129px;
-  height: 27rem;
-  width: 12rem;
-  margin-top: 0rem;
-  border: rgba(216, 215, 215, 0.506) solid 1px;
+.avatar_div {
+
 }
+
 .avatar {
   border-radius: 129px;
   height: 30rem !important;
   width: 20rem !important;
   object-fit: cover;
-  margin-right: 3em;
+  margin-right: 7rem;
   outline: 1px solid rgba(66, 66, 66, 0.368);
   outline-offset: 10px;
 }
