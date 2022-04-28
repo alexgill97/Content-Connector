@@ -1,10 +1,9 @@
 .container {
-  height: 90vh;
-  white-space: nowrap;
-  overflow-y: ;
-  width: 100vw;
-  background-color: rgb(241, 241, 241);
-
+  display: flex;
+  flex-wrap: wrap !important;
+  justify-content: center;
+  margin-top: 2em;
+  font-family: poppins;
 }
 
 // .aboutBody {

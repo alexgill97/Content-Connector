@@ -2,11 +2,16 @@ $surface-color: #fff;
 $curve: 40;
 
 .cards {
-  width: 20em;
+  width: 120em;
   height: 20em;
-  // display: grid;
-  // grid-column: 3;
-  // grid-rows: 3;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: 28em 28em 28em;
+  grid-template-rows: 30em 30em 30em;
+  // margin: auto;
+  margin-left: 12%;
+  // display: block;
+  // grid-row: 3;
 }
 
 
