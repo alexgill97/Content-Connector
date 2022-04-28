@@ -13,7 +13,7 @@ $curve: 40;
 }
 
 .card {
-  border: 1px solid black;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.658), 5px 5px 10px #90a4ae;
   position: relative;
   display: flex;
   height: 100%;
@@ -28,6 +28,8 @@ $curve: 40;
   border-radius: 40px ;
   font-family: 'Poppins';
   background-color: #fef8f8;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.658), 5px 5px 10px #90a4ae,
+    inset -5px -5px 10px rgba(255, 255, 255, 0.658), inset 5px 5px 10px #90a4ae5c;
 }
 
 .card__overlay {

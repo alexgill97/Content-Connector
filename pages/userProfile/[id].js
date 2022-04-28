@@ -66,7 +66,7 @@ const index = ({ users }) => {
     getUserPortfolio(id);
   }, [id]);
 
-  console.log(portfolio)
+  // console.log(portfolio)
   if (portfolio) {
     return (
       <div>

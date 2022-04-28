@@ -19,11 +19,11 @@ import {
 } from 'firebase/firestore';
 
 export default function freelanceProfile({ portfolio, profile }) {
-  console.log(profile);
+  // console.log(profile);
   const [hidden, setHidden] = useState(true);
   const [current, setCurrent] = useState(0);
   const { currentUser, userData } = useContext(AuthContext);
-  console.log(profile, 'teststtststst');
+  // console.log(profile, 'test');
 
   if (portfolio.length >= 1) {
     const length = portfolio.length;

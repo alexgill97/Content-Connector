@@ -37,7 +37,7 @@ export default function Slider({ portfolio, uid }) {
     if (!Array.isArray(portfolio) || portfolio.length <= 0) {
       return null;
     }
-    console.log(portfolio);
+    // console.log(portfolio);
     return (
       <section className={styles.slider}>
         <FaArrowAltCircleLeft
@@ -94,7 +94,7 @@ export default function Slider({ portfolio, uid }) {
       setUserPortfolio(allPortfolios);
     };
 
-    console.log(userPortfolio);
+    // console.log(userPortfolio);
 
     const [current, setCurrent] = useState(0);
     const length = userPortfolio.length;
@@ -117,7 +117,7 @@ export default function Slider({ portfolio, uid }) {
     if (!Array.isArray(userPortfolio) || userPortfolio.length <= 0) {
       return null;
     }
-    console.log(userPortfolio);
+    // console.log(userPortfolio);
     return (
       <section className={styles.slider}>
         <FaArrowAltCircleLeft

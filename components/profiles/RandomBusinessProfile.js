@@ -15,7 +15,6 @@ import Message from '../Message';
 
 export default function otherBusinessProfile({ profile, portfolio }) {
   const [posts, setPosts] = useState([]);
-  console.log(profile)
   let allPosts = [];
 
   const asyncFunction = async () => {
@@ -25,7 +24,6 @@ export default function otherBusinessProfile({ profile, portfolio }) {
     querySnapshot.forEach((doc) => {
       allPosts.push(doc.data());
     });
-    console.log(allPosts);
     setPosts(allPosts);
   };
 
@@ -47,7 +45,6 @@ export default function otherBusinessProfile({ profile, portfolio }) {
       </div>
     </div>
   ));
-  console.log(posts)
 
   return (
     <main className={styles.profile_main}>

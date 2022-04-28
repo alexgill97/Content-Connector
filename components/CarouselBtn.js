@@ -4,7 +4,7 @@ import styles from '../styles/slider.module.scss';
 // import rightArrow from './icons/right-arrow.svg';
 
 export default function CaroueslBtn({ direction, moveSlide }) {
-  console.log(direction, moveSlide);
+  // console.log(direction, moveSlide);
   return (
     <button
       onClick={moveSlide}

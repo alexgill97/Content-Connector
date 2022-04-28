@@ -1,15 +1,10 @@
-import '../styles/globals.scss';
-import { AuthProvider } from '../firebase/context';
-import Navbar from '../components/Navbar';
-import Head from 'next/head';
+import { Html, Head, Main, NextScript } from 'next/document';
 
-function MyApp({ Component, pageProps }) {
+export default function Document() {
   return (
-    <AuthProvider>
+    <Html>
       <Head>
-        <title>Content Connector</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@200;400&family=Roboto&display=swap"
@@ -30,12 +25,12 @@ function MyApp({ Component, pageProps }) {
         <link
           rel="stylesheet"
           href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        /> */}
+        />
       </Head>
-      <Navbar />
-      <Component {...pageProps} />
-    </AuthProvider>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
   );
 }
-
-export default MyApp;

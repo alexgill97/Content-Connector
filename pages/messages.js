@@ -25,7 +25,7 @@ const Messages = ({ users }) => {
     setHidden(!hidden);
   };
 
-  console.log(selectedUser);
+  // console.log(selectedUser);
   return (
     <main className={styles.main_user_messages}>
       <div className={styles.info_card_container}>

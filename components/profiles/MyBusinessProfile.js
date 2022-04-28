@@ -50,7 +50,7 @@ export default function businessProfile({ profile }) {
     querySnapshot.forEach((doc) => {
       allPosts.push(doc.data());
     });
-    console.log(allPosts);
+    // console.log(allPosts);
     setPosts(allPosts);
   };
 
@@ -58,7 +58,7 @@ export default function businessProfile({ profile }) {
     asyncFunction();
   }, []);
 
-  console.log(posts);
+  // console.log(posts);
   return (
     <div className={styles.mainBusiness}>
       <div className={styles.divOne}>

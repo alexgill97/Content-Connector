@@ -21,7 +21,7 @@ const MapComponent = ({ searchResults }) => {
     longitude: center.longitude,
     zoom: 11,
   });
-  console.log(Marker);
+  // console.log(Marker);
 
   return (
     <MapGL
