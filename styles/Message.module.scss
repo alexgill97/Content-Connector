@@ -4,7 +4,7 @@
   // margin-top: 3em;
   // margin-left: 15em;
   font-family: 'Lato';
-
+  
   .chat_header {
     background-color: #0084ff;
     height: 3rem;
@@ -83,6 +83,7 @@
     height: 10%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid rgba(59, 59, 59, 0.605);
     .message_input {
       padding: 0 !important;
@@ -92,6 +93,7 @@
       border: none;
       height: 100%;
       width: 80%;
+      margin-right: 10em;
     }
   }
 }
@@ -115,6 +117,7 @@ $color-6: rgb(236, 236, 236);
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin-right: 1em;
 }
 .message_submit:hover {
   background-color: #1155cc;
