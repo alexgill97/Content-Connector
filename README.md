@@ -1,6 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Content Connector</h1>
 
-## Getting Started
+## Summary
+
+A streamlined content solution connecting businesses with local digital media creators.
+
+## Purpose
+
+This application was created during the final week of the Lighthouse Labs' Web Development Bootcamp as the capstone course project.
+
+## User Experience
+
+- Businesses post projects viewable as points on a map and list view
+- Creators can create and edit searchable portfolios of their previous work
+- Geolocated user matching between businesses and creators
+- Realtime messaging between users
+
+## Technologies Utilized
+
+- NextJS
+- Firebase: Authentication, Firestore Database, Storage
+- MapBox
+- GeoLib
+- SASS
+
+## Screenshots
+
+### Home Page
+
+![Home Page](./screenshots/home-page.png)
+
+### Find Projects
+
+![Find Projects](./screenshots/map.png)
+
+### Find Creators
+
+![Find Creators](./screenshots/find-creators.png)
+
+### User Profile
+
+![User Profile](./screenshots/user-profile.png)
+
+### User Portfolio
+
+![User Porfolio](./screenshots/user-portfolio.png)
+
+### Messaging
+
+![Messaging](./screenshots/messaging.png)
 
 First, run the development server:
 

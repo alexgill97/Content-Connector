@@ -5,6 +5,15 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 10em !important;
+  button {
+    color: white;
+    background-color: #1155cc;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
 }
 
 .main {
@@ -58,7 +67,7 @@
   flex-direction: column;
   padding-left: 1rem;
   margin-right: 25% !important;
-  
+
   p {
     font-size: 1.5rem;
     text-transform: capitalize;
@@ -79,7 +88,7 @@
   }
   button:hover {
     transition-duration: 0.4s;
-    background-color: #1155cc;
+    background-color: rgb(17, 85, 204);
     color: white;
   }
   .buttonTwo {
@@ -101,7 +110,6 @@
   font-size: 3rem;
   margin-left: 25% !important;
 }
-
 
 .avatar {
   border-radius: 129px;
@@ -128,11 +136,10 @@
 
 ////////////////////////////////////////////
 
-
 .mainBusiness {
   background: linear-gradient(-45deg, #e0e0e0, #dbdbdb, #c9cecf, #e0e0e0);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 
   display: flex;
   justify-content: center;
@@ -155,7 +162,7 @@
       background-position: 0% 50%;
     }
   }
-  
+
   img {
     margin-top: 2em !important;
     margin-bottom: 2em;
@@ -302,13 +309,6 @@
   user-select: none;
   background-color: transparent !important;
 }
-
-
-
-
-
-
-
 
 .slide {
   opacity: 0;
