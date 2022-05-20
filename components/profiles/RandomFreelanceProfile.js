@@ -63,7 +63,7 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
                 </div>
                 <div>
                   <h2>Specializations</h2>
-                  <p>Front End Development</p>
+                  <p>Color Grading</p>
 
                   <p>Copywriting</p>
                 </div>
@@ -224,7 +224,7 @@ export default function otherFreelanceProfile({ profile, portfolio }) {
         )}
       </div>
       <div className={styles.section}>
-        <h3>{`${profile.username}'s Portfolios`}</h3>
+        <h3>{`${profile.username}' Portfolio`}</h3>
       </div>
       {portfolio.length >= 1 && (
         <section className={styles.slider}>
